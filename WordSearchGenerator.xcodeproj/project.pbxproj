@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		467BCBC72256E95B00EE441B /* WordSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467BCBC62256E95B00EE441B /* WordSearch.swift */; };
+		467BCBC92256F09600EE441B /* capitals.json in Resources */ = {isa = PBXBuildFile; fileRef = 467BCBC82256F09600EE441B /* capitals.json */; };
 		46863B48222E347000B8B3FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46863B47222E347000B8B3FB /* AppDelegate.swift */; };
 		46863B4A222E347000B8B3FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46863B49222E347000B8B3FB /* ViewController.swift */; };
 		46863B4D222E347000B8B3FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46863B4B222E347000B8B3FB /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		467BCBC62256E95B00EE441B /* WordSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearch.swift; sourceTree = "<group>"; };
+		467BCBC82256F09600EE441B /* capitals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = capitals.json; sourceTree = "<group>"; };
 		46863B44222E347000B8B3FB /* WordSearchGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordSearchGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46863B47222E347000B8B3FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46863B49222E347000B8B3FB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,10 +60,12 @@
 			children = (
 				46863B47222E347000B8B3FB /* AppDelegate.swift */,
 				46863B49222E347000B8B3FB /* ViewController.swift */,
+				467BCBC62256E95B00EE441B /* WordSearch.swift */,
 				46863B4B222E347000B8B3FB /* Main.storyboard */,
 				46863B4E222E347100B8B3FB /* Assets.xcassets */,
 				46863B50222E347100B8B3FB /* LaunchScreen.storyboard */,
 				46863B53222E347100B8B3FB /* Info.plist */,
+				467BCBC82256F09600EE441B /* capitals.json */,
 			);
 			path = WordSearchGenerator;
 			sourceTree = "<group>";
@@ -96,6 +102,7 @@
 				TargetAttributes = {
 					46863B43222E347000B8B3FB = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -124,6 +131,7 @@
 			files = (
 				46863B52222E347100B8B3FB /* LaunchScreen.storyboard in Resources */,
 				46863B4F222E347100B8B3FB /* Assets.xcassets in Resources */,
+				467BCBC92256F09600EE441B /* capitals.json in Resources */,
 				46863B4D222E347000B8B3FB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,6 +145,7 @@
 			files = (
 				46863B4A222E347000B8B3FB /* ViewController.swift in Sources */,
 				46863B48222E347000B8B3FB /* AppDelegate.swift in Sources */,
+				467BCBC72256E95B00EE441B /* WordSearch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,7 +299,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ljrocha.WordSearchGenerator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -307,7 +316,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ljrocha.WordSearchGenerator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
