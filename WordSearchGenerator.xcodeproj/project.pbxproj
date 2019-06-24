@@ -18,6 +18,7 @@
 		46863B4D222E347000B8B3FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46863B4B222E347000B8B3FB /* Main.storyboard */; };
 		46863B4F222E347100B8B3FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46863B4E222E347100B8B3FB /* Assets.xcassets */; };
 		46863B52222E347100B8B3FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46863B50222E347100B8B3FB /* LaunchScreen.storyboard */; };
+		46B1A1E922C08195000D40BA /* WordSearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B1A1E822C08195000D40BA /* WordSearchButton.swift */; };
 		46C82B9922C031460094DC43 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C82B9822C031460094DC43 /* ListDetailViewController.swift */; };
 		46D10A0222C0409A005CFF04 /* WordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D10A0122C0409A005CFF04 /* WordDetailViewController.swift */; };
 /* End PBXBuildFile section */
@@ -36,6 +37,7 @@
 		46863B4E222E347100B8B3FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46863B51222E347100B8B3FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		46863B53222E347100B8B3FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46B1A1E822C08195000D40BA /* WordSearchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearchButton.swift; sourceTree = "<group>"; };
 		46C82B9822C031460094DC43 /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
 		46D10A0122C0409A005CFF04 /* WordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,6 +78,7 @@
 				4613C17022BF69ED00105090 /* WordListViewController.swift */,
 				46D10A0122C0409A005CFF04 /* WordDetailViewController.swift */,
 				461406A622C052FA002B5EB3 /* WordSearchViewController.swift */,
+				46B1A1E822C08195000D40BA /* WordSearchButton.swift */,
 				46863B4B222E347000B8B3FB /* Main.storyboard */,
 				4613C16E22BF669800105090 /* WordList.swift */,
 				4613C16C22BF65B500105090 /* Word.swift */,
@@ -170,6 +173,7 @@
 				467BCBC72256E95B00EE441B /* WordSearch.swift in Sources */,
 				4613C16F22BF669800105090 /* WordList.swift in Sources */,
 				46D10A0222C0409A005CFF04 /* WordDetailViewController.swift in Sources */,
+				46B1A1E922C08195000D40BA /* WordSearchButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
