@@ -57,11 +57,6 @@ enum Difficulty {
     }
 }
 
-struct Word: Codable {
-    var text: String
-    var clue: String
-}
-
 class Label {
     var letter: Character = " "
 }
@@ -72,7 +67,7 @@ class WordSearch {
     
     var labels = [[Label]]()
     var difficulty = Difficulty.hard
-    var numberOfPages = 10
+    var numberOfPages = 1
     
     let allLetters = (65...90).map { Character(Unicode.Scalar($0)) }
     

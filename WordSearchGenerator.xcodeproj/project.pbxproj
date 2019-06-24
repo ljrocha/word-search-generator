@@ -7,25 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4613C16D22BF65B500105090 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4613C16C22BF65B500105090 /* Word.swift */; };
+		4613C16F22BF669800105090 /* WordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4613C16E22BF669800105090 /* WordList.swift */; };
+		4613C17122BF69ED00105090 /* WordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4613C17022BF69ED00105090 /* WordListViewController.swift */; };
+		461406A722C052FA002B5EB3 /* WordSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461406A622C052FA002B5EB3 /* WordSearchViewController.swift */; };
 		467BCBC72256E95B00EE441B /* WordSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467BCBC62256E95B00EE441B /* WordSearch.swift */; };
 		467BCBC92256F09600EE441B /* capitals.json in Resources */ = {isa = PBXBuildFile; fileRef = 467BCBC82256F09600EE441B /* capitals.json */; };
 		46863B48222E347000B8B3FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46863B47222E347000B8B3FB /* AppDelegate.swift */; };
-		46863B4A222E347000B8B3FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46863B49222E347000B8B3FB /* ViewController.swift */; };
+		46863B4A222E347000B8B3FB /* AllListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46863B49222E347000B8B3FB /* AllListsViewController.swift */; };
 		46863B4D222E347000B8B3FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46863B4B222E347000B8B3FB /* Main.storyboard */; };
 		46863B4F222E347100B8B3FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46863B4E222E347100B8B3FB /* Assets.xcassets */; };
 		46863B52222E347100B8B3FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46863B50222E347100B8B3FB /* LaunchScreen.storyboard */; };
+		46C82B9922C031460094DC43 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C82B9822C031460094DC43 /* ListDetailViewController.swift */; };
+		46D10A0222C0409A005CFF04 /* WordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D10A0122C0409A005CFF04 /* WordDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4613C16C22BF65B500105090 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		4613C16E22BF669800105090 /* WordList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordList.swift; sourceTree = "<group>"; };
+		4613C17022BF69ED00105090 /* WordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordListViewController.swift; sourceTree = "<group>"; };
+		461406A622C052FA002B5EB3 /* WordSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearchViewController.swift; sourceTree = "<group>"; };
 		467BCBC62256E95B00EE441B /* WordSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearch.swift; sourceTree = "<group>"; };
 		467BCBC82256F09600EE441B /* capitals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = capitals.json; sourceTree = "<group>"; };
 		46863B44222E347000B8B3FB /* WordSearchGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordSearchGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46863B47222E347000B8B3FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		46863B49222E347000B8B3FB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		46863B49222E347000B8B3FB /* AllListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListsViewController.swift; sourceTree = "<group>"; };
 		46863B4C222E347000B8B3FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		46863B4E222E347100B8B3FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46863B51222E347100B8B3FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		46863B53222E347100B8B3FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46C82B9822C031460094DC43 /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
+		46D10A0122C0409A005CFF04 /* WordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +71,15 @@
 			isa = PBXGroup;
 			children = (
 				46863B47222E347000B8B3FB /* AppDelegate.swift */,
-				46863B49222E347000B8B3FB /* ViewController.swift */,
-				467BCBC62256E95B00EE441B /* WordSearch.swift */,
+				46863B49222E347000B8B3FB /* AllListsViewController.swift */,
+				46C82B9822C031460094DC43 /* ListDetailViewController.swift */,
+				4613C17022BF69ED00105090 /* WordListViewController.swift */,
+				46D10A0122C0409A005CFF04 /* WordDetailViewController.swift */,
+				461406A622C052FA002B5EB3 /* WordSearchViewController.swift */,
 				46863B4B222E347000B8B3FB /* Main.storyboard */,
+				4613C16E22BF669800105090 /* WordList.swift */,
+				4613C16C22BF65B500105090 /* Word.swift */,
+				467BCBC62256E95B00EE441B /* WordSearch.swift */,
 				46863B4E222E347100B8B3FB /* Assets.xcassets */,
 				46863B50222E347100B8B3FB /* LaunchScreen.storyboard */,
 				46863B53222E347100B8B3FB /* Info.plist */,
@@ -143,9 +161,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46863B4A222E347000B8B3FB /* ViewController.swift in Sources */,
+				46863B4A222E347000B8B3FB /* AllListsViewController.swift in Sources */,
+				461406A722C052FA002B5EB3 /* WordSearchViewController.swift in Sources */,
+				46C82B9922C031460094DC43 /* ListDetailViewController.swift in Sources */,
+				4613C17122BF69ED00105090 /* WordListViewController.swift in Sources */,
+				4613C16D22BF65B500105090 /* Word.swift in Sources */,
 				46863B48222E347000B8B3FB /* AppDelegate.swift in Sources */,
 				467BCBC72256E95B00EE441B /* WordSearch.swift in Sources */,
+				4613C16F22BF669800105090 /* WordList.swift in Sources */,
+				46D10A0222C0409A005CFF04 /* WordDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +316,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B27B4KDKQS;
 				INFOPLIST_FILE = WordSearchGenerator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -309,6 +334,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B27B4KDKQS;
 				INFOPLIST_FILE = WordSearchGenerator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
