@@ -78,7 +78,7 @@ class WordSearch {
         
         _ = placeWords()
         fillGaps()
-        printGrid()
+//        printGrid()
     }
     
     private func fillGaps() {

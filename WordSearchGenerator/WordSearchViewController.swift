@@ -20,10 +20,11 @@ class WordSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = "Word Search Puzzle"
         navigationItem.largeTitleDisplayMode = .never
         let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(newWordSearchPuzzle))
         let share = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
-        navigationItem.rightBarButtonItems = [refresh, share]
+        navigationItem.rightBarButtonItems = [share, refresh]
         
         pdfView = PDFView()
         pdfView.translatesAutoresizingMaskIntoConstraints = false

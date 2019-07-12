@@ -8,7 +8,9 @@
 
 import UIKit
 
-class WordListViewController: UITableViewController {
+class WordListViewController: UIViewController {
+    
+    @IBOutlet weak var tableView: UITableView!
     
     var wordList: WordList!
     
@@ -20,34 +22,16 @@ class WordListViewController: UITableViewController {
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
         
-    }
-    
-    // MARK: - Table view data source
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return wordList.words.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath)
+        tableView.dataSource = self
+        tableView.delegate = self
         
-        let word = wordList.words[indexPath.row]
-        cell.textLabel?.text = word.text
-        cell.detailTextLabel?.text = word.clue
+        let button = WordSearchButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(wordSearchButtonTapped), for: .touchUpInside)
+        view.addSubview(button)
         
-        return cell
-    }
-    
-    // MARK: - Table view delegate
-    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        return nil
-    }
-    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        if let detailVC = storyboard?.instantiateViewController(withIdentifier: "WordDetailViewController") as? WordDetailViewController {
-            detailVC.wordToEdit = wordList.words[indexPath.row]
-            detailVC.delegate = self
-            
-            navigationController?.pushViewController(detailVC, animated: true)
-        }
+        button.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -70).isActive = true
+        button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16).isActive = true
     }
     
     // MARK: - Actions
@@ -67,6 +51,36 @@ class WordListViewController: UITableViewController {
         }
     }
     
+}
+
+extension WordListViewController: UITableViewDataSource, UITableViewDelegate {
+    // MARK: - Table view data source
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return wordList.words.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath)
+        
+        let word = wordList.words[indexPath.row]
+        cell.textLabel?.text = word.text
+        cell.detailTextLabel?.text = word.clue
+        
+        return cell
+    }
+    
+    // MARK: - Table view delegate
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        return nil
+    }
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        if let detailVC = storyboard?.instantiateViewController(withIdentifier: "WordDetailViewController") as? WordDetailViewController {
+            detailVC.wordToEdit = wordList.words[indexPath.row]
+            detailVC.delegate = self
+            
+            navigationController?.pushViewController(detailVC, animated: true)
+        }
+    }
 }
 
 extension WordListViewController: WordDetailViewControllerDelegate {
