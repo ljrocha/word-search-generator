@@ -15,4 +15,8 @@ class WordList: Codable {
     init(name: String) {
         listName = name
     }
+    
+    convenience init() {
+        self.init(name: "Unknown")
+    }
 }

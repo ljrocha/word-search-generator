@@ -11,6 +11,7 @@
 		4613C16F22BF669800105090 /* WordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4613C16E22BF669800105090 /* WordList.swift */; };
 		4613C17122BF69ED00105090 /* WordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4613C17022BF69ED00105090 /* WordListViewController.swift */; };
 		461406A722C052FA002B5EB3 /* WordSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461406A622C052FA002B5EB3 /* WordSearchViewController.swift */; };
+		466783E422D84725008D5AEF /* QuickWSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466783E322D84725008D5AEF /* QuickWSViewController.swift */; };
 		467BCBC72256E95B00EE441B /* WordSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467BCBC62256E95B00EE441B /* WordSearch.swift */; };
 		467BCBC92256F09600EE441B /* capitals.json in Resources */ = {isa = PBXBuildFile; fileRef = 467BCBC82256F09600EE441B /* capitals.json */; };
 		46863B48222E347000B8B3FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46863B47222E347000B8B3FB /* AppDelegate.swift */; };
@@ -28,6 +29,7 @@
 		4613C16E22BF669800105090 /* WordList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordList.swift; sourceTree = "<group>"; };
 		4613C17022BF69ED00105090 /* WordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordListViewController.swift; sourceTree = "<group>"; };
 		461406A622C052FA002B5EB3 /* WordSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearchViewController.swift; sourceTree = "<group>"; };
+		466783E322D84725008D5AEF /* QuickWSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickWSViewController.swift; sourceTree = "<group>"; };
 		467BCBC62256E95B00EE441B /* WordSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearch.swift; sourceTree = "<group>"; };
 		467BCBC82256F09600EE441B /* capitals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = capitals.json; sourceTree = "<group>"; };
 		46863B44222E347000B8B3FB /* WordSearchGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordSearchGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +80,7 @@
 				4613C17022BF69ED00105090 /* WordListViewController.swift */,
 				46D10A0122C0409A005CFF04 /* WordDetailViewController.swift */,
 				461406A622C052FA002B5EB3 /* WordSearchViewController.swift */,
+				466783E322D84725008D5AEF /* QuickWSViewController.swift */,
 				46B1A1E822C08195000D40BA /* WordSearchButton.swift */,
 				46863B4B222E347000B8B3FB /* Main.storyboard */,
 				4613C16E22BF669800105090 /* WordList.swift */,
@@ -168,6 +171,7 @@
 				461406A722C052FA002B5EB3 /* WordSearchViewController.swift in Sources */,
 				46C82B9922C031460094DC43 /* ListDetailViewController.swift in Sources */,
 				4613C17122BF69ED00105090 /* WordListViewController.swift in Sources */,
+				466783E422D84725008D5AEF /* QuickWSViewController.swift in Sources */,
 				4613C16D22BF65B500105090 /* Word.swift in Sources */,
 				46863B48222E347000B8B3FB /* AppDelegate.swift in Sources */,
 				467BCBC72256E95B00EE441B /* WordSearch.swift in Sources */,
