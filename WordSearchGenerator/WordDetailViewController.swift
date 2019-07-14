@@ -14,10 +14,12 @@ protocol WordDetailViewControllerDelegate: class {
     func wordDetailViewController(_ controller: WordDetailViewController, didFinishEditing word: Word)
 }
 
-class WordDetailViewController: UITableViewController {
+class WordDetailViewController: UIViewController {
 
     @IBOutlet weak var wordTextField: UITextField!
     @IBOutlet weak var clueTextField: UITextField!
+    
+    var doneButtonItem: UIBarButtonItem!
     
     var wordToEdit: Word?
     
@@ -29,14 +31,19 @@ class WordDetailViewController: UITableViewController {
 
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        doneButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        navigationItem.rightBarButtonItem = doneButtonItem
         
         if let word = wordToEdit {
             title = "Edit Word"
             wordTextField.text = word.text
             clueTextField.text = word.clue
+            
+            doneButtonItem.isEnabled = true
         } else {
             title = "Add Word"
+            
+            doneButtonItem.isEnabled = false
         }
         
         wordTextField.delegate = self
@@ -49,13 +56,10 @@ class WordDetailViewController: UITableViewController {
         wordTextField.becomeFirstResponder()
     }
     
-    // MARK: - Table view delegate
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 0 {
-            wordTextField.becomeFirstResponder()
-        } else {
-            clueTextField.becomeFirstResponder()
-        }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        view.endEditing(true)
     }
     
     // MARK: - Actions
@@ -73,16 +77,35 @@ class WordDetailViewController: UITableViewController {
             delegate?.wordDetailViewController(self, didFinishAdding: word)
         }
     }
-
+    
+    @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
 }
 
 extension WordDetailViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField === wordTextField {
+            let oldText = textField.text!
+            let stringRange = Range(range, in: oldText)!
+            let newText = oldText.replacingCharacters(in: stringRange, with: string)
+            
+            doneButtonItem.isEnabled = !newText.isEmpty
+        }
+        
+        return true
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        if textField === wordTextField {
+            doneButtonItem.isEnabled = false
+        }
         return true
     }
 }
