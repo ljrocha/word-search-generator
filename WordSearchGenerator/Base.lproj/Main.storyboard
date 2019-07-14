@@ -105,129 +105,94 @@
             <point key="canvasLocation" x="2253.6231884057975" y="122.54464285714285"/>
         </scene>
         <!--List Detail View Controller-->
-        <scene sceneID="4zH-mr-xNw">
+        <scene sceneID="x9V-Xm-gLw">
             <objects>
-                <tableViewController storyboardIdentifier="ListDetailViewController" id="cwN-tO-BG7" customClass="ListDetailViewController" customModule="WordSearchGenerator" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="snq-bP-2vP">
+                <viewController storyboardIdentifier="ListDetailViewController" id="fcG-BC-0Px" customClass="ListDetailViewController" customModule="WordSearchGenerator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e0T-ho-Tds">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <sections>
-                            <tableViewSection headerTitle="List Name" id="8qa-Rv-g8B">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="ipC-rT-lnb">
-                                        <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ipC-rT-lnb" id="qZb-UL-cSi">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tPr-Ri-iw8">
-                                                    <rect key="frame" x="20" y="7" width="374" height="30"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                                                </textField>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="tPr-Ri-iw8" secondAttribute="trailing" constant="20" id="9XA-W4-fDY"/>
-                                                <constraint firstAttribute="bottom" secondItem="tPr-Ri-iw8" secondAttribute="bottom" constant="6.5" id="KeZ-8V-meO"/>
-                                                <constraint firstItem="tPr-Ri-iw8" firstAttribute="leading" secondItem="qZb-UL-cSi" secondAttribute="leading" constant="20" id="MEW-MH-yd4"/>
-                                                <constraint firstItem="tPr-Ri-iw8" firstAttribute="top" secondItem="qZb-UL-cSi" secondAttribute="top" constant="7" id="R3p-ev-4ll"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tD9-TR-WjW">
+                                <rect key="frame" x="20" y="60" width="374" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="BHH-Jt-EdJ" firstAttribute="trailing" secondItem="tD9-TR-WjW" secondAttribute="trailing" constant="20" id="1nj-PC-SVW"/>
+                            <constraint firstItem="tD9-TR-WjW" firstAttribute="top" secondItem="BHH-Jt-EdJ" secondAttribute="top" constant="16" id="4FK-uT-lVJ"/>
+                            <constraint firstItem="tD9-TR-WjW" firstAttribute="leading" secondItem="BHH-Jt-EdJ" secondAttribute="leading" constant="20" id="tcp-5K-8nU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BHH-Jt-EdJ"/>
                         <connections>
-                            <outlet property="dataSource" destination="cwN-tO-BG7" id="7eG-VB-WCG"/>
-                            <outlet property="delegate" destination="cwN-tO-BG7" id="kTK-U7-72o"/>
+                            <outletCollection property="gestureRecognizers" destination="9h3-c5-ldC" appends="YES" id="LqR-ms-hAk"/>
                         </connections>
-                    </tableView>
+                    </view>
                     <connections>
-                        <outlet property="nameTextField" destination="tPr-Ri-iw8" id="2t4-qv-jy4"/>
+                        <outlet property="nameTextField" destination="tD9-TR-WjW" id="r5K-As-ijj"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K7b-Vr-uoz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fbc-0m-oyI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="9h3-c5-ldC">
+                    <connections>
+                        <action selector="backgroundTapped:" destination="fcG-BC-0Px" id="TZg-Ja-ze1"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1545" y="-555"/>
+            <point key="canvasLocation" x="1545" y="810"/>
         </scene>
         <!--Word Detail View Controller-->
-        <scene sceneID="P5I-Gr-FJ0">
+        <scene sceneID="OZa-KZ-p6z">
             <objects>
-                <tableViewController storyboardIdentifier="WordDetailViewController" id="Wja-qJ-mDV" customClass="WordDetailViewController" customModule="WordSearchGenerator" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="M71-YJ-iwT">
+                <viewController storyboardIdentifier="WordDetailViewController" id="WfQ-x5-zja" customClass="WordDetailViewController" customModule="WordSearchGenerator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7qu-Lj-2tb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <sections>
-                            <tableViewSection headerTitle="Word" id="HR1-Dz-Wqn">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="MZz-gI-ON7">
-                                        <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MZz-gI-ON7" id="8sh-ni-uA3">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="DnA-Ny-Yle">
-                                                    <rect key="frame" x="20" y="7" width="374" height="30"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                                                </textField>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="DnA-Ny-Yle" secondAttribute="bottom" constant="6.5" id="Qxx-1B-OIh"/>
-                                                <constraint firstItem="DnA-Ny-Yle" firstAttribute="top" secondItem="8sh-ni-uA3" secondAttribute="top" constant="7" id="Rgr-x0-T7y"/>
-                                                <constraint firstAttribute="trailing" secondItem="DnA-Ny-Yle" secondAttribute="trailing" constant="20" id="eOV-kf-9pz"/>
-                                                <constraint firstItem="DnA-Ny-Yle" firstAttribute="leading" secondItem="8sh-ni-uA3" secondAttribute="leading" constant="20" id="hpX-Zo-8Uy"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="Clue" id="gW3-Je-kYp">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="2Vx-l4-h8I">
-                                        <rect key="frame" x="0.0" y="155.5" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Vx-l4-h8I" id="JCo-Uw-fOP">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ckn-cM-fMx">
-                                                    <rect key="frame" x="20" y="7" width="374" height="30"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textField>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="ckn-cM-fMx" firstAttribute="top" secondItem="JCo-Uw-fOP" secondAttribute="top" constant="7" id="5Xk-XA-Hue"/>
-                                                <constraint firstAttribute="trailing" secondItem="ckn-cM-fMx" secondAttribute="trailing" constant="20" id="YVt-Y6-euu"/>
-                                                <constraint firstAttribute="bottom" secondItem="ckn-cM-fMx" secondAttribute="bottom" constant="6.5" id="bLA-Gc-Eg7"/>
-                                                <constraint firstItem="ckn-cM-fMx" firstAttribute="leading" secondItem="JCo-Uw-fOP" secondAttribute="leading" constant="20" id="gbO-NT-wb3"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Word" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="PhE-M7-mtH">
+                                <rect key="frame" x="20" y="60" width="374" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Clue (optional)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8lV-g1-Pfe">
+                                <rect key="frame" x="20" y="98" width="374" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="5a0-hC-VsK" firstAttribute="trailing" secondItem="8lV-g1-Pfe" secondAttribute="trailing" constant="20" id="2ya-RN-xQJ"/>
+                            <constraint firstItem="PhE-M7-mtH" firstAttribute="leading" secondItem="5a0-hC-VsK" secondAttribute="leading" constant="20" id="Nga-Yu-Msu"/>
+                            <constraint firstItem="8lV-g1-Pfe" firstAttribute="top" secondItem="PhE-M7-mtH" secondAttribute="bottom" constant="8" id="bUc-XF-JU5"/>
+                            <constraint firstItem="8lV-g1-Pfe" firstAttribute="leading" secondItem="5a0-hC-VsK" secondAttribute="leading" constant="20" id="rer-yT-Y3p"/>
+                            <constraint firstItem="PhE-M7-mtH" firstAttribute="top" secondItem="5a0-hC-VsK" secondAttribute="top" constant="16" id="w2M-D9-RhV"/>
+                            <constraint firstItem="5a0-hC-VsK" firstAttribute="trailing" secondItem="PhE-M7-mtH" secondAttribute="trailing" constant="20" id="y2N-6h-f3W"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5a0-hC-VsK"/>
                         <connections>
-                            <outlet property="dataSource" destination="Wja-qJ-mDV" id="nIJ-J0-X3C"/>
-                            <outlet property="delegate" destination="Wja-qJ-mDV" id="bu0-jR-3xG"/>
+                            <outletCollection property="gestureRecognizers" destination="asY-ZO-UnB" appends="YES" id="lTJ-SN-Pvz"/>
                         </connections>
-                    </tableView>
+                    </view>
                     <connections>
-                        <outlet property="clueTextField" destination="ckn-cM-fMx" id="ToT-tN-qNk"/>
-                        <outlet property="wordTextField" destination="DnA-Ny-Yle" id="R2g-F9-Byp"/>
+                        <outlet property="clueTextField" destination="8lV-g1-Pfe" id="W6E-jj-nq0"/>
+                        <outlet property="wordTextField" destination="PhE-M7-mtH" id="sax-n5-ZB0"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fbF-xt-f6P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D97-I9-bef" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="asY-ZO-UnB">
+                    <connections>
+                        <action selector="backgroundTapped:" destination="WfQ-x5-zja" id="Adu-UE-Yb6"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2254" y="-555"/>
+            <point key="canvasLocation" x="2286" y="810"/>
         </scene>
         <!--Word Search View Controller-->
         <scene sceneID="JJP-tT-Fz1">
@@ -280,7 +245,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d5X-D9-f1n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="810"/>
+            <point key="canvasLocation" x="-329" y="516"/>
         </scene>
         <!--Quick Puzzle View Controller-->
         <scene sceneID="k5h-T3-TCd">
@@ -324,7 +289,7 @@
                                 <rect key="frame" x="20" y="207.5" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Clue (optional)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uqA-Qv-pI6">
                                 <rect key="frame" x="20" y="245.5" width="374" height="30"/>
@@ -339,7 +304,7 @@
                                     <action selector="submitTapped:" destination="cW3-tk-Fgc" eventType="touchUpInside" id="WCn-Hj-WIV"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tm0-zA-NF3">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title (optional)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tm0-zA-NF3">
                                 <rect key="frame" x="20" y="133" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -402,7 +367,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1544.9275362318842" y="809.59821428571422"/>
+            <point key="canvasLocation" x="1545" y="-564"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kak-ty-x7i">
@@ -421,7 +386,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Q7-sQ-UTa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="825" y="810"/>
+            <point key="canvasLocation" x="825" y="-565"/>
         </scene>
     </scenes>
 </document>
