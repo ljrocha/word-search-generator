@@ -11,9 +11,9 @@
 		4613C16F22BF669800105090 /* WordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4613C16E22BF669800105090 /* WordList.swift */; };
 		4613C17122BF69ED00105090 /* WordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4613C17022BF69ED00105090 /* WordListViewController.swift */; };
 		461406A722C052FA002B5EB3 /* WordSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461406A622C052FA002B5EB3 /* WordSearchViewController.swift */; };
+		46507D1522DD8F2C002A9A7E /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46507D1422DD8F2C002A9A7E /* DataModel.swift */; };
 		466783E422D84725008D5AEF /* QuickPuzzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466783E322D84725008D5AEF /* QuickPuzzleViewController.swift */; };
 		467BCBC72256E95B00EE441B /* WordSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467BCBC62256E95B00EE441B /* WordSearch.swift */; };
-		467BCBC92256F09600EE441B /* capitals.json in Resources */ = {isa = PBXBuildFile; fileRef = 467BCBC82256F09600EE441B /* capitals.json */; };
 		46863B48222E347000B8B3FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46863B47222E347000B8B3FB /* AppDelegate.swift */; };
 		46863B4A222E347000B8B3FB /* AllListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46863B49222E347000B8B3FB /* AllListsViewController.swift */; };
 		46863B4D222E347000B8B3FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46863B4B222E347000B8B3FB /* Main.storyboard */; };
@@ -29,9 +29,9 @@
 		4613C16E22BF669800105090 /* WordList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordList.swift; sourceTree = "<group>"; };
 		4613C17022BF69ED00105090 /* WordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordListViewController.swift; sourceTree = "<group>"; };
 		461406A622C052FA002B5EB3 /* WordSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearchViewController.swift; sourceTree = "<group>"; };
+		46507D1422DD8F2C002A9A7E /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		466783E322D84725008D5AEF /* QuickPuzzleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickPuzzleViewController.swift; sourceTree = "<group>"; };
 		467BCBC62256E95B00EE441B /* WordSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearch.swift; sourceTree = "<group>"; };
-		467BCBC82256F09600EE441B /* capitals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = capitals.json; sourceTree = "<group>"; };
 		46863B44222E347000B8B3FB /* WordSearchGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordSearchGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46863B47222E347000B8B3FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46863B49222E347000B8B3FB /* AllListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListsViewController.swift; sourceTree = "<group>"; };
@@ -85,11 +85,11 @@
 				46863B4B222E347000B8B3FB /* Main.storyboard */,
 				4613C16E22BF669800105090 /* WordList.swift */,
 				4613C16C22BF65B500105090 /* Word.swift */,
+				46507D1422DD8F2C002A9A7E /* DataModel.swift */,
 				467BCBC62256E95B00EE441B /* WordSearch.swift */,
 				46863B4E222E347100B8B3FB /* Assets.xcassets */,
 				46863B50222E347100B8B3FB /* LaunchScreen.storyboard */,
 				46863B53222E347100B8B3FB /* Info.plist */,
-				467BCBC82256F09600EE441B /* capitals.json */,
 			);
 			path = WordSearchGenerator;
 			sourceTree = "<group>";
@@ -155,7 +155,6 @@
 			files = (
 				46863B52222E347100B8B3FB /* LaunchScreen.storyboard in Resources */,
 				46863B4F222E347100B8B3FB /* Assets.xcassets in Resources */,
-				467BCBC92256F09600EE441B /* capitals.json in Resources */,
 				46863B4D222E347000B8B3FB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,6 +171,7 @@
 				46C82B9922C031460094DC43 /* ListDetailViewController.swift in Sources */,
 				4613C17122BF69ED00105090 /* WordListViewController.swift in Sources */,
 				466783E422D84725008D5AEF /* QuickPuzzleViewController.swift in Sources */,
+				46507D1522DD8F2C002A9A7E /* DataModel.swift in Sources */,
 				4613C16D22BF65B500105090 /* Word.swift in Sources */,
 				46863B48222E347000B8B3FB /* AppDelegate.swift in Sources */,
 				467BCBC72256E95B00EE441B /* WordSearch.swift in Sources */,

@@ -10,7 +10,7 @@ import UIKit
 
 class AllListsViewController: UITableViewController {
     
-    var wordLists = [WordList]()
+    var dataModel: DataModel!
 
     // MARK: - View life cycle
     override func viewDidLoad() {
@@ -19,38 +19,31 @@ class AllListsViewController: UITableViewController {
         title = "Word Lists"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
-        
-        let path = Bundle.main.url(forResource: "capitals", withExtension: "json")!
-        let contents = try! Data(contentsOf: path)
-        let words = try! JSONDecoder().decode([Word].self, from: contents)
-
-        let list1 = WordList(name: "Swift Terms")
-        list1.words.append(contentsOf: words)
-        wordLists.append(list1)
-        
-        let list2 = WordList(name: "iOS Concepts")
-        list2.words.append(contentsOf: words)
-        wordLists.append(list2)
     }
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return wordLists.count
+        return dataModel.lists.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WordList", for: indexPath)
         
-        let wordList = wordLists[indexPath.row]
+        let wordList = dataModel.lists[indexPath.row]
         cell.textLabel?.text = wordList.listName
         
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        dataModel.lists.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+    
     // MARK: - Table view delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let wordListVC = storyboard?.instantiateViewController(withIdentifier: "WordListViewController") as? WordListViewController {
-            wordListVC.wordList = wordLists[indexPath.row]
+            wordListVC.wordList = dataModel.lists[indexPath.row]
             
             navigationController?.pushViewController(wordListVC, animated: true)
         }
@@ -58,7 +51,7 @@ class AllListsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         if let detailVC = storyboard?.instantiateViewController(withIdentifier: "ListDetailViewController") as? ListDetailViewController {
-            let wordList = wordLists[indexPath.row]
+            let wordList = dataModel.lists[indexPath.row]
             detailVC.wordListToEdit = wordList
             detailVC.delegate = self
             
@@ -83,7 +76,7 @@ extension AllListsViewController: ListDetailViewControllerDelegate {
     }
     
     func listDetailViewController(_ controller: ListDetailViewController, didFinishAdding wordList: WordList) {
-        wordLists.append(wordList)
+        dataModel.lists.append(wordList)
         tableView.reloadData()
         navigationController?.popViewController(animated: true)
     }
@@ -92,8 +85,6 @@ extension AllListsViewController: ListDetailViewControllerDelegate {
         tableView.reloadData()
         navigationController?.popViewController(animated: true)
     }
-    
-    
 }
 
 func getDocumentsDirectory() -> URL {
