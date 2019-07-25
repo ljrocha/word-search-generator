@@ -40,7 +40,7 @@ enum PlacementType: CaseIterable {
     }
 }
 
-enum Difficulty {
+enum Difficulty: Int {
     case easy
     case medium
     case hard
@@ -57,6 +57,12 @@ enum Difficulty {
     }
 }
 
+enum GridSize: Int {
+    case small = 8
+    case medium = 10
+    case large = 12
+}
+
 class Label {
     var letter: Character = " "
 }
@@ -68,10 +74,18 @@ class WordSearch {
     var labels = [[Label]]()
     var difficulty = Difficulty.hard
     var numberOfPages = 1
+    var provideClues = false
     
     let allLetters = (65...90).map { Character(Unicode.Scalar($0)) }
     
     func makeGrid() {
+        gridSize = UserDefaults.standard.integer(forKey: Key.UserDefaults.gridSize)
+        let storedDifficulty = UserDefaults.standard.integer(forKey: Key.UserDefaults.difficulty)
+        if let difficulty = Difficulty(rawValue: storedDifficulty) {
+            self.difficulty = difficulty
+        }
+        provideClues = UserDefaults.standard.bool(forKey: Key.UserDefaults.cluesProvided)
+        
         labels = (0..<gridSize).map { _ in
             (0..<gridSize).map { _ in Label() }
         }

@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let controller = navigationController.viewControllers[0] as! AllListsViewController
         controller.dataModel = dataModel
         
+        registerDefaults()
+        
         return true
     }
 
@@ -55,6 +57,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Helper methods
     func saveData() {
         dataModel.saveWordLists()
+    }
+    
+    func registerDefaults() {
+        let dictionary = [Key.UserDefaults.gridSize: GridSize.medium.rawValue,
+                          Key.UserDefaults.difficulty: Difficulty.medium.rawValue,
+                          Key.UserDefaults.cluesProvided: false] as [String : Any]
+        UserDefaults.standard.register(defaults: dictionary)
     }
 
 }
