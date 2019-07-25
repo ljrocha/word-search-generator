@@ -104,6 +104,96 @@
             </objects>
             <point key="canvasLocation" x="2253.6231884057975" y="122.54464285714285"/>
         </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="AlN-Eb-hhi">
+            <objects>
+                <viewController id="aj1-eq-lpc" customClass="SettingsViewController" customModule="WordSearchGenerator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="21g-ey-muT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grid size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBT-ag-GqX">
+                                <rect key="frame" x="20" y="104" width="67" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Difficulty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="squ-jo-J3c">
+                                <rect key="frame" x="20" y="177" width="69" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Provide clues" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3s-UU-YlW">
+                                <rect key="frame" x="20" y="250" width="102.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ai6-aa-O63">
+                                <rect key="frame" x="20" y="133" width="374" height="29"/>
+                                <segments>
+                                    <segment title="8"/>
+                                    <segment title="10"/>
+                                    <segment title="12"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentChanged:" destination="aj1-eq-lpc" eventType="valueChanged" id="Ygo-DO-eAc"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="IKV-HL-acP">
+                                <rect key="frame" x="20" y="206" width="374" height="29"/>
+                                <segments>
+                                    <segment title="Easy"/>
+                                    <segment title="Medium"/>
+                                    <segment title="Hard"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentChanged:" destination="aj1-eq-lpc" eventType="valueChanged" id="xtM-ur-8m1"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qgC-U5-GnM">
+                                <rect key="frame" x="20" y="279" width="374" height="29"/>
+                                <segments>
+                                    <segment title="No"/>
+                                    <segment title="Yes"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentChanged:" destination="aj1-eq-lpc" eventType="valueChanged" id="BXa-dI-f4h"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="v3s-UU-YlW" firstAttribute="top" secondItem="IKV-HL-acP" secondAttribute="bottom" constant="16" id="0Ts-3a-HZ4"/>
+                            <constraint firstItem="squ-jo-J3c" firstAttribute="top" secondItem="Ai6-aa-O63" secondAttribute="bottom" constant="16" id="3a6-6u-iKt"/>
+                            <constraint firstItem="v3s-UU-YlW" firstAttribute="leading" secondItem="squ-jo-J3c" secondAttribute="leading" id="9g1-Gj-k3R"/>
+                            <constraint firstItem="IKV-HL-acP" firstAttribute="leading" secondItem="Ai6-aa-O63" secondAttribute="leading" id="Bq5-oU-7p2"/>
+                            <constraint firstItem="Mf2-1n-6nM" firstAttribute="trailing" secondItem="Ai6-aa-O63" secondAttribute="trailing" constant="20" id="DnA-Fj-goA"/>
+                            <constraint firstItem="Ai6-aa-O63" firstAttribute="top" secondItem="DBT-ag-GqX" secondAttribute="bottom" constant="8" id="KR6-6u-VBi"/>
+                            <constraint firstItem="IKV-HL-acP" firstAttribute="width" secondItem="Ai6-aa-O63" secondAttribute="width" id="P7V-hq-idF"/>
+                            <constraint firstItem="IKV-HL-acP" firstAttribute="top" secondItem="squ-jo-J3c" secondAttribute="bottom" constant="8" id="Zut-Y6-xpO"/>
+                            <constraint firstItem="qgC-U5-GnM" firstAttribute="leading" secondItem="IKV-HL-acP" secondAttribute="leading" id="b0E-ij-8oX"/>
+                            <constraint firstItem="DBT-ag-GqX" firstAttribute="leading" secondItem="Mf2-1n-6nM" secondAttribute="leading" constant="20" id="dUF-2g-Jy4"/>
+                            <constraint firstItem="squ-jo-J3c" firstAttribute="leading" secondItem="DBT-ag-GqX" secondAttribute="leading" id="iEM-D6-BqF"/>
+                            <constraint firstItem="DBT-ag-GqX" firstAttribute="top" secondItem="Mf2-1n-6nM" secondAttribute="top" constant="16" id="jUn-Lk-vgE"/>
+                            <constraint firstItem="qgC-U5-GnM" firstAttribute="width" secondItem="IKV-HL-acP" secondAttribute="width" id="lYk-Nk-tNJ"/>
+                            <constraint firstItem="qgC-U5-GnM" firstAttribute="top" secondItem="v3s-UU-YlW" secondAttribute="bottom" constant="8" id="q6B-ao-NAL"/>
+                            <constraint firstItem="Ai6-aa-O63" firstAttribute="leading" secondItem="Mf2-1n-6nM" secondAttribute="leading" constant="20" id="xtV-7G-bFP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Mf2-1n-6nM"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3Qy-ik-x2N"/>
+                    <connections>
+                        <outlet property="clues" destination="qgC-U5-GnM" id="qTg-K6-5KB"/>
+                        <outlet property="difficulty" destination="IKV-HL-acP" id="llV-Ry-ru2"/>
+                        <outlet property="gridSize" destination="Ai6-aa-O63" id="MEN-TQ-HQK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1xw-vg-3ji" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1545" y="1497"/>
+        </scene>
         <!--List Detail View Controller-->
         <scene sceneID="x9V-Xm-gLw">
             <objects>
@@ -209,11 +299,11 @@
             </objects>
             <point key="canvasLocation" x="2967" y="123"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Word Lists-->
         <scene sceneID="qSu-cB-m6I">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g0U-LD-esX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="v3s-ol-RZr"/>
+                    <tabBarItem key="tabBarItem" title="Word Lists" id="v3s-ol-RZr"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vua-Ih-vGF">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -241,6 +331,7 @@
                     <connections>
                         <segue destination="Hyk-bE-EwU" kind="relationship" relationship="viewControllers" id="KsL-af-fTw"/>
                         <segue destination="g0U-LD-esX" kind="relationship" relationship="viewControllers" id="VOG-ty-Vhm"/>
+                        <segue destination="oMf-tH-8Z2" kind="relationship" relationship="viewControllers" id="416-R4-w0d"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d5X-D9-f1n" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -369,11 +460,11 @@
             </objects>
             <point key="canvasLocation" x="1545" y="-564"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Quick Word Search-->
         <scene sceneID="kak-ty-x7i">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Hyk-bE-EwU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="Mgf-QN-ZWg"/>
+                    <tabBarItem key="tabBarItem" title="Quick Word Search" id="Mgf-QN-ZWg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4iO-hI-XUx">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -387,6 +478,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Q7-sQ-UTa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="825" y="-565"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="A6k-bL-3k2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oMf-tH-8Z2" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" id="tK1-Om-M8j"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6nu-Pv-J6d">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="aj1-eq-lpc" kind="relationship" relationship="rootViewController" id="h9E-md-UKh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nen-bV-uAw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="824.63768115942037" y="1496.6517857142856"/>
         </scene>
     </scenes>
 </document>
