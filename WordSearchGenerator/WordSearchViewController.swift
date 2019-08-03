@@ -41,7 +41,8 @@ class WordSearchViewController: UIViewController {
     // MARK: - Actions
     @objc func newWordSearchPuzzle() {
         let wordSearch = WordSearch()
-        wordSearch.words = wordList.words
+        wordSearch.wordList = wordList
+        _ = wordSearch.makeGrid()
         
         let output = wordSearch.render()
         try? output.write(to: url)
