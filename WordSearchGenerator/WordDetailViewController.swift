@@ -86,15 +86,18 @@ class WordDetailViewController: UIViewController {
 
 extension WordDetailViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField === wordTextField {
-            let oldText = textField.text!
-            let stringRange = Range(range, in: oldText)!
-            let newText = oldText.replacingCharacters(in: stringRange, with: string)
-            
+        let oldText = textField.text!
+        let stringRange = Range(range, in: oldText)!
+        let newText = oldText.replacingCharacters(in: stringRange, with: string)
+        
+        if textField.tag == 1000 {
             doneButtonItem.isEnabled = !newText.isEmpty
+            return newText.count <= MaxCharacterCount.word
+        } else if textField.tag == 1001 {
+            return newText.count <= MaxCharacterCount.clue
         }
         
-        return true
+        return false
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -103,7 +106,7 @@ extension WordDetailViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        if textField === wordTextField {
+        if textField.tag == 1000 {
             doneButtonItem.isEnabled = false
         }
         return true

@@ -15,3 +15,9 @@ struct Key {
         static let cluesProvided = "CluesProvided"
     }
 }
+
+struct MaxCharacterCount {
+    static let title = 30
+    static let word = 20
+    static let clue = 75
+}

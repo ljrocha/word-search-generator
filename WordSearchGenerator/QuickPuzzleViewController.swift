@@ -140,15 +140,20 @@ extension QuickPuzzleViewController: WordDetailViewControllerDelegate {
 
 extension QuickPuzzleViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField === wordTextField {
-            let oldText = textField.text!
-            let stringRange = Range(range, in: oldText)!
-            let newText = oldText.replacingCharacters(in: stringRange, with: string)
-            
+        let oldText = textField.text!
+        let stringRange = Range(range, in: oldText)!
+        let newText = oldText.replacingCharacters(in: stringRange, with: string)
+        
+        if textField.tag == 1000 {
+            return newText.count <= MaxCharacterCount.title
+        } else if textField.tag == 1001 {
             submitButton.isEnabled = !newText.isEmpty
+            return newText.count <= MaxCharacterCount.word
+        } else if textField.tag == 1002 {
+            return newText.count <= MaxCharacterCount.clue
         }
         
-        return true
+        return false
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -158,7 +163,7 @@ extension QuickPuzzleViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        if textField === wordTextField {
+        if textField.tag == 1001 {
             submitButton.isEnabled = false
         }
         
