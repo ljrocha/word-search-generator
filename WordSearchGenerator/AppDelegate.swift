@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         let tabBarController = window!.rootViewController as! UITabBarController
-        let navigationController = tabBarController.viewControllers![1] as! UINavigationController
+        let navigationController = tabBarController.viewControllers![0] as! UINavigationController
         let controller = navigationController.viewControllers[0] as! AllListsViewController
         controller.dataModel = dataModel
         
