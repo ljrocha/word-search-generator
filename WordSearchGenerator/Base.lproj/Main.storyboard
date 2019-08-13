@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="WordList" textLabel="7aA-vc-5FQ" style="IBUITableViewCellStyleDefault" id="qGh-P4-msd">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="Wordlist" textLabel="7aA-vc-5FQ" detailTextLabel="gSq-20-jvq" style="IBUITableViewCellStyleSubtitle" id="qGh-P4-msd">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qGh-P4-msd" id="hZ5-2U-6qm">
@@ -27,9 +27,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7aA-vc-5FQ">
-                                            <rect key="frame" x="20" y="0.0" width="322" height="43.5"/>
+                                            <rect key="frame" x="20" y="5" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gSq-20-jvq">
+                                            <rect key="frame" x="20" y="25.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -48,10 +55,10 @@
             </objects>
             <point key="canvasLocation" x="1545" y="123"/>
         </scene>
-        <!--Word List View Controller-->
+        <!--Wordlist View Controller-->
         <scene sceneID="4KR-0c-R3y">
             <objects>
-                <viewController storyboardIdentifier="WordListViewController" id="KKz-P5-URU" customClass="WordListViewController" customModule="WordSearchGenerator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WordlistViewController" id="KKz-P5-URU" customClass="WordlistViewController" customModule="WordSearchGenerator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hNP-9k-sEU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -133,9 +140,9 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ai6-aa-O63">
                                 <rect key="frame" x="20" y="133" width="374" height="29"/>
                                 <segments>
-                                    <segment title="8"/>
                                     <segment title="10"/>
                                     <segment title="12"/>
+                                    <segment title="14"/>
                                 </segments>
                                 <connections>
                                     <action selector="segmentChanged:" destination="aj1-eq-lpc" eventType="valueChanged" id="Ygo-DO-eAc"/>
@@ -192,7 +199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1xw-vg-3ji" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1545" y="1497"/>
+            <point key="canvasLocation" x="1545" y="803"/>
         </scene>
         <!--List Detail View Controller-->
         <scene sceneID="x9V-Xm-gLw">
@@ -206,7 +213,7 @@
                                 <rect key="frame" x="20" y="60" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -232,7 +239,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1545" y="810"/>
+            <point key="canvasLocation" x="1545" y="-553"/>
         </scene>
         <!--Word Detail View Controller-->
         <scene sceneID="OZa-KZ-p6z">
@@ -246,13 +253,13 @@
                                 <rect key="frame" x="20" y="60" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="continue" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <textField opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Clue (optional)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8lV-g1-Pfe">
                                 <rect key="frame" x="20" y="98" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -282,7 +289,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2286" y="810"/>
+            <point key="canvasLocation" x="2254" y="-553"/>
         </scene>
         <!--Word Search View Controller-->
         <scene sceneID="JJP-tT-Fz1">
@@ -299,11 +306,11 @@
             </objects>
             <point key="canvasLocation" x="2967" y="123"/>
         </scene>
-        <!--Word Lists-->
+        <!--Wordlists-->
         <scene sceneID="qSu-cB-m6I">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g0U-LD-esX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Word Lists" id="v3s-ol-RZr"/>
+                    <tabBarItem key="tabBarItem" title="Wordlists" id="v3s-ol-RZr"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vua-Ih-vGF">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -329,155 +336,13 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Hyk-bE-EwU" kind="relationship" relationship="viewControllers" id="KsL-af-fTw"/>
                         <segue destination="g0U-LD-esX" kind="relationship" relationship="viewControllers" id="VOG-ty-Vhm"/>
                         <segue destination="oMf-tH-8Z2" kind="relationship" relationship="viewControllers" id="416-R4-w0d"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d5X-D9-f1n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-329" y="516"/>
-        </scene>
-        <!--Quick Puzzle View Controller-->
-        <scene sceneID="k5h-T3-TCd">
-            <objects>
-                <viewController id="cW3-tk-Fgc" customClass="QuickPuzzleViewController" customModule="WordSearchGenerator" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="XWO-C0-P4M">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gvg-87-PnA">
-                                <rect key="frame" x="0.0" y="321.5" width="414" height="491.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Word" textLabel="xY8-hJ-Pzt" detailTextLabel="0I4-US-DZJ" style="IBUITableViewCellStyleSubtitle" id="cuO-FB-hbG">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cuO-FB-hbG" id="75B-uN-pu9">
-                                            <rect key="frame" x="0.0" y="0.0" width="362" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xY8-hJ-Pzt">
-                                                    <rect key="frame" x="20" y="5" width="33.5" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0I4-US-DZJ">
-                                                    <rect key="frame" x="20" y="25.5" width="44" height="14.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                            <textField opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Word" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="jRR-7h-xdl">
-                                <rect key="frame" x="20" y="207.5" width="374" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
-                            <textField opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Clue (optional)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uqA-Qv-pI6">
-                                <rect key="frame" x="20" y="245.5" width="374" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kuN-2p-zKv">
-                                <rect key="frame" x="345" y="283.5" width="49" height="30"/>
-                                <state key="normal" title="Submit"/>
-                                <connections>
-                                    <action selector="submitTapped:" destination="cW3-tk-Fgc" eventType="touchUpInside" id="WCn-Hj-WIV"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" tag="1000" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title (optional)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tm0-zA-NF3">
-                                <rect key="frame" x="20" y="133" width="374" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Word" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGh-aK-gcu">
-                                <rect key="frame" x="20" y="179" width="76" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIm-U4-Vhc">
-                                <rect key="frame" x="20" y="104" width="99" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <gestureRecognizers/>
-                        <constraints>
-                            <constraint firstItem="GBH-OI-5fO" firstAttribute="trailing" secondItem="uqA-Qv-pI6" secondAttribute="trailing" constant="20" id="2ZL-dN-OZu"/>
-                            <constraint firstItem="tm0-zA-NF3" firstAttribute="leading" secondItem="GBH-OI-5fO" secondAttribute="leading" constant="20" id="36U-QA-XAn"/>
-                            <constraint firstItem="pIm-U4-Vhc" firstAttribute="leading" secondItem="GBH-OI-5fO" secondAttribute="leading" constant="20" id="5hy-39-U6f"/>
-                            <constraint firstItem="GBH-OI-5fO" firstAttribute="trailing" secondItem="kuN-2p-zKv" secondAttribute="trailing" constant="20" id="Bxv-2N-fYo"/>
-                            <constraint firstItem="kuN-2p-zKv" firstAttribute="top" secondItem="uqA-Qv-pI6" secondAttribute="bottom" constant="8" id="Fhb-63-PiJ"/>
-                            <constraint firstItem="jRR-7h-xdl" firstAttribute="top" secondItem="IGh-aK-gcu" secondAttribute="bottom" constant="8" id="HHh-2s-kme"/>
-                            <constraint firstItem="IGh-aK-gcu" firstAttribute="top" secondItem="tm0-zA-NF3" secondAttribute="bottom" constant="16" id="K0c-lt-meK"/>
-                            <constraint firstItem="GBH-OI-5fO" firstAttribute="trailing" secondItem="jRR-7h-xdl" secondAttribute="trailing" constant="20" id="agj-rs-3k4"/>
-                            <constraint firstItem="uqA-Qv-pI6" firstAttribute="leading" secondItem="GBH-OI-5fO" secondAttribute="leading" constant="20" id="c0h-mM-4ag"/>
-                            <constraint firstItem="Gvg-87-PnA" firstAttribute="trailing" secondItem="GBH-OI-5fO" secondAttribute="trailing" id="ctw-jK-FRr"/>
-                            <constraint firstItem="pIm-U4-Vhc" firstAttribute="top" secondItem="GBH-OI-5fO" secondAttribute="top" constant="16" id="ey7-DB-Qkj"/>
-                            <constraint firstItem="Gvg-87-PnA" firstAttribute="bottom" secondItem="GBH-OI-5fO" secondAttribute="bottom" id="hJ8-z4-yX6"/>
-                            <constraint firstItem="Gvg-87-PnA" firstAttribute="leading" secondItem="GBH-OI-5fO" secondAttribute="leading" id="iI3-SX-AR3"/>
-                            <constraint firstItem="tm0-zA-NF3" firstAttribute="top" secondItem="pIm-U4-Vhc" secondAttribute="bottom" constant="8" id="jn9-7d-adf"/>
-                            <constraint firstItem="uqA-Qv-pI6" firstAttribute="top" secondItem="jRR-7h-xdl" secondAttribute="bottom" constant="8" id="ozi-aW-8R8"/>
-                            <constraint firstItem="jRR-7h-xdl" firstAttribute="leading" secondItem="GBH-OI-5fO" secondAttribute="leading" constant="20" id="pXZ-OX-IoS"/>
-                            <constraint firstItem="IGh-aK-gcu" firstAttribute="leading" secondItem="GBH-OI-5fO" secondAttribute="leading" constant="20" id="y7J-5P-caf"/>
-                            <constraint firstItem="Gvg-87-PnA" firstAttribute="top" secondItem="kuN-2p-zKv" secondAttribute="bottom" constant="8" id="yRo-xW-Dln"/>
-                            <constraint firstItem="GBH-OI-5fO" firstAttribute="trailing" secondItem="tm0-zA-NF3" secondAttribute="trailing" constant="20" id="yxN-FE-Q2I"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="GBH-OI-5fO"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="QuQ-sm-3Iq" appends="YES" id="6QH-aG-iXy"/>
-                        </connections>
-                    </view>
-                    <navigationItem key="navigationItem" id="IDe-UL-gWw"/>
-                    <connections>
-                        <outlet property="clueTextField" destination="uqA-Qv-pI6" id="c6o-JL-b4g"/>
-                        <outlet property="listNameTextField" destination="tm0-zA-NF3" id="pP2-0G-dUm"/>
-                        <outlet property="submitButton" destination="kuN-2p-zKv" id="zfD-rn-KuE"/>
-                        <outlet property="tableView" destination="Gvg-87-PnA" id="YRJ-oC-REp"/>
-                        <outlet property="wordTextField" destination="jRR-7h-xdl" id="dyC-5I-XN3"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zuv-4l-wrg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="QuQ-sm-3Iq">
-                    <connections>
-                        <action selector="backgroundTapped:" destination="cW3-tk-Fgc" id="T6e-sr-P5x"/>
-                    </connections>
-                </tapGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="1545" y="-564"/>
-        </scene>
-        <!--Quick Word Search-->
-        <scene sceneID="kak-ty-x7i">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Hyk-bE-EwU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Quick Word Search" id="Mgf-QN-ZWg"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4iO-hI-XUx">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="cW3-tk-Fgc" kind="relationship" relationship="rootViewController" id="dWQ-f7-ezI"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7Q7-sQ-UTa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="825" y="-565"/>
+            <point key="canvasLocation" x="4" y="451"/>
         </scene>
         <!--Settings-->
         <scene sceneID="A6k-bL-3k2">
@@ -496,7 +361,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nen-bV-uAw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="824.63768115942037" y="1496.6517857142856"/>
+            <point key="canvasLocation" x="825" y="803"/>
         </scene>
     </scenes>
 </document>

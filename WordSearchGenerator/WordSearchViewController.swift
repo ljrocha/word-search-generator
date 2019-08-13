@@ -11,7 +11,7 @@ import PDFKit
 
 class WordSearchViewController: UIViewController {
     
-    var wordList: WordList!
+    var wordlist: Wordlist!
     
     var pdfView: PDFView!
     private let url = getDocumentsDirectory().appendingPathComponent("output.pdf")
@@ -41,7 +41,7 @@ class WordSearchViewController: UIViewController {
     // MARK: - Actions
     @objc func newWordSearchPuzzle() {
         let wordSearch = WordSearch()
-        wordSearch.wordList = wordList
+        wordSearch.wordlist = wordlist
         _ = wordSearch.makeGrid()
         
         let output = wordSearch.render()
