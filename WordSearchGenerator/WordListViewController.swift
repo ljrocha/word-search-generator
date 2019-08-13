@@ -14,6 +14,8 @@ class WordListViewController: UIViewController {
     
     var wordList: WordList!
     
+    var wordSearchButton: WordSearchButton!
+    
     // MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +27,14 @@ class WordListViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        let button = WordSearchButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(wordSearchButtonTapped), for: .touchUpInside)
-        view.addSubview(button)
+        wordSearchButton = WordSearchButton()
+        wordSearchButton.translatesAutoresizingMaskIntoConstraints = false
+        wordSearchButton.addTarget(self, action: #selector(wordSearchButtonTapped), for: .touchUpInside)
+        wordSearchButton.isEnabled = !wordList.words.isEmpty
+        view.addSubview(wordSearchButton)
         
-        button.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -70).isActive = true
-        button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16).isActive = true
+        wordSearchButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -70).isActive = true
+        wordSearchButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16).isActive = true
     }
     
     // MARK: - Actions
@@ -72,6 +75,8 @@ extension WordListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         wordList.words.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .automatic)
+        
+        wordSearchButton.isEnabled = !wordList.words.isEmpty
     }
     
     // MARK: - Table view delegate
@@ -96,6 +101,7 @@ extension WordListViewController: WordDetailViewControllerDelegate {
     func wordDetailViewController(_ controller: WordDetailViewController, didFinishAdding word: Word) {
         wordList.words.append(word)
         tableView.reloadData()
+        wordSearchButton.isEnabled = true
         navigationController?.popViewController(animated: true)
     }
     
