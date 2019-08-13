@@ -58,9 +58,9 @@ enum Difficulty: Int {
 }
 
 enum GridSize: Int {
-    case small = 8
-    case medium = 10
-    case large = 12
+    case small = 10
+    case medium = 12
+    case large = 14
 }
 
 class Label {
@@ -70,7 +70,7 @@ class Label {
 class WordSearch {
     var wordList: WordList?
     
-    var gridSize = 10
+    var gridSize = GridSize.medium.rawValue
     var difficulty = Difficulty.medium
     var provideClues = false
     var numberOfPages = 1

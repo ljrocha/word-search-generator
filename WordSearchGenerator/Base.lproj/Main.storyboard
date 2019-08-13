@@ -133,9 +133,9 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ai6-aa-O63">
                                 <rect key="frame" x="20" y="133" width="374" height="29"/>
                                 <segments>
-                                    <segment title="8"/>
                                     <segment title="10"/>
                                     <segment title="12"/>
+                                    <segment title="14"/>
                                 </segments>
                                 <connections>
                                     <action selector="segmentChanged:" destination="aj1-eq-lpc" eventType="valueChanged" id="Ygo-DO-eAc"/>

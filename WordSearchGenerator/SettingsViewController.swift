@@ -27,9 +27,9 @@ class SettingsViewController: UIViewController {
         let defaults = UserDefaults.standard
         
         let size = defaults.integer(forKey: Key.UserDefaults.gridSize)
-        if size == 8 {
+        if size == 10 {
             gridSize.selectedSegmentIndex = 0
-        } else if size == 10 {
+        } else if size == 12 {
             gridSize.selectedSegmentIndex = 1
         } else {
             gridSize.selectedSegmentIndex = 2
@@ -57,7 +57,6 @@ class SettingsViewController: UIViewController {
             } else {
                 defaults.set(GridSize.large.rawValue, forKey: Key.UserDefaults.gridSize)
             }
-            break
         case 1:
             // Difficulty
             if sender.selectedSegmentIndex == 0 {
