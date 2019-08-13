@@ -21,6 +21,12 @@ class AllListsViewController: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
+    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataModel.lists.count
@@ -31,6 +37,14 @@ class AllListsViewController: UITableViewController {
         
         let wordList = dataModel.lists[indexPath.row]
         cell.textLabel?.text = wordList.listName
+        let wordCount = wordList.words.count
+        if wordCount > 1 {
+            cell.detailTextLabel?.text = "\(wordCount) Words"
+        } else if wordCount > 0 {
+            cell.detailTextLabel?.text = "\(wordCount) Word"
+        } else {
+            cell.detailTextLabel?.text = "(No Words)"
+        }
         
         return cell
     }
