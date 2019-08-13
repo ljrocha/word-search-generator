@@ -10,8 +10,8 @@ import UIKit
 
 protocol ListDetailViewControllerDelegate: class {
     func listDetailViewControllerDidCancel(_ controller: ListDetailViewController)
-    func listDetailViewController(_ controller: ListDetailViewController, didFinishAdding wordList: WordList)
-    func listDetailViewController(_ controller: ListDetailViewController, didFinishEditing wordList: WordList)
+    func listDetailViewController(_ controller: ListDetailViewController, didFinishAdding wordlist: Wordlist)
+    func listDetailViewController(_ controller: ListDetailViewController, didFinishEditing wordlist: Wordlist)
 }
 
 class ListDetailViewController: UIViewController {
@@ -20,7 +20,7 @@ class ListDetailViewController: UIViewController {
     
     var doneButtonItem: UIBarButtonItem!
     
-    var wordListToEdit: WordList?
+    var wordlistToEdit: Wordlist?
     
     weak var delegate: ListDetailViewControllerDelegate?
     
@@ -33,12 +33,12 @@ class ListDetailViewController: UIViewController {
         doneButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
         navigationItem.rightBarButtonItem = doneButtonItem
         
-        if let wordList = wordListToEdit {
-            title = "Edit Word List"
-            nameTextField.text = wordList.listName
+        if let wordlist = wordlistToEdit {
+            title = "Edit Wordlist"
+            nameTextField.text = wordlist.title
             doneButtonItem.isEnabled = true
         } else {
-            title = "Add Word List"
+            title = "Add Wordlist"
             doneButtonItem.isEnabled = false
         }
         
@@ -63,12 +63,12 @@ class ListDetailViewController: UIViewController {
     }
     
     @objc func done() {
-        if let wordList = wordListToEdit {
-            wordList.listName = nameTextField.text!
-            delegate?.listDetailViewController(self, didFinishEditing: wordList)
+        if let wordlist = wordlistToEdit {
+            wordlist.title = nameTextField.text!
+            delegate?.listDetailViewController(self, didFinishEditing: wordlist)
         } else {
-            let wordList = WordList(name: nameTextField.text!)
-            delegate?.listDetailViewController(self, didFinishAdding: wordList)
+            let wordlist = Wordlist(title: nameTextField.text!)
+            delegate?.listDetailViewController(self, didFinishAdding: wordlist)
         }
     }
     

@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="WordList" textLabel="7aA-vc-5FQ" detailTextLabel="gSq-20-jvq" style="IBUITableViewCellStyleSubtitle" id="qGh-P4-msd">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="Wordlist" textLabel="7aA-vc-5FQ" detailTextLabel="gSq-20-jvq" style="IBUITableViewCellStyleSubtitle" id="qGh-P4-msd">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qGh-P4-msd" id="hZ5-2U-6qm">
@@ -55,10 +55,10 @@
             </objects>
             <point key="canvasLocation" x="1545" y="123"/>
         </scene>
-        <!--Word List View Controller-->
+        <!--Wordlist View Controller-->
         <scene sceneID="4KR-0c-R3y">
             <objects>
-                <viewController storyboardIdentifier="WordListViewController" id="KKz-P5-URU" customClass="WordListViewController" customModule="WordSearchGenerator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WordlistViewController" id="KKz-P5-URU" customClass="WordlistViewController" customModule="WordSearchGenerator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hNP-9k-sEU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -213,7 +213,7 @@
                                 <rect key="frame" x="20" y="60" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -253,13 +253,13 @@
                                 <rect key="frame" x="20" y="60" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="continue" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <textField opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Clue (optional)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8lV-g1-Pfe">
                                 <rect key="frame" x="20" y="98" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -306,11 +306,11 @@
             </objects>
             <point key="canvasLocation" x="2967" y="123"/>
         </scene>
-        <!--Word Lists-->
+        <!--Wordlists-->
         <scene sceneID="qSu-cB-m6I">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g0U-LD-esX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Word Lists" id="v3s-ol-RZr"/>
+                    <tabBarItem key="tabBarItem" title="Wordlists" id="v3s-ol-RZr"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vua-Ih-vGF">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

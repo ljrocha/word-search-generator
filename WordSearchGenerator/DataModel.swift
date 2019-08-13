@@ -9,10 +9,10 @@
 import Foundation
 
 class DataModel {
-    var lists = [WordList]()
+    var lists = [Wordlist]()
     
     init() {
-        loadWordLists()
+        loadWordlists()
     }
     
     // MARK: - Data persistance
@@ -22,10 +22,10 @@ class DataModel {
     }
     
     func dataFilePath() -> URL {
-        return getDocumentsDirectory().appendingPathComponent("WordLists.json")
+        return getDocumentsDirectory().appendingPathComponent("Wordlists.json")
     }
     
-    func saveWordLists() {
+    func saveWordlists() {
         let jsonEncoder = JSONEncoder()
         
         do {
@@ -36,14 +36,14 @@ class DataModel {
         }
     }
     
-    func loadWordLists() {
+    func loadWordlists() {
         let path = dataFilePath()
         
         if let data = try? Data(contentsOf: path) {
             let jsonDecoder = JSONDecoder()
             
             do {
-                lists = try jsonDecoder.decode([WordList].self, from: data)
+                lists = try jsonDecoder.decode([Wordlist].self, from: data)
             } catch {
                 print("Error decoding wordlist array: \(error.localizedDescription)")
             }

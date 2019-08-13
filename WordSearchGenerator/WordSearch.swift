@@ -68,7 +68,7 @@ class Label {
 }
 
 class WordSearch {
-    var wordList: WordList?
+    var wordlist: Wordlist?
     
     var gridSize = GridSize.medium.rawValue
     var difficulty = Difficulty.medium
@@ -171,7 +171,7 @@ class WordSearch {
     }
     
     private func place(_ word: Word) -> Bool {
-        let formattedWord = word.text.replacingOccurrences(of: " ", with: "").uppercased()
+        let formattedWord = word.word.replacingOccurrences(of: " ", with: "").uppercased()
         
         return difficulty.placementTypes.contains {
             tryPlacing(formattedWord, movement: $0.movement)
@@ -179,9 +179,9 @@ class WordSearch {
     }
     
     private func placeWords() -> [Word] {
-        guard let wordList = wordList else { return [] }
+        guard let wordlist = wordlist else { return [] }
         
-        return wordList.words.shuffled().filter(place)
+        return wordlist.words.shuffled().filter(place)
     }
     
     func render() -> Data {
@@ -211,9 +211,9 @@ class WordSearch {
         // Grid margins
         let gridXMargin = (pageRect.width - (gridCellSize * CGFloat(gridSize))) / 2
         let gridYMargin: CGFloat
-        if let wordList = wordList, !wordList.listName.isEmpty, wordList.listName != "Unknown" {
+        if let wordlist = wordlist, !wordlist.title.isEmpty, wordlist.title != "Unknown" {
             let constrainedRect = CGSize(width: availableSpace.width, height: .greatestFiniteMagnitude)
-            let boundingBox = wordList.listName.boundingRect(with: constrainedRect, options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: titleAttributes, context: nil)
+            let boundingBox = wordlist.title.boundingRect(with: constrainedRect, options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: titleAttributes, context: nil)
             gridYMargin = boundingBox.height + margin * 1.5
         } else {
             gridYMargin = pageRect.height / 10
@@ -234,9 +234,9 @@ class WordSearch {
                 let placedWords = makeGrid()
                 
                 // Draw Title
-                if let wordList = wordList, !wordList.listName.isEmpty, wordList.listName != "Unknown" {
+                if let wordlist = wordlist, !wordlist.title.isEmpty, wordlist.title != "Unknown" {
                     let titleRect = CGRect(x: margin, y: margin, width: availableSpace.width, height: gridYMargin - (margin * 1.5))
-                    wordList.listName.draw(in: titleRect, withAttributes: titleAttributes)
+                    wordlist.title.draw(in: titleRect, withAttributes: titleAttributes)
                 }
                 
                 // Write Grid
@@ -271,7 +271,7 @@ class WordSearch {
                 }
                 
                 // Draw Placed Words
-                let wordSearchWords = placedWords.map { $0.text }
+                let wordSearchWords = placedWords.map { $0.word }
                 let combinedWords = wordSearchWords.joined(separator: " · ")
                 let gridHeight = gridCellSize * CGFloat(gridSize)
                 let wordYMargin = gridYMargin + gridHeight + margin / 2

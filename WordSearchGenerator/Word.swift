@@ -9,11 +9,11 @@
 import Foundation
 
 class Word: Codable {
-    var text: String
+    var word: String
     var clue: String
     
     init(word: String, clue: String) {
-        text = word
+        self.word = word
         self.clue = clue
     }
 }

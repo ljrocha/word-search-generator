@@ -56,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Helper methods
     func saveData() {
-        dataModel.saveWordLists()
+        dataModel.saveWordlists()
     }
     
     func registerDefaults() {

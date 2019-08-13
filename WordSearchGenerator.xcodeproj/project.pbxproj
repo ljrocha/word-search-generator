@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4613C16D22BF65B500105090 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4613C16C22BF65B500105090 /* Word.swift */; };
-		4613C16F22BF669800105090 /* WordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4613C16E22BF669800105090 /* WordList.swift */; };
-		4613C17122BF69ED00105090 /* WordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4613C17022BF69ED00105090 /* WordListViewController.swift */; };
+		4613C16F22BF669800105090 /* Wordlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4613C16E22BF669800105090 /* Wordlist.swift */; };
+		4613C17122BF69ED00105090 /* WordlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4613C17022BF69ED00105090 /* WordlistViewController.swift */; };
 		461406A722C052FA002B5EB3 /* WordSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461406A622C052FA002B5EB3 /* WordSearchViewController.swift */; };
 		46507D1522DD8F2C002A9A7E /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46507D1422DD8F2C002A9A7E /* DataModel.swift */; };
 		467BCBC72256E95B00EE441B /* WordSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467BCBC62256E95B00EE441B /* WordSearch.swift */; };
@@ -27,8 +27,8 @@
 
 /* Begin PBXFileReference section */
 		4613C16C22BF65B500105090 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
-		4613C16E22BF669800105090 /* WordList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordList.swift; sourceTree = "<group>"; };
-		4613C17022BF69ED00105090 /* WordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordListViewController.swift; sourceTree = "<group>"; };
+		4613C16E22BF669800105090 /* Wordlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wordlist.swift; sourceTree = "<group>"; };
+		4613C17022BF69ED00105090 /* WordlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordlistViewController.swift; sourceTree = "<group>"; };
 		461406A622C052FA002B5EB3 /* WordSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearchViewController.swift; sourceTree = "<group>"; };
 		46507D1422DD8F2C002A9A7E /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		467BCBC62256E95B00EE441B /* WordSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearch.swift; sourceTree = "<group>"; };
@@ -79,13 +79,13 @@
 				46863B47222E347000B8B3FB /* AppDelegate.swift */,
 				46863B49222E347000B8B3FB /* AllListsViewController.swift */,
 				46C82B9822C031460094DC43 /* ListDetailViewController.swift */,
-				4613C17022BF69ED00105090 /* WordListViewController.swift */,
+				4613C17022BF69ED00105090 /* WordlistViewController.swift */,
 				46D10A0122C0409A005CFF04 /* WordDetailViewController.swift */,
 				461406A622C052FA002B5EB3 /* WordSearchViewController.swift */,
 				468358EE22E1774E00E5DA58 /* SettingsViewController.swift */,
 				46B1A1E822C08195000D40BA /* WordSearchButton.swift */,
 				46863B4B222E347000B8B3FB /* Main.storyboard */,
-				4613C16E22BF669800105090 /* WordList.swift */,
+				4613C16E22BF669800105090 /* Wordlist.swift */,
 				4613C16C22BF65B500105090 /* Word.swift */,
 				46507D1422DD8F2C002A9A7E /* DataModel.swift */,
 				467BCBC62256E95B00EE441B /* WordSearch.swift */,
@@ -172,12 +172,12 @@
 				46863B4A222E347000B8B3FB /* AllListsViewController.swift in Sources */,
 				461406A722C052FA002B5EB3 /* WordSearchViewController.swift in Sources */,
 				46C82B9922C031460094DC43 /* ListDetailViewController.swift in Sources */,
-				4613C17122BF69ED00105090 /* WordListViewController.swift in Sources */,
+				4613C17122BF69ED00105090 /* WordlistViewController.swift in Sources */,
 				46507D1522DD8F2C002A9A7E /* DataModel.swift in Sources */,
 				4613C16D22BF65B500105090 /* Word.swift in Sources */,
 				46863B48222E347000B8B3FB /* AppDelegate.swift in Sources */,
 				467BCBC72256E95B00EE441B /* WordSearch.swift in Sources */,
-				4613C16F22BF669800105090 /* WordList.swift in Sources */,
+				4613C16F22BF669800105090 /* Wordlist.swift in Sources */,
 				468358EF22E1774E00E5DA58 /* SettingsViewController.swift in Sources */,
 				468358F122E1864300E5DA58 /* Constants.swift in Sources */,
 				46D10A0222C0409A005CFF04 /* WordDetailViewController.swift in Sources */,

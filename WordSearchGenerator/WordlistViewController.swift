@@ -1,5 +1,5 @@
 //
-//  WordListDetailViewController.swift
+//  WordlistDetailViewController.swift
 //  WordSearchGenerator
 //
 //  Created by Leandro Rocha on 6/23/19.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class WordListViewController: UIViewController {
+class WordlistViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var wordList: WordList!
+    var wordlist: Wordlist!
     
     var wordSearchButton: WordSearchButton!
     
@@ -20,7 +20,7 @@ class WordListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = wordList.listName
+        title = wordlist.title
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
         
@@ -30,7 +30,7 @@ class WordListViewController: UIViewController {
         wordSearchButton = WordSearchButton()
         wordSearchButton.translatesAutoresizingMaskIntoConstraints = false
         wordSearchButton.addTarget(self, action: #selector(wordSearchButtonTapped), for: .touchUpInside)
-        wordSearchButton.isEnabled = !wordList.words.isEmpty
+        wordSearchButton.isEnabled = !wordlist.words.isEmpty
         view.addSubview(wordSearchButton)
         
         wordSearchButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -70).isActive = true
@@ -48,7 +48,7 @@ class WordListViewController: UIViewController {
     
     @objc func wordSearchButtonTapped(_ sender: UIButton) {
         if let wordSearchVC = storyboard?.instantiateViewController(withIdentifier: "WordSearchViewController") as? WordSearchViewController {
-            wordSearchVC.wordList = wordList
+            wordSearchVC.wordlist = wordlist
             
             navigationController?.pushViewController(wordSearchVC, animated: true)
         }
@@ -56,27 +56,27 @@ class WordListViewController: UIViewController {
     
 }
 
-extension WordListViewController: UITableViewDataSource, UITableViewDelegate {
+extension WordlistViewController: UITableViewDataSource, UITableViewDelegate {
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return wordList.words.count
+        return wordlist.words.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath)
         
-        let word = wordList.words[indexPath.row]
-        cell.textLabel?.text = word.text
+        let word = wordlist.words[indexPath.row]
+        cell.textLabel?.text = word.word
         cell.detailTextLabel?.text = word.clue
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        wordList.words.remove(at: indexPath.row)
+        wordlist.words.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .automatic)
         
-        wordSearchButton.isEnabled = !wordList.words.isEmpty
+        wordSearchButton.isEnabled = !wordlist.words.isEmpty
     }
     
     // MARK: - Table view delegate
@@ -85,7 +85,7 @@ extension WordListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         if let detailVC = storyboard?.instantiateViewController(withIdentifier: "WordDetailViewController") as? WordDetailViewController {
-            detailVC.wordToEdit = wordList.words[indexPath.row]
+            detailVC.wordToEdit = wordlist.words[indexPath.row]
             detailVC.delegate = self
             
             navigationController?.pushViewController(detailVC, animated: true)
@@ -93,13 +93,13 @@ extension WordListViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-extension WordListViewController: WordDetailViewControllerDelegate {
+extension WordlistViewController: WordDetailViewControllerDelegate {
     func wordDetailViewControllerDidCancel(_ controller: WordDetailViewController) {
         navigationController?.popViewController(animated: true)
     }
     
     func wordDetailViewController(_ controller: WordDetailViewController, didFinishAdding word: Word) {
-        wordList.words.append(word)
+        wordlist.words.append(word)
         tableView.reloadData()
         wordSearchButton.isEnabled = true
         navigationController?.popViewController(animated: true)

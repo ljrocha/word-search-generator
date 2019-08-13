@@ -36,7 +36,7 @@ class WordDetailViewController: UIViewController {
         
         if let word = wordToEdit {
             title = "Edit Word"
-            wordTextField.text = word.text
+            wordTextField.text = word.word
             clueTextField.text = word.clue
             
             doneButtonItem.isEnabled = true
@@ -69,7 +69,7 @@ class WordDetailViewController: UIViewController {
     
     @objc func done() {
         if let word = wordToEdit {
-            word.text = wordTextField.text!
+            word.word = wordTextField.text!
             word.clue = clueTextField.text!
             delegate?.wordDetailViewController(self, didFinishEditing: word)
         } else {

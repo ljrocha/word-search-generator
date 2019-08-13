@@ -16,7 +16,7 @@ class AllListsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Word Lists"
+        title = "Wordlists"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
     }
@@ -33,11 +33,11 @@ class AllListsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "WordList", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Wordlist", for: indexPath)
         
-        let wordList = dataModel.lists[indexPath.row]
-        cell.textLabel?.text = wordList.listName
-        let wordCount = wordList.words.count
+        let wordlist = dataModel.lists[indexPath.row]
+        cell.textLabel?.text = wordlist.title
+        let wordCount = wordlist.words.count
         if wordCount > 1 {
             cell.detailTextLabel?.text = "\(wordCount) Words"
         } else if wordCount > 0 {
@@ -56,17 +56,17 @@ class AllListsViewController: UITableViewController {
     
     // MARK: - Table view delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let wordListVC = storyboard?.instantiateViewController(withIdentifier: "WordListViewController") as? WordListViewController {
-            wordListVC.wordList = dataModel.lists[indexPath.row]
+        if let wordlistVC = storyboard?.instantiateViewController(withIdentifier: "WordlistViewController") as? WordlistViewController {
+            wordlistVC.wordlist = dataModel.lists[indexPath.row]
             
-            navigationController?.pushViewController(wordListVC, animated: true)
+            navigationController?.pushViewController(wordlistVC, animated: true)
         }
     }
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         if let detailVC = storyboard?.instantiateViewController(withIdentifier: "ListDetailViewController") as? ListDetailViewController {
-            let wordList = dataModel.lists[indexPath.row]
-            detailVC.wordListToEdit = wordList
+            let wordlist = dataModel.lists[indexPath.row]
+            detailVC.wordlistToEdit = wordlist
             detailVC.delegate = self
             
             navigationController?.pushViewController(detailVC, animated: true)
@@ -89,13 +89,13 @@ extension AllListsViewController: ListDetailViewControllerDelegate {
         navigationController?.popViewController(animated: true)
     }
     
-    func listDetailViewController(_ controller: ListDetailViewController, didFinishAdding wordList: WordList) {
-        dataModel.lists.append(wordList)
+    func listDetailViewController(_ controller: ListDetailViewController, didFinishAdding wordlist: Wordlist) {
+        dataModel.lists.append(wordlist)
         tableView.reloadData()
         navigationController?.popViewController(animated: true)
     }
     
-    func listDetailViewController(_ controller: ListDetailViewController, didFinishEditing wordList: WordList) {
+    func listDetailViewController(_ controller: ListDetailViewController, didFinishEditing wordlist: Wordlist) {
         tableView.reloadData()
         navigationController?.popViewController(animated: true)
     }
