@@ -25,7 +25,7 @@ class WordSearchButton: UIButton {
     func buttonSetup() {
         setTitle("WS", for: .normal)
         contentEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
-        backgroundColor = .purple
+        backgroundColor = .mainColor
         layer.cornerRadius = 8
         layer.shadowOpacity = 0.25
         layer.shadowRadius = 5

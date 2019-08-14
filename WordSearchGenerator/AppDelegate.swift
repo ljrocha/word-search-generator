@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        customizeAppearance()
         
         let tabBarController = window!.rootViewController as! UITabBarController
         let navigationController = tabBarController.viewControllers![0] as! UINavigationController
@@ -64,6 +65,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                           Key.UserDefaults.difficulty: Difficulty.medium.rawValue,
                           Key.UserDefaults.cluesProvided: false] as [String : Any]
         UserDefaults.standard.register(defaults: dictionary)
+    }
+    
+    func customizeAppearance() {
+        window?.tintColor = .mainColor
+        
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.headerTextColor]
+        UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.headerTextColor]
     }
 
 }
