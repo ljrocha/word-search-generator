@@ -70,23 +70,25 @@ class Label {
 class WordSearch {
     var wordlist: Wordlist?
     
+    var includeTitle = true
+    var includeWords = true
     var gridSize = GridSize.medium.rawValue
     var difficulty = Difficulty.medium
-    var provideClues = false
     var numberOfPages = 1
     
     var labels = [[Label]]()
     let allLetters = (65...90).map { Character(Unicode.Scalar($0)) }
     
     private func readDefaultValues() {
+        includeTitle = UserDefaults.standard.bool(forKey: Key.UserDefaults.titleIncluded)
+        includeWords = UserDefaults.standard.bool(forKey: Key.UserDefaults.wordsIncluded)
+        
         gridSize = UserDefaults.standard.integer(forKey: Key.UserDefaults.gridSize)
         
         let storedDifficulty = UserDefaults.standard.integer(forKey: Key.UserDefaults.difficulty)
         if let difficulty = Difficulty(rawValue: storedDifficulty) {
             self.difficulty = difficulty
         }
-        
-        provideClues = UserDefaults.standard.bool(forKey: Key.UserDefaults.cluesProvided)
     }
     
     func makeGrid() -> [Word] {

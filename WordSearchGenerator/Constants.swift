@@ -12,7 +12,8 @@ struct Key {
     struct UserDefaults {
         static let gridSize = "GridSize"
         static let difficulty = "Difficulty"
-        static let cluesProvided = "CluesProvided"
+        static let wordsIncluded = "WordsIncluded"
+        static let titleIncluded = "TitleIncluded"
     }
 }
 

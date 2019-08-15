@@ -9,7 +9,7 @@
 import Foundation
 
 class Wordlist: Codable {
-    var title = ""
+    var title: String
     var words = [Word]()
     
     init(title: String) {

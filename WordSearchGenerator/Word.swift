@@ -12,7 +12,7 @@ class Word: Codable {
     var word: String
     var clue: String
     
-    init(word: String, clue: String) {
+    init(word: String, clue: String = "") {
         self.word = word
         self.clue = clue
     }
