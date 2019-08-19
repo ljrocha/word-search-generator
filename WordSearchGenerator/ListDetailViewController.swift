@@ -62,7 +62,7 @@ class ListDetailViewController: UIViewController {
         delegate?.listDetailViewControllerDidCancel(self)
     }
     
-    @objc func done() {
+    @IBAction func done() {
         if let wordlist = wordlistToEdit {
             wordlist.title = nameTextField.text!
             delegate?.listDetailViewController(self, didFinishEditing: wordlist)
@@ -90,11 +90,6 @@ extension ListDetailViewController: UITextFieldDelegate {
         }
         
         return false
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        nameTextField.resignFirstResponder()
-        return true
     }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {

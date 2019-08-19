@@ -17,7 +17,6 @@ protocol WordDetailViewControllerDelegate: class {
 class WordDetailViewController: UIViewController {
 
     @IBOutlet weak var wordTextField: UITextField!
-    @IBOutlet weak var clueTextField: UITextField!
     
     var doneButtonItem: UIBarButtonItem!
     
@@ -37,7 +36,6 @@ class WordDetailViewController: UIViewController {
         if let word = wordToEdit {
             title = "Edit Word"
             wordTextField.text = word.word
-            clueTextField.text = word.clue
             
             doneButtonItem.isEnabled = true
         } else {
@@ -47,7 +45,6 @@ class WordDetailViewController: UIViewController {
         }
         
         wordTextField.delegate = self
-        clueTextField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,13 +64,12 @@ class WordDetailViewController: UIViewController {
         delegate?.wordDetailViewControllerDidCancel(self)
     }
     
-    @objc func done() {
+    @IBAction func done() {
         if let word = wordToEdit {
             word.word = wordTextField.text!
-            word.clue = clueTextField.text!
             delegate?.wordDetailViewController(self, didFinishEditing: word)
         } else {
-            let word = Word(word: wordTextField.text!, clue: clueTextField.text!)
+            let word = Word(word: wordTextField.text!)
             delegate?.wordDetailViewController(self, didFinishAdding: word)
         }
     }
@@ -98,18 +94,6 @@ extension WordDetailViewController: UITextFieldDelegate {
         }
         
         return false
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let nextTag = textField.tag + 1
-        
-        if let nextResponder = textField.superview?.viewWithTag(nextTag) {
-            nextResponder.becomeFirstResponder()
-        } else {
-            textField.resignFirstResponder()
-        }
-        
-        return true
     }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {

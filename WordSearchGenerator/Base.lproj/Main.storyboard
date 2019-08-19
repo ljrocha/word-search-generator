@@ -119,37 +119,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grid size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBT-ag-GqX">
-                                <rect key="frame" x="20" y="104" width="67" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Difficulty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="squ-jo-J3c">
-                                <rect key="frame" x="20" y="177" width="69" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Provide clues" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3s-UU-YlW">
-                                <rect key="frame" x="20" y="250" width="102.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ai6-aa-O63">
-                                <rect key="frame" x="20" y="133" width="374" height="29"/>
-                                <segments>
-                                    <segment title="10"/>
-                                    <segment title="12"/>
-                                    <segment title="14"/>
-                                </segments>
-                                <connections>
-                                    <action selector="segmentChanged:" destination="aj1-eq-lpc" eventType="valueChanged" id="Ygo-DO-eAc"/>
-                                </connections>
-                            </segmentedControl>
-                            <segmentedControl opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="IKV-HL-acP">
-                                <rect key="frame" x="20" y="206" width="374" height="29"/>
+                            <segmentedControl opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="IKV-HL-acP">
+                                <rect key="frame" x="20" y="292" width="374" height="29"/>
                                 <segments>
                                     <segment title="Easy"/>
                                     <segment title="Medium"/>
@@ -159,47 +130,66 @@
                                     <action selector="segmentChanged:" destination="aj1-eq-lpc" eventType="valueChanged" id="xtM-ur-8m1"/>
                                 </connections>
                             </segmentedControl>
-                            <segmentedControl opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qgC-U5-GnM">
-                                <rect key="frame" x="20" y="279" width="374" height="29"/>
+                            <segmentedControl opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qgC-U5-GnM">
+                                <rect key="frame" x="20" y="176" width="374" height="29"/>
                                 <segments>
-                                    <segment title="No"/>
-                                    <segment title="Yes"/>
+                                    <segment title="Words"/>
+                                    <segment title="No Words"/>
                                 </segments>
                                 <connections>
                                     <action selector="segmentChanged:" destination="aj1-eq-lpc" eventType="valueChanged" id="BXa-dI-f4h"/>
                                 </connections>
                             </segmentedControl>
+                            <segmentedControl opaque="NO" tag="1000" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VpO-zi-00x">
+                                <rect key="frame" x="20" y="118" width="374" height="29"/>
+                                <segments>
+                                    <segment title="Title"/>
+                                    <segment title="No Title"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentChanged:" destination="aj1-eq-lpc" eventType="valueChanged" id="JHx-05-M6Y"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ai6-aa-O63">
+                                <rect key="frame" x="20" y="234" width="374" height="29"/>
+                                <segments>
+                                    <segment title="10 x 10"/>
+                                    <segment title="12 x 12"/>
+                                    <segment title="14 x 14"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentChanged:" destination="aj1-eq-lpc" eventType="valueChanged" id="Ygo-DO-eAc"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="v3s-UU-YlW" firstAttribute="top" secondItem="IKV-HL-acP" secondAttribute="bottom" constant="16" id="0Ts-3a-HZ4"/>
-                            <constraint firstItem="squ-jo-J3c" firstAttribute="top" secondItem="Ai6-aa-O63" secondAttribute="bottom" constant="16" id="3a6-6u-iKt"/>
-                            <constraint firstItem="v3s-UU-YlW" firstAttribute="leading" secondItem="squ-jo-J3c" secondAttribute="leading" id="9g1-Gj-k3R"/>
-                            <constraint firstItem="IKV-HL-acP" firstAttribute="leading" secondItem="Ai6-aa-O63" secondAttribute="leading" id="Bq5-oU-7p2"/>
-                            <constraint firstItem="Mf2-1n-6nM" firstAttribute="trailing" secondItem="Ai6-aa-O63" secondAttribute="trailing" constant="20" id="DnA-Fj-goA"/>
-                            <constraint firstItem="Ai6-aa-O63" firstAttribute="top" secondItem="DBT-ag-GqX" secondAttribute="bottom" constant="8" id="KR6-6u-VBi"/>
-                            <constraint firstItem="IKV-HL-acP" firstAttribute="width" secondItem="Ai6-aa-O63" secondAttribute="width" id="P7V-hq-idF"/>
-                            <constraint firstItem="IKV-HL-acP" firstAttribute="top" secondItem="squ-jo-J3c" secondAttribute="bottom" constant="8" id="Zut-Y6-xpO"/>
-                            <constraint firstItem="qgC-U5-GnM" firstAttribute="leading" secondItem="IKV-HL-acP" secondAttribute="leading" id="b0E-ij-8oX"/>
-                            <constraint firstItem="DBT-ag-GqX" firstAttribute="leading" secondItem="Mf2-1n-6nM" secondAttribute="leading" constant="20" id="dUF-2g-Jy4"/>
-                            <constraint firstItem="squ-jo-J3c" firstAttribute="leading" secondItem="DBT-ag-GqX" secondAttribute="leading" id="iEM-D6-BqF"/>
-                            <constraint firstItem="DBT-ag-GqX" firstAttribute="top" secondItem="Mf2-1n-6nM" secondAttribute="top" constant="16" id="jUn-Lk-vgE"/>
-                            <constraint firstItem="qgC-U5-GnM" firstAttribute="width" secondItem="IKV-HL-acP" secondAttribute="width" id="lYk-Nk-tNJ"/>
-                            <constraint firstItem="qgC-U5-GnM" firstAttribute="top" secondItem="v3s-UU-YlW" secondAttribute="bottom" constant="8" id="q6B-ao-NAL"/>
-                            <constraint firstItem="Ai6-aa-O63" firstAttribute="leading" secondItem="Mf2-1n-6nM" secondAttribute="leading" constant="20" id="xtV-7G-bFP"/>
+                            <constraint firstItem="IKV-HL-acP" firstAttribute="trailing" secondItem="Ai6-aa-O63" secondAttribute="trailing" id="2vM-iy-tWv"/>
+                            <constraint firstItem="qgC-U5-GnM" firstAttribute="trailing" secondItem="VpO-zi-00x" secondAttribute="trailing" id="4c9-GL-Y75"/>
+                            <constraint firstItem="Ai6-aa-O63" firstAttribute="top" secondItem="qgC-U5-GnM" secondAttribute="bottom" constant="30" id="AlJ-oJ-L40"/>
+                            <constraint firstItem="IKV-HL-acP" firstAttribute="leading" secondItem="Ai6-aa-O63" secondAttribute="leading" id="FTd-T3-5qm"/>
+                            <constraint firstItem="VpO-zi-00x" firstAttribute="leading" secondItem="Mf2-1n-6nM" secondAttribute="leading" constant="20" id="NOz-Na-Dpn"/>
+                            <constraint firstItem="Mf2-1n-6nM" firstAttribute="trailing" secondItem="VpO-zi-00x" secondAttribute="trailing" constant="20" id="PTk-yd-Idu"/>
+                            <constraint firstItem="VpO-zi-00x" firstAttribute="top" secondItem="Mf2-1n-6nM" secondAttribute="top" constant="30" id="R71-Oz-X2f"/>
+                            <constraint firstItem="IKV-HL-acP" firstAttribute="top" secondItem="Ai6-aa-O63" secondAttribute="bottom" constant="30" id="RDp-CJ-mpM"/>
+                            <constraint firstItem="qgC-U5-GnM" firstAttribute="top" secondItem="VpO-zi-00x" secondAttribute="bottom" constant="30" id="dlO-H6-TWf"/>
+                            <constraint firstItem="Ai6-aa-O63" firstAttribute="trailing" secondItem="qgC-U5-GnM" secondAttribute="trailing" id="oEV-6w-2nn"/>
+                            <constraint firstItem="qgC-U5-GnM" firstAttribute="leading" secondItem="VpO-zi-00x" secondAttribute="leading" id="rME-b1-P4O"/>
+                            <constraint firstItem="Ai6-aa-O63" firstAttribute="leading" secondItem="qgC-U5-GnM" secondAttribute="leading" id="rxG-hH-4bN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Mf2-1n-6nM"/>
                     </view>
                     <navigationItem key="navigationItem" id="3Qy-ik-x2N"/>
                     <connections>
-                        <outlet property="clues" destination="qgC-U5-GnM" id="qTg-K6-5KB"/>
-                        <outlet property="difficulty" destination="IKV-HL-acP" id="llV-Ry-ru2"/>
-                        <outlet property="gridSize" destination="Ai6-aa-O63" id="MEN-TQ-HQK"/>
+                        <outlet property="difficultySegmentedControl" destination="IKV-HL-acP" id="llV-Ry-ru2"/>
+                        <outlet property="gridSizeSegmentedControl" destination="Ai6-aa-O63" id="MEN-TQ-HQK"/>
+                        <outlet property="titleSegmentedControl" destination="VpO-zi-00x" id="9Hv-TL-nzb"/>
+                        <outlet property="wordsSegmentedControl" destination="qgC-U5-GnM" id="qTg-K6-5KB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1xw-vg-3ji" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1545" y="803"/>
+            <point key="canvasLocation" x="1544.9275362318842" y="802.90178571428567"/>
         </scene>
         <!--List Detail View Controller-->
         <scene sceneID="x9V-Xm-gLw">
@@ -213,7 +203,10 @@
                                 <rect key="frame" x="20" y="60" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="done" destination="fcG-BC-0Px" eventType="editingDidEndOnExit" id="BOB-Ik-Wn2"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -253,22 +246,16 @@
                                 <rect key="frame" x="20" y="60" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="continue" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
-                            <textField opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Clue (optional)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8lV-g1-Pfe">
-                                <rect key="frame" x="20" y="98" width="374" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="done" destination="WfQ-x5-zja" eventType="editingDidEndOnExit" id="QmI-tM-emh"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="5a0-hC-VsK" firstAttribute="trailing" secondItem="8lV-g1-Pfe" secondAttribute="trailing" constant="20" id="2ya-RN-xQJ"/>
                             <constraint firstItem="PhE-M7-mtH" firstAttribute="leading" secondItem="5a0-hC-VsK" secondAttribute="leading" constant="20" id="Nga-Yu-Msu"/>
-                            <constraint firstItem="8lV-g1-Pfe" firstAttribute="top" secondItem="PhE-M7-mtH" secondAttribute="bottom" constant="8" id="bUc-XF-JU5"/>
-                            <constraint firstItem="8lV-g1-Pfe" firstAttribute="leading" secondItem="5a0-hC-VsK" secondAttribute="leading" constant="20" id="rer-yT-Y3p"/>
                             <constraint firstItem="PhE-M7-mtH" firstAttribute="top" secondItem="5a0-hC-VsK" secondAttribute="top" constant="16" id="w2M-D9-RhV"/>
                             <constraint firstItem="5a0-hC-VsK" firstAttribute="trailing" secondItem="PhE-M7-mtH" secondAttribute="trailing" constant="20" id="y2N-6h-f3W"/>
                         </constraints>
@@ -278,7 +265,6 @@
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="clueTextField" destination="8lV-g1-Pfe" id="W6E-jj-nq0"/>
                         <outlet property="wordTextField" destination="PhE-M7-mtH" id="sax-n5-ZB0"/>
                     </connections>
                 </viewController>
