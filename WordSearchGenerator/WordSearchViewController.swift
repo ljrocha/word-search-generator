@@ -27,6 +27,8 @@ class WordSearchViewController: UIViewController {
         navigationItem.rightBarButtonItems = [share, refresh]
         
         pdfView = PDFView()
+        pdfView.displayMode = .singlePage
+        pdfView.displayDirection = .vertical
         pdfView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(pdfView)
         
@@ -48,12 +50,13 @@ class WordSearchViewController: UIViewController {
         try? output.write(to: url)
         
         if let document = PDFDocument(url: url) {
+            pdfView.autoScales = true
             pdfView.document = document
         }
     }
     
     @objc func shareTapped() {
-        let ac = UIActivityViewController(activityItems: ["Checkout these word puzzles\n", url], applicationActivities: nil)
+        let ac = UIActivityViewController(activityItems: ["Can you complete this word search puzzle?\n", url], applicationActivities: nil)
         present(ac, animated: true)
     }
 
