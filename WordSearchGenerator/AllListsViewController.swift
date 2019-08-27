@@ -37,14 +37,7 @@ class AllListsViewController: UITableViewController {
         
         let wordlist = dataModel.lists[indexPath.row]
         cell.textLabel?.text = wordlist.title
-        let wordCount = wordlist.words.count
-        if wordCount > 1 {
-            cell.detailTextLabel?.text = "\(wordCount) Words"
-        } else if wordCount > 0 {
-            cell.detailTextLabel?.text = "\(wordCount) Word"
-        } else {
-            cell.detailTextLabel?.text = "(No Words)"
-        }
+        cell.detailTextLabel?.text = wordlist.detailedWordCount
         
         return cell
     }
@@ -65,8 +58,7 @@ class AllListsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         if let detailVC = storyboard?.instantiateViewController(withIdentifier: "ListDetailViewController") as? ListDetailViewController {
-            let wordlist = dataModel.lists[indexPath.row]
-            detailVC.wordlistToEdit = wordlist
+            detailVC.wordlistToEdit = dataModel.lists[indexPath.row]
             detailVC.delegate = self
             
             navigationController?.pushViewController(detailVC, animated: true)
@@ -99,9 +91,4 @@ extension AllListsViewController: ListDetailViewControllerDelegate {
         tableView.reloadData()
         navigationController?.popViewController(animated: true)
     }
-}
-
-func getDocumentsDirectory() -> URL {
-    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-    return paths[0]
 }

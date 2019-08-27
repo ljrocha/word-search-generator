@@ -12,6 +12,17 @@ class Wordlist: Codable {
     var title: String
     var words = [Word]()
     
+    var detailedWordCount: String {
+        let wordCount = words.count
+        if wordCount > 1 {
+            return "\(wordCount) Words"
+        } else if wordCount > 0 {
+            return "\(wordCount) Word"
+        } else {
+            return "(No Words)"
+        }
+    }
+    
     init(title: String) {
         self.title = title
     }

@@ -36,11 +36,9 @@ class WordDetailViewController: UIViewController {
         if let word = wordToEdit {
             title = "Edit Word"
             wordTextField.text = word.word
-            
             doneButtonItem.isEnabled = true
         } else {
             title = "Add Word"
-            
             doneButtonItem.isEnabled = false
         }
         
@@ -86,20 +84,12 @@ extension WordDetailViewController: UITextFieldDelegate {
         let stringRange = Range(range, in: oldText)!
         let newText = oldText.replacingCharacters(in: stringRange, with: string)
         
-        if textField.tag == 1000 {
-            doneButtonItem.isEnabled = !newText.isEmpty
-            return newText.count <= MaxCharacterCount.word
-        } else if textField.tag == 1001 {
-            return newText.count <= MaxCharacterCount.clue
-        }
-        
-        return false
+        doneButtonItem.isEnabled = !newText.isEmpty
+        return newText.count <= MaxCharacterCount.word
     }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        if textField.tag == 1000 {
-            doneButtonItem.isEnabled = false
-        }
+        doneButtonItem.isEnabled = false
         return true
     }
 }

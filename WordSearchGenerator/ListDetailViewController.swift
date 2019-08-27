@@ -84,12 +84,8 @@ extension ListDetailViewController: UITextFieldDelegate {
         let stringRange = Range(range, in: oldText)!
         let newText = oldText.replacingCharacters(in: stringRange, with: string)
         
-        if textField.tag == 1000 {
-            doneButtonItem.isEnabled = !newText.isEmpty
-            return newText.count <= MaxCharacterCount.title
-        }
-        
-        return false
+        doneButtonItem.isEnabled = !newText.isEmpty
+        return newText.count <= MaxCharacterCount.title
     }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
