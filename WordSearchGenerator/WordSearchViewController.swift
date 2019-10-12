@@ -27,6 +27,9 @@ class WordSearchViewController: UIViewController {
         navigationItem.rightBarButtonItems = [share, refresh]
         
         pdfView = PDFView()
+        if #available(iOS 13.0, *) {
+            pdfView.backgroundColor = .secondarySystemBackground
+        }
         pdfView.displayMode = .singlePage
         pdfView.displayDirection = .vertical
         pdfView.translatesAutoresizingMaskIntoConstraints = false
