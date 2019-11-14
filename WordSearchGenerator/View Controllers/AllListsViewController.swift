@@ -85,11 +85,13 @@ extension AllListsViewController: ListDetailViewControllerDelegate {
     
     func listDetailViewController(_ controller: ListDetailViewController, didFinishAdding wordlist: Wordlist) {
         dataModel.lists.append(wordlist)
+        dataModel.sortWordlists()
         tableView.reloadData()
         dismiss(animated: true)
     }
     
     func listDetailViewController(_ controller: ListDetailViewController, didFinishEditing wordlist: Wordlist) {
+        dataModel.sortWordlists()
         tableView.reloadData()
         dismiss(animated: true)
     }

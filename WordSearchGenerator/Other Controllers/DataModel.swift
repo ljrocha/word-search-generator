@@ -44,10 +44,18 @@ class DataModel {
             
             do {
                 lists = try jsonDecoder.decode([Wordlist].self, from: data)
+                sortWordlists()
                 lists.forEach { $0.sortWords() }
             } catch {
                 print("Error decoding wordlist array: \(error.localizedDescription)")
             }
+        }
+    }
+    
+    // MARK: - Methods
+    func sortWordlists() {
+        lists.sort {
+            return $0.title.localizedStandardCompare($1.title) == .orderedAscending
         }
     }
 }
