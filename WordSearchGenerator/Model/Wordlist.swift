@@ -10,9 +10,9 @@ import Foundation
 
 class Wordlist: Codable {
     var title: String
-    var words = [Word]()
+    var words = [String]()
     
-    var detailedWordCount: String {
+    var wordCountDescription: String {
         let wordCount = words.count
         if wordCount > 1 {
             return "\(wordCount) Words"

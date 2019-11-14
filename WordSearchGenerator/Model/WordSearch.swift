@@ -91,7 +91,7 @@ class WordSearch {
         }
     }
     
-    func makeGrid() -> [Word] {
+    func makeGrid() -> [String] {
         readDefaultValues()
         
         labels = (0..<gridSize).map { _ in
@@ -172,15 +172,15 @@ class WordSearch {
         return false
     }
     
-    private func place(_ word: Word) -> Bool {
-        let formattedWord = word.word.replacingOccurrences(of: " ", with: "").uppercased()
+    private func place(_ word: String) -> Bool {
+        let formattedWord = word.replacingOccurrences(of: " ", with: "").uppercased()
         
         return difficulty.placementTypes.contains {
             tryPlacing(formattedWord, movement: $0.movement)
         }
     }
     
-    private func placeWords() -> [Word] {
+    private func placeWords() -> [String] {
         guard let wordlist = wordlist else { return [] }
         
         return wordlist.words.shuffled().filter(place)
@@ -273,7 +273,7 @@ class WordSearch {
                 }
                 
                 // Draw Placed Words
-                let wordSearchWords = placedWords.map { $0.word }
+                let wordSearchWords = placedWords.map { $0 }
                 let combinedWords = wordSearchWords.joined(separator: " · ")
                 let gridHeight = gridCellSize * CGFloat(gridSize)
                 let wordYMargin = gridYMargin + gridHeight + margin / 2

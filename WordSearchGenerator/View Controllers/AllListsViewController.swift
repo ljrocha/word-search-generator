@@ -37,7 +37,7 @@ class AllListsViewController: UITableViewController {
         
         let wordlist = dataModel.lists[indexPath.row]
         cell.textLabel?.text = wordlist.title
-        cell.detailTextLabel?.text = wordlist.detailedWordCount
+        cell.detailTextLabel?.text = wordlist.wordCountDescription
         
         return cell
     }
@@ -61,7 +61,8 @@ class AllListsViewController: UITableViewController {
             detailVC.wordlistToEdit = dataModel.lists[indexPath.row]
             detailVC.delegate = self
             
-            navigationController?.pushViewController(detailVC, animated: true)
+            let navController = UINavigationController(rootViewController: detailVC)
+            present(navController, animated: true)
         }
     }
     
@@ -70,7 +71,8 @@ class AllListsViewController: UITableViewController {
         if let detailVC = storyboard?.instantiateViewController(withIdentifier: "ListDetailViewController") as? ListDetailViewController {
             detailVC.delegate = self
             
-            navigationController?.pushViewController(detailVC, animated: true)
+            let navController = UINavigationController(rootViewController: detailVC)
+            present(navController, animated: true)
         }
     }
 
@@ -78,17 +80,17 @@ class AllListsViewController: UITableViewController {
 
 extension AllListsViewController: ListDetailViewControllerDelegate {
     func listDetailViewControllerDidCancel(_ controller: ListDetailViewController) {
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true)
     }
     
     func listDetailViewController(_ controller: ListDetailViewController, didFinishAdding wordlist: Wordlist) {
         dataModel.lists.append(wordlist)
         tableView.reloadData()
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true)
     }
     
     func listDetailViewController(_ controller: ListDetailViewController, didFinishEditing wordlist: Wordlist) {
         tableView.reloadData()
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true)
     }
 }

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4613C16D22BF65B500105090 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4613C16C22BF65B500105090 /* Word.swift */; };
 		4613C16F22BF669800105090 /* Wordlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4613C16E22BF669800105090 /* Wordlist.swift */; };
 		4613C17122BF69ED00105090 /* WordlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4613C17022BF69ED00105090 /* WordlistViewController.swift */; };
 		461406A722C052FA002B5EB3 /* WordSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461406A622C052FA002B5EB3 /* WordSearchViewController.swift */; };
@@ -26,7 +25,6 @@
 		4689C66D2315CFFD0006812B /* ListDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4689C66C2315CFFD0006812B /* ListDetailViewControllerTests.swift */; };
 		4689C66F2315D23A0006812B /* AllListsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4689C66E2315D23A0006812B /* AllListsViewControllerTests.swift */; };
 		4698955B2315941800147B4D /* WordSearchGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4698955A2315941800147B4D /* WordSearchGeneratorTests.swift */; };
-		46989563231597DC00147B4D /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46989562231597DC00147B4D /* Functions.swift */; };
 		46B1A1E922C08195000D40BA /* WordSearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B1A1E822C08195000D40BA /* WordSearchButton.swift */; };
 		46C82B9922C031460094DC43 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C82B9822C031460094DC43 /* ListDetailViewController.swift */; };
 		46D10A0222C0409A005CFF04 /* WordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D10A0122C0409A005CFF04 /* WordDetailViewController.swift */; };
@@ -44,7 +42,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4613C16C22BF65B500105090 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		4613C16E22BF669800105090 /* Wordlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wordlist.swift; sourceTree = "<group>"; };
 		4613C17022BF69ED00105090 /* WordlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordlistViewController.swift; sourceTree = "<group>"; };
 		461406A622C052FA002B5EB3 /* WordSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearchViewController.swift; sourceTree = "<group>"; };
@@ -67,7 +64,6 @@
 		469895582315941800147B4D /* WordSearchGeneratorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WordSearchGeneratorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4698955A2315941800147B4D /* WordSearchGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearchGeneratorTests.swift; sourceTree = "<group>"; };
 		4698955C2315941800147B4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		46989562231597DC00147B4D /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		46B1A1E822C08195000D40BA /* WordSearchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearchButton.swift; sourceTree = "<group>"; };
 		46C82B9822C031460094DC43 /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
 		46D10A0122C0409A005CFF04 /* WordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetailViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +88,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4626EFDB237C9B0700F7DEFD /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				46863B49222E347000B8B3FB /* AllListsViewController.swift */,
+				46C82B9822C031460094DC43 /* ListDetailViewController.swift */,
+				4613C17022BF69ED00105090 /* WordlistViewController.swift */,
+				46D10A0122C0409A005CFF04 /* WordDetailViewController.swift */,
+				461406A622C052FA002B5EB3 /* WordSearchViewController.swift */,
+				468358EE22E1774E00E5DA58 /* SettingsViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		4626EFDC237C9B3E00F7DEFD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				46B1A1E822C08195000D40BA /* WordSearchButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4626EFDD237C9B5300F7DEFD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4613C16E22BF669800105090 /* Wordlist.swift */,
+				467BCBC62256E95B00EE441B /* WordSearch.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4626EFDE237C9B7900F7DEFD /* Other Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				46507D1422DD8F2C002A9A7E /* DataModel.swift */,
+			);
+			path = "Other Controllers";
+			sourceTree = "<group>";
+		};
+		4626EFE0237C9C4F00F7DEFD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				467B3B2C2304819700FFC371 /* UIColor+AppColors.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		46863B3B222E347000B8B3FB = {
 			isa = PBXGroup;
 			children = (
@@ -114,21 +156,13 @@
 			isa = PBXGroup;
 			children = (
 				46863B47222E347000B8B3FB /* AppDelegate.swift */,
-				46863B49222E347000B8B3FB /* AllListsViewController.swift */,
-				46C82B9822C031460094DC43 /* ListDetailViewController.swift */,
-				4613C17022BF69ED00105090 /* WordlistViewController.swift */,
-				46D10A0122C0409A005CFF04 /* WordDetailViewController.swift */,
-				461406A622C052FA002B5EB3 /* WordSearchViewController.swift */,
-				468358EE22E1774E00E5DA58 /* SettingsViewController.swift */,
-				46B1A1E822C08195000D40BA /* WordSearchButton.swift */,
 				46863B4B222E347000B8B3FB /* Main.storyboard */,
-				4613C16E22BF669800105090 /* Wordlist.swift */,
-				4613C16C22BF65B500105090 /* Word.swift */,
-				46507D1422DD8F2C002A9A7E /* DataModel.swift */,
-				467BCBC62256E95B00EE441B /* WordSearch.swift */,
+				4626EFDB237C9B0700F7DEFD /* View Controllers */,
+				4626EFDC237C9B3E00F7DEFD /* Views */,
+				4626EFDD237C9B5300F7DEFD /* Model */,
+				4626EFDE237C9B7900F7DEFD /* Other Controllers */,
+				4626EFE0237C9C4F00F7DEFD /* Extensions */,
 				468358F022E1864300E5DA58 /* Constants.swift */,
-				467B3B2C2304819700FFC371 /* UIColor+AppColors.swift */,
-				46989562231597DC00147B4D /* Functions.swift */,
 				46863B4E222E347100B8B3FB /* Assets.xcassets */,
 				46863B53222E347100B8B3FB /* Info.plist */,
 			);
@@ -257,9 +291,7 @@
 				4613C17122BF69ED00105090 /* WordlistViewController.swift in Sources */,
 				46507D1522DD8F2C002A9A7E /* DataModel.swift in Sources */,
 				467B3B2D2304819700FFC371 /* UIColor+AppColors.swift in Sources */,
-				4613C16D22BF65B500105090 /* Word.swift in Sources */,
 				46863B48222E347000B8B3FB /* AppDelegate.swift in Sources */,
-				46989563231597DC00147B4D /* Functions.swift in Sources */,
 				467BCBC72256E95B00EE441B /* WordSearch.swift in Sources */,
 				4613C16F22BF669800105090 /* Wordlist.swift in Sources */,
 				468358EF22E1774E00E5DA58 /* SettingsViewController.swift in Sources */,

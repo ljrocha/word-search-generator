@@ -15,6 +15,10 @@ struct Key {
         static let wordsIncluded = "WordsIncluded"
         static let titleIncluded = "TitleIncluded"
     }
+    
+    struct Notification {
+        static let settingsUpdated = "SettingsUpdated"
+    }
 }
 
 struct MaxCharacterCount {
