@@ -101,6 +101,11 @@ extension WordlistViewController: WordDetailViewControllerDelegate {
     }
     
     func wordDetailViewController(_ controller: WordDetailViewController, didFinishAdding word: String) {
+        guard wordlist.isOriginal(word: word) else {
+            showDuplicateWordMessage()
+            return
+        }
+        
         wordlist.words.append(word)
         tableView.reloadData()
         wordSearchButton.isEnabled = true
@@ -108,7 +113,21 @@ extension WordlistViewController: WordDetailViewControllerDelegate {
     }
     
     func wordDetailViewController(_ controller: WordDetailViewController, didFinishEditing word: String) {
+        guard wordlist.isOriginal(word: word) else {
+            showDuplicateWordMessage()
+            return
+        }
+        
         tableView.reloadData()
         dismiss(animated: true)
+    }
+    
+    func showDuplicateWordMessage() {
+        let ac = UIAlertController(title: "Duplicate word", message: "Please enter a unique word.", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        
+        dismiss(animated: true) { [weak self] in
+            self?.present(ac, animated: true)
+        }
     }
 }
