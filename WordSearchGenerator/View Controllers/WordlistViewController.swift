@@ -107,6 +107,7 @@ extension WordlistViewController: WordDetailViewControllerDelegate {
         }
         
         wordlist.words.append(word)
+        wordlist.sortWords()
         tableView.reloadData()
         wordSearchButton.isEnabled = true
         dismiss(animated: true)
@@ -118,6 +119,7 @@ extension WordlistViewController: WordDetailViewControllerDelegate {
             return
         }
         
+        wordlist.sortWords()
         tableView.reloadData()
         dismiss(animated: true)
     }
@@ -126,8 +128,6 @@ extension WordlistViewController: WordDetailViewControllerDelegate {
         let ac = UIAlertController(title: "Duplicate word", message: "Please enter a unique word.", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         
-        dismiss(animated: true) { [weak self] in
-            self?.present(ac, animated: true)
-        }
+        presentedViewController?.present(ac, animated: true)
     }
 }

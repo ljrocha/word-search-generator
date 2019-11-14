@@ -33,4 +33,8 @@ class Wordlist: Codable {
             $0.trimmingCharacters(in: .whitespaces).lowercased() == word.trimmingCharacters(in: .whitespaces).lowercased()
         }
     }
+    
+    func sortWords() {
+        words.sort()
+    }
 }

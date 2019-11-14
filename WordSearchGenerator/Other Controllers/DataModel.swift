@@ -44,6 +44,7 @@ class DataModel {
             
             do {
                 lists = try jsonDecoder.decode([Wordlist].self, from: data)
+                lists.forEach { $0.sortWords() }
             } catch {
                 print("Error decoding wordlist array: \(error.localizedDescription)")
             }
