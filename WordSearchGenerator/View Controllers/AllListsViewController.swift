@@ -37,14 +37,7 @@ class AllListsViewController: UITableViewController {
         
         let wordlist = dataModel.lists[indexPath.row]
         cell.textLabel?.text = wordlist.title
-        let wordCount = wordlist.words.count
-        if wordCount > 1 {
-            cell.detailTextLabel?.text = "\(wordCount) Words"
-        } else if wordCount > 0 {
-            cell.detailTextLabel?.text = "\(wordCount) Word"
-        } else {
-            cell.detailTextLabel?.text = "(No Words)"
-        }
+        cell.detailTextLabel?.text = wordlist.wordCountDescription
         
         return cell
     }
@@ -65,11 +58,11 @@ class AllListsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         if let detailVC = storyboard?.instantiateViewController(withIdentifier: "ListDetailViewController") as? ListDetailViewController {
-            let wordlist = dataModel.lists[indexPath.row]
-            detailVC.wordlistToEdit = wordlist
+            detailVC.wordlistToEdit = dataModel.lists[indexPath.row]
             detailVC.delegate = self
             
-            navigationController?.pushViewController(detailVC, animated: true)
+            let navController = UINavigationController(rootViewController: detailVC)
+            present(navController, animated: true)
         }
     }
     
@@ -78,7 +71,8 @@ class AllListsViewController: UITableViewController {
         if let detailVC = storyboard?.instantiateViewController(withIdentifier: "ListDetailViewController") as? ListDetailViewController {
             detailVC.delegate = self
             
-            navigationController?.pushViewController(detailVC, animated: true)
+            let navController = UINavigationController(rootViewController: detailVC)
+            present(navController, animated: true)
         }
     }
 
@@ -86,22 +80,17 @@ class AllListsViewController: UITableViewController {
 
 extension AllListsViewController: ListDetailViewControllerDelegate {
     func listDetailViewControllerDidCancel(_ controller: ListDetailViewController) {
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true)
     }
     
     func listDetailViewController(_ controller: ListDetailViewController, didFinishAdding wordlist: Wordlist) {
         dataModel.lists.append(wordlist)
         tableView.reloadData()
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true)
     }
     
     func listDetailViewController(_ controller: ListDetailViewController, didFinishEditing wordlist: Wordlist) {
         tableView.reloadData()
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true)
     }
-}
-
-func getDocumentsDirectory() -> URL {
-    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-    return paths[0]
 }

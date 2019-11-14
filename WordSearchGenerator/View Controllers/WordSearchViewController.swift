@@ -14,7 +14,15 @@ class WordSearchViewController: UIViewController {
     var wordlist: Wordlist!
     
     var pdfView: PDFView!
-    private let url = getDocumentsDirectory().appendingPathComponent("output.pdf")
+    private let url: URL = {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0].appendingPathComponent("output.pdf")
+    }()
+    
+    // MARK: - Deinitializer
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
     // MARK: - View life cycle
     override func viewDidLoad() {
@@ -27,6 +35,9 @@ class WordSearchViewController: UIViewController {
         navigationItem.rightBarButtonItems = [share, refresh]
         
         pdfView = PDFView()
+        if #available(iOS 13.0, *) {
+            pdfView.backgroundColor = .secondarySystemBackground
+        }
         pdfView.displayMode = .singlePage
         pdfView.displayDirection = .vertical
         pdfView.translatesAutoresizingMaskIntoConstraints = false
@@ -38,6 +49,15 @@ class WordSearchViewController: UIViewController {
         pdfView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         
         newWordSearchPuzzle()
+        
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(settingsUpdated), name: Notification.Name(Key.Notification.settingsUpdated), object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.tabBarItem.badgeValue = nil
     }
     
     // MARK: - Actions
@@ -58,6 +78,11 @@ class WordSearchViewController: UIViewController {
     @objc func shareTapped() {
         let ac = UIActivityViewController(activityItems: ["Can you complete this word search puzzle?\n", url], applicationActivities: nil)
         present(ac, animated: true)
+    }
+    
+    @objc func settingsUpdated() {
+        newWordSearchPuzzle()
+        navigationController?.tabBarItem.badgeValue = "!"
     }
 
 }

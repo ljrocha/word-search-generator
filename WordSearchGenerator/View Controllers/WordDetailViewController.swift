@@ -10,8 +10,8 @@ import UIKit
 
 protocol WordDetailViewControllerDelegate: class {
     func wordDetailViewControllerDidCancel(_ controller: WordDetailViewController)
-    func wordDetailViewController(_ controller: WordDetailViewController, didFinishAdding word: Word)
-    func wordDetailViewController(_ controller: WordDetailViewController, didFinishEditing word: Word)
+    func wordDetailViewController(_ controller: WordDetailViewController, didFinishAdding word: String)
+    func wordDetailViewController(_ controller: WordDetailViewController, didFinishEditing word: String)
 }
 
 class WordDetailViewController: UIViewController {
@@ -20,7 +20,7 @@ class WordDetailViewController: UIViewController {
     
     var doneButtonItem: UIBarButtonItem!
     
-    var wordToEdit: Word?
+    var wordToEdit: String?
     
     weak var delegate: WordDetailViewControllerDelegate?
     
@@ -35,12 +35,10 @@ class WordDetailViewController: UIViewController {
         
         if let word = wordToEdit {
             title = "Edit Word"
-            wordTextField.text = word.word
-            
+            wordTextField.text = word
             doneButtonItem.isEnabled = true
         } else {
             title = "Add Word"
-            
             doneButtonItem.isEnabled = false
         }
         
@@ -56,7 +54,7 @@ class WordDetailViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        view.endEditing(true)
+        wordTextField.resignFirstResponder()
     }
     
     // MARK: - Actions
@@ -65,11 +63,11 @@ class WordDetailViewController: UIViewController {
     }
     
     @IBAction func done() {
-        if let word = wordToEdit {
-            word.word = wordTextField.text!
+        let word = wordTextField.text!
+        
+        if wordToEdit != nil {
             delegate?.wordDetailViewController(self, didFinishEditing: word)
         } else {
-            let word = Word(word: wordTextField.text!)
             delegate?.wordDetailViewController(self, didFinishAdding: word)
         }
     }
@@ -86,20 +84,12 @@ extension WordDetailViewController: UITextFieldDelegate {
         let stringRange = Range(range, in: oldText)!
         let newText = oldText.replacingCharacters(in: stringRange, with: string)
         
-        if textField.tag == 1000 {
-            doneButtonItem.isEnabled = !newText.isEmpty
-            return newText.count <= MaxCharacterCount.word
-        } else if textField.tag == 1001 {
-            return newText.count <= MaxCharacterCount.clue
-        }
-        
-        return false
+        doneButtonItem.isEnabled = !newText.isEmpty
+        return newText.count <= MaxCharacterCount.word
     }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        if textField.tag == 1000 {
-            doneButtonItem.isEnabled = false
-        }
+        doneButtonItem.isEnabled = false
         return true
     }
 }

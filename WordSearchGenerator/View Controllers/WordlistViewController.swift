@@ -42,7 +42,8 @@ class WordlistViewController: UIViewController {
         if let detailVC = storyboard?.instantiateViewController(withIdentifier: "WordDetailViewController") as? WordDetailViewController {
             detailVC.delegate = self
             
-            navigationController?.pushViewController(detailVC, animated: true)
+            let navController = UINavigationController(rootViewController: detailVC)
+            present(navController, animated: true)
         }
     }
     
@@ -66,8 +67,7 @@ extension WordlistViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath)
         
         let word = wordlist.words[indexPath.row]
-        cell.textLabel?.text = word.word
-        cell.detailTextLabel?.text = word.clue
+        cell.textLabel?.text = word
         
         return cell
     }
@@ -83,32 +83,32 @@ extension WordlistViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         return nil
     }
+    
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         if let detailVC = storyboard?.instantiateViewController(withIdentifier: "WordDetailViewController") as? WordDetailViewController {
             detailVC.wordToEdit = wordlist.words[indexPath.row]
             detailVC.delegate = self
             
-            navigationController?.pushViewController(detailVC, animated: true)
+            let navController = UINavigationController(rootViewController: detailVC)
+            present(navController, animated: true)
         }
     }
 }
 
 extension WordlistViewController: WordDetailViewControllerDelegate {
     func wordDetailViewControllerDidCancel(_ controller: WordDetailViewController) {
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true)
     }
     
-    func wordDetailViewController(_ controller: WordDetailViewController, didFinishAdding word: Word) {
+    func wordDetailViewController(_ controller: WordDetailViewController, didFinishAdding word: String) {
         wordlist.words.append(word)
         tableView.reloadData()
         wordSearchButton.isEnabled = true
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true)
     }
     
-    func wordDetailViewController(_ controller: WordDetailViewController, didFinishEditing word: Word) {
+    func wordDetailViewController(_ controller: WordDetailViewController, didFinishEditing word: String) {
         tableView.reloadData()
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true)
     }
-    
-    
 }

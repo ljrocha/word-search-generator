@@ -16,7 +16,7 @@ protocol ListDetailViewControllerDelegate: class {
 
 class ListDetailViewController: UIViewController {
 
-    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var titleTextField: UITextField!
     
     var doneButtonItem: UIBarButtonItem!
     
@@ -35,26 +35,26 @@ class ListDetailViewController: UIViewController {
         
         if let wordlist = wordlistToEdit {
             title = "Edit Wordlist"
-            nameTextField.text = wordlist.title
+            titleTextField.text = wordlist.title
             doneButtonItem.isEnabled = true
         } else {
             title = "Add Wordlist"
             doneButtonItem.isEnabled = false
         }
         
-        nameTextField.delegate = self
+        titleTextField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        nameTextField.becomeFirstResponder()
+        titleTextField.becomeFirstResponder()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        view.endEditing(true)
+        titleTextField.resignFirstResponder()
     }
     
     // MARK: - Actions
@@ -64,16 +64,16 @@ class ListDetailViewController: UIViewController {
     
     @IBAction func done() {
         if let wordlist = wordlistToEdit {
-            wordlist.title = nameTextField.text!
+            wordlist.title = titleTextField.text!
             delegate?.listDetailViewController(self, didFinishEditing: wordlist)
         } else {
-            let wordlist = Wordlist(title: nameTextField.text!)
+            let wordlist = Wordlist(title: titleTextField.text!)
             delegate?.listDetailViewController(self, didFinishAdding: wordlist)
         }
     }
     
     @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
-        nameTextField.resignFirstResponder()
+        titleTextField.resignFirstResponder()
     }
     
 }
@@ -84,12 +84,15 @@ extension ListDetailViewController: UITextFieldDelegate {
         let stringRange = Range(range, in: oldText)!
         let newText = oldText.replacingCharacters(in: stringRange, with: string)
         
-        if textField.tag == 1000 {
-            doneButtonItem.isEnabled = !newText.isEmpty
-            return newText.count <= MaxCharacterCount.title
-        }
+        let trimmedNewText = newText.trimmingCharacters(in: .whitespaces)
+        let characterSet = CharacterSet(charactersIn: trimmedNewText)
         
-        return false
+        var allowed = CharacterSet()
+        allowed.formUnion(.letters)
+        allowed.insert(charactersIn: " ")
+        
+        doneButtonItem.isEnabled = !trimmedNewText.isEmpty
+        return !trimmedNewText.isEmpty && newText.count <= MaxCharacterCount.title && allowed.isSuperset(of: characterSet)
     }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {

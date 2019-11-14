@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4613C16D22BF65B500105090 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4613C16C22BF65B500105090 /* Word.swift */; };
 		4613C16F22BF669800105090 /* Wordlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4613C16E22BF669800105090 /* Wordlist.swift */; };
 		4613C17122BF69ED00105090 /* WordlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4613C17022BF69ED00105090 /* WordlistViewController.swift */; };
 		461406A722C052FA002B5EB3 /* WordSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461406A622C052FA002B5EB3 /* WordSearchViewController.swift */; };
@@ -20,13 +19,29 @@
 		46863B4A222E347000B8B3FB /* AllListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46863B49222E347000B8B3FB /* AllListsViewController.swift */; };
 		46863B4D222E347000B8B3FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46863B4B222E347000B8B3FB /* Main.storyboard */; };
 		46863B4F222E347100B8B3FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46863B4E222E347100B8B3FB /* Assets.xcassets */; };
+		4689C6672315B9BD0006812B /* WordSearchViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4689C6662315B9BD0006812B /* WordSearchViewControllerTests.swift */; };
+		4689C6692315BB250006812B /* WordDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4689C6682315BB250006812B /* WordDetailViewControllerTests.swift */; };
+		4689C66B2315CB850006812B /* WordlistViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4689C66A2315CB850006812B /* WordlistViewControllerTests.swift */; };
+		4689C66D2315CFFD0006812B /* ListDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4689C66C2315CFFD0006812B /* ListDetailViewControllerTests.swift */; };
+		4689C66F2315D23A0006812B /* AllListsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4689C66E2315D23A0006812B /* AllListsViewControllerTests.swift */; };
+		4698955B2315941800147B4D /* WordSearchGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4698955A2315941800147B4D /* WordSearchGeneratorTests.swift */; };
 		46B1A1E922C08195000D40BA /* WordSearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B1A1E822C08195000D40BA /* WordSearchButton.swift */; };
 		46C82B9922C031460094DC43 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C82B9822C031460094DC43 /* ListDetailViewController.swift */; };
 		46D10A0222C0409A005CFF04 /* WordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D10A0122C0409A005CFF04 /* WordDetailViewController.swift */; };
+		46FEBB522315A93E0077AD25 /* SettingsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FEBB512315A93E0077AD25 /* SettingsViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4698955D2315941800147B4D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 46863B3C222E347000B8B3FB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 46863B43222E347000B8B3FB;
+			remoteInfo = WordSearchGenerator;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		4613C16C22BF65B500105090 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		4613C16E22BF669800105090 /* Wordlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wordlist.swift; sourceTree = "<group>"; };
 		4613C17022BF69ED00105090 /* WordlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordlistViewController.swift; sourceTree = "<group>"; };
 		461406A622C052FA002B5EB3 /* WordSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearchViewController.swift; sourceTree = "<group>"; };
@@ -41,9 +56,18 @@
 		46863B4C222E347000B8B3FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		46863B4E222E347100B8B3FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46863B53222E347100B8B3FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4689C6662315B9BD0006812B /* WordSearchViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearchViewControllerTests.swift; sourceTree = "<group>"; };
+		4689C6682315BB250006812B /* WordDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetailViewControllerTests.swift; sourceTree = "<group>"; };
+		4689C66A2315CB850006812B /* WordlistViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordlistViewControllerTests.swift; sourceTree = "<group>"; };
+		4689C66C2315CFFD0006812B /* ListDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewControllerTests.swift; sourceTree = "<group>"; };
+		4689C66E2315D23A0006812B /* AllListsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListsViewControllerTests.swift; sourceTree = "<group>"; };
+		469895582315941800147B4D /* WordSearchGeneratorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WordSearchGeneratorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4698955A2315941800147B4D /* WordSearchGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearchGeneratorTests.swift; sourceTree = "<group>"; };
+		4698955C2315941800147B4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46B1A1E822C08195000D40BA /* WordSearchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearchButton.swift; sourceTree = "<group>"; };
 		46C82B9822C031460094DC43 /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
 		46D10A0122C0409A005CFF04 /* WordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetailViewController.swift; sourceTree = "<group>"; };
+		46FEBB512315A93E0077AD25 /* SettingsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,13 +78,67 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		469895552315941800147B4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4626EFDB237C9B0700F7DEFD /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				46863B49222E347000B8B3FB /* AllListsViewController.swift */,
+				46C82B9822C031460094DC43 /* ListDetailViewController.swift */,
+				4613C17022BF69ED00105090 /* WordlistViewController.swift */,
+				46D10A0122C0409A005CFF04 /* WordDetailViewController.swift */,
+				461406A622C052FA002B5EB3 /* WordSearchViewController.swift */,
+				468358EE22E1774E00E5DA58 /* SettingsViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		4626EFDC237C9B3E00F7DEFD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				46B1A1E822C08195000D40BA /* WordSearchButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4626EFDD237C9B5300F7DEFD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4613C16E22BF669800105090 /* Wordlist.swift */,
+				467BCBC62256E95B00EE441B /* WordSearch.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4626EFDE237C9B7900F7DEFD /* Other Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				46507D1422DD8F2C002A9A7E /* DataModel.swift */,
+			);
+			path = "Other Controllers";
+			sourceTree = "<group>";
+		};
+		4626EFE0237C9C4F00F7DEFD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				467B3B2C2304819700FFC371 /* UIColor+AppColors.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		46863B3B222E347000B8B3FB = {
 			isa = PBXGroup;
 			children = (
 				46863B46222E347000B8B3FB /* WordSearchGenerator */,
+				469895592315941800147B4D /* WordSearchGeneratorTests */,
 				46863B45222E347000B8B3FB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				46863B44222E347000B8B3FB /* WordSearchGenerator.app */,
+				469895582315941800147B4D /* WordSearchGeneratorTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -77,24 +156,32 @@
 			isa = PBXGroup;
 			children = (
 				46863B47222E347000B8B3FB /* AppDelegate.swift */,
-				46863B49222E347000B8B3FB /* AllListsViewController.swift */,
-				46C82B9822C031460094DC43 /* ListDetailViewController.swift */,
-				4613C17022BF69ED00105090 /* WordlistViewController.swift */,
-				46D10A0122C0409A005CFF04 /* WordDetailViewController.swift */,
-				461406A622C052FA002B5EB3 /* WordSearchViewController.swift */,
-				468358EE22E1774E00E5DA58 /* SettingsViewController.swift */,
-				46B1A1E822C08195000D40BA /* WordSearchButton.swift */,
 				46863B4B222E347000B8B3FB /* Main.storyboard */,
-				4613C16E22BF669800105090 /* Wordlist.swift */,
-				4613C16C22BF65B500105090 /* Word.swift */,
-				46507D1422DD8F2C002A9A7E /* DataModel.swift */,
-				467BCBC62256E95B00EE441B /* WordSearch.swift */,
+				4626EFDB237C9B0700F7DEFD /* View Controllers */,
+				4626EFDC237C9B3E00F7DEFD /* Views */,
+				4626EFDD237C9B5300F7DEFD /* Model */,
+				4626EFDE237C9B7900F7DEFD /* Other Controllers */,
+				4626EFE0237C9C4F00F7DEFD /* Extensions */,
 				468358F022E1864300E5DA58 /* Constants.swift */,
-				467B3B2C2304819700FFC371 /* UIColor+AppColors.swift */,
 				46863B4E222E347100B8B3FB /* Assets.xcassets */,
 				46863B53222E347100B8B3FB /* Info.plist */,
 			);
 			path = WordSearchGenerator;
+			sourceTree = "<group>";
+		};
+		469895592315941800147B4D /* WordSearchGeneratorTests */ = {
+			isa = PBXGroup;
+			children = (
+				4698955A2315941800147B4D /* WordSearchGeneratorTests.swift */,
+				4689C66E2315D23A0006812B /* AllListsViewControllerTests.swift */,
+				4689C66C2315CFFD0006812B /* ListDetailViewControllerTests.swift */,
+				4689C66A2315CB850006812B /* WordlistViewControllerTests.swift */,
+				4689C6682315BB250006812B /* WordDetailViewControllerTests.swift */,
+				4689C6662315B9BD0006812B /* WordSearchViewControllerTests.swift */,
+				46FEBB512315A93E0077AD25 /* SettingsViewControllerTests.swift */,
+				4698955C2315941800147B4D /* Info.plist */,
+			);
+			path = WordSearchGeneratorTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,19 +204,41 @@
 			productReference = 46863B44222E347000B8B3FB /* WordSearchGenerator.app */;
 			productType = "com.apple.product-type.application";
 		};
+		469895572315941800147B4D /* WordSearchGeneratorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 469895612315941800147B4D /* Build configuration list for PBXNativeTarget "WordSearchGeneratorTests" */;
+			buildPhases = (
+				469895542315941800147B4D /* Sources */,
+				469895552315941800147B4D /* Frameworks */,
+				469895562315941800147B4D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4698955E2315941800147B4D /* PBXTargetDependency */,
+			);
+			name = WordSearchGeneratorTests;
+			productName = WordSearchGeneratorTests;
+			productReference = 469895582315941800147B4D /* WordSearchGeneratorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		46863B3C222E347000B8B3FB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1030;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Leandro Rocha";
 				TargetAttributes = {
 					46863B43222E347000B8B3FB = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1020;
+					};
+					469895572315941800147B4D = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = 46863B43222E347000B8B3FB;
 					};
 				};
 			};
@@ -147,6 +256,7 @@
 			projectRoot = "";
 			targets = (
 				46863B43222E347000B8B3FB /* WordSearchGenerator */,
+				469895572315941800147B4D /* WordSearchGeneratorTests */,
 			);
 		};
 /* End PBXProject section */
@@ -158,6 +268,13 @@
 			files = (
 				46863B4F222E347100B8B3FB /* Assets.xcassets in Resources */,
 				46863B4D222E347000B8B3FB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		469895562315941800147B4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,7 +291,6 @@
 				4613C17122BF69ED00105090 /* WordlistViewController.swift in Sources */,
 				46507D1522DD8F2C002A9A7E /* DataModel.swift in Sources */,
 				467B3B2D2304819700FFC371 /* UIColor+AppColors.swift in Sources */,
-				4613C16D22BF65B500105090 /* Word.swift in Sources */,
 				46863B48222E347000B8B3FB /* AppDelegate.swift in Sources */,
 				467BCBC72256E95B00EE441B /* WordSearch.swift in Sources */,
 				4613C16F22BF669800105090 /* Wordlist.swift in Sources */,
@@ -185,7 +301,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		469895542315941800147B4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4689C66F2315D23A0006812B /* AllListsViewControllerTests.swift in Sources */,
+				4698955B2315941800147B4D /* WordSearchGeneratorTests.swift in Sources */,
+				4689C66D2315CFFD0006812B /* ListDetailViewControllerTests.swift in Sources */,
+				4689C66B2315CB850006812B /* WordlistViewControllerTests.swift in Sources */,
+				46FEBB522315A93E0077AD25 /* SettingsViewControllerTests.swift in Sources */,
+				4689C6672315B9BD0006812B /* WordSearchViewControllerTests.swift in Sources */,
+				4689C6692315BB250006812B /* WordDetailViewControllerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4698955E2315941800147B4D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 46863B43222E347000B8B3FB /* WordSearchGenerator */;
+			targetProxy = 4698955D2315941800147B4D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		46863B4B222E347000B8B3FB /* Main.storyboard */ = {
@@ -351,6 +489,48 @@
 			};
 			name = Release;
 		};
+		4698955F2315941800147B4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B27B4KDKQS;
+				INFOPLIST_FILE = WordSearchGeneratorTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ljrocha.WordSearchGeneratorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WordSearchGenerator.app/WordSearchGenerator";
+			};
+			name = Debug;
+		};
+		469895602315941800147B4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B27B4KDKQS;
+				INFOPLIST_FILE = WordSearchGeneratorTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ljrocha.WordSearchGeneratorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WordSearchGenerator.app/WordSearchGenerator";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -368,6 +548,15 @@
 			buildConfigurations = (
 				46863B57222E347100B8B3FB /* Debug */,
 				46863B58222E347100B8B3FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		469895612315941800147B4D /* Build configuration list for PBXNativeTarget "WordSearchGeneratorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4698955F2315941800147B4D /* Debug */,
+				469895602315941800147B4D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
