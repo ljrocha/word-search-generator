@@ -85,6 +85,8 @@ extension WordlistViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        
         if let detailVC = storyboard?.instantiateViewController(withIdentifier: "WordDetailViewController") as? WordDetailViewController {
             detailVC.wordToEdit = wordlist.words[indexPath.row]
             detailVC.delegate = self
@@ -97,18 +99,44 @@ extension WordlistViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension WordlistViewController: WordDetailViewControllerDelegate {
     func wordDetailViewControllerDidCancel(_ controller: WordDetailViewController) {
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
         dismiss(animated: true)
     }
     
     func wordDetailViewController(_ controller: WordDetailViewController, didFinishAdding word: String) {
+        guard wordlist.isOriginal(word: word) else {
+            showDuplicateWordMessage()
+            return
+        }
+        
         wordlist.words.append(word)
+        wordlist.sortWords()
         tableView.reloadData()
         wordSearchButton.isEnabled = true
         dismiss(animated: true)
     }
     
     func wordDetailViewController(_ controller: WordDetailViewController, didFinishEditing word: String) {
+        guard wordlist.isOriginal(word: word) else {
+            showDuplicateWordMessage()
+            return
+        }
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: false)
+            wordlist.words[indexPath.row] = word
+        }
+        wordlist.sortWords()
         tableView.reloadData()
         dismiss(animated: true)
+    }
+    
+    func showDuplicateWordMessage() {
+        let ac = UIAlertController(title: "Duplicate word", message: "Please enter a unique word.", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        
+        presentedViewController?.present(ac, animated: true)
     }
 }

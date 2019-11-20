@@ -63,7 +63,10 @@ class WordDetailViewController: UIViewController {
     }
     
     @IBAction func done() {
-        let word = wordTextField.text!
+        guard let word = wordTextField.text?.trimmingCharacters(in: .whitespaces), !word.isEmpty else {
+            showEmptyWordErrorMessage()
+            return
+        }
         
         if wordToEdit != nil {
             delegate?.wordDetailViewController(self, didFinishEditing: word)
@@ -76,6 +79,18 @@ class WordDetailViewController: UIViewController {
         view.endEditing(true)
     }
     
+    @IBAction func textChanged(_ sender: UITextField) {
+        let word = sender.text ?? ""
+        doneButtonItem.isEnabled = !word.isEmpty
+    }
+    
+    // MARK: - Methods
+    func showEmptyWordErrorMessage() {
+        let ac = UIAlertController(title: "Word must not be empty", message: nil, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
+    }
+    
 }
 
 extension WordDetailViewController: UITextFieldDelegate {
@@ -84,12 +99,15 @@ extension WordDetailViewController: UITextFieldDelegate {
         let stringRange = Range(range, in: oldText)!
         let newText = oldText.replacingCharacters(in: stringRange, with: string)
         
-        doneButtonItem.isEnabled = !newText.isEmpty
-        return newText.count <= MaxCharacterCount.word
+        var allowed = CharacterSet()
+        allowed.formUnion(.lowercaseLetters)
+        allowed.formUnion(.uppercaseLetters)
+        allowed.insert(charactersIn: " ")
+        
+        return newText.count <= MaxCharacterCount.word && newText.unicodeScalars.allSatisfy { allowed.contains($0) }
     }
     
-    func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        doneButtonItem.isEnabled = false
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return true
     }
 }

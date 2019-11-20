@@ -26,4 +26,15 @@ class Wordlist: Codable {
     init(title: String) {
         self.title = title
     }
+    
+    // MARK: - Methods
+    func isOriginal(word: String) -> Bool {
+        return !words.contains {
+            $0.trimmingCharacters(in: .whitespaces).lowercased() == word.trimmingCharacters(in: .whitespaces).lowercased()
+        }
+    }
+    
+    func sortWords() {
+        words.sort()
+    }
 }
