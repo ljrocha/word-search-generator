@@ -85,6 +85,8 @@ extension WordlistViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        
         if let detailVC = storyboard?.instantiateViewController(withIdentifier: "WordDetailViewController") as? WordDetailViewController {
             detailVC.wordToEdit = wordlist.words[indexPath.row]
             detailVC.delegate = self
@@ -97,6 +99,9 @@ extension WordlistViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension WordlistViewController: WordDetailViewControllerDelegate {
     func wordDetailViewControllerDidCancel(_ controller: WordDetailViewController) {
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
         dismiss(animated: true)
     }
     
@@ -119,6 +124,10 @@ extension WordlistViewController: WordDetailViewControllerDelegate {
             return
         }
         
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: false)
+            wordlist.words[indexPath.row] = word
+        }
         wordlist.sortWords()
         tableView.reloadData()
         dismiss(animated: true)

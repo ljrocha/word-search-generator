@@ -63,17 +63,34 @@ class ListDetailViewController: UIViewController {
     }
     
     @IBAction func done() {
+        guard let title = titleTextField.text?.trimmingCharacters(in: .whitespaces), !title.isEmpty else {
+            showEmptyTitleErrorMessage()
+            return
+        }
+        
         if let wordlist = wordlistToEdit {
-            wordlist.title = titleTextField.text!
+            wordlist.title = title
             delegate?.listDetailViewController(self, didFinishEditing: wordlist)
         } else {
-            let wordlist = Wordlist(title: titleTextField.text!)
+            let wordlist = Wordlist(title: title)
             delegate?.listDetailViewController(self, didFinishAdding: wordlist)
         }
     }
     
     @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
         titleTextField.resignFirstResponder()
+    }
+    
+    @IBAction func textChanged(_ sender: UITextField) {
+        let title = sender.text ?? ""
+        doneButtonItem.isEnabled = !title.isEmpty
+    }
+    
+    // MARK: - Methods
+    func showEmptyTitleErrorMessage() {
+        let ac = UIAlertController(title: "Title must not be empty", message: nil, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
     }
     
 }
@@ -84,19 +101,10 @@ extension ListDetailViewController: UITextFieldDelegate {
         let stringRange = Range(range, in: oldText)!
         let newText = oldText.replacingCharacters(in: stringRange, with: string)
         
-        let trimmedNewText = newText.trimmingCharacters(in: .whitespaces)
-        let characterSet = CharacterSet(charactersIn: trimmedNewText)
-        
-        var allowed = CharacterSet()
-        allowed.formUnion(.letters)
-        allowed.insert(charactersIn: " ")
-        
-        doneButtonItem.isEnabled = !trimmedNewText.isEmpty
-        return !trimmedNewText.isEmpty && newText.count <= MaxCharacterCount.title && allowed.isSuperset(of: characterSet)
+        return newText.count <= MaxCharacterCount.title
     }
     
-    func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        doneButtonItem.isEnabled = false
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return true
     }
 }

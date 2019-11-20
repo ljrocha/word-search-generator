@@ -115,7 +115,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
-                                    <action selector="done" destination="fcG-BC-0Px" eventType="editingDidEndOnExit" id="BOB-Ik-Wn2"/>
+                                    <action selector="done" destination="fcG-BC-0Px" eventType="editingDidEndOnExit" id="td3-fn-U3b"/>
+                                    <action selector="textChanged:" destination="fcG-BC-0Px" eventType="editingChanged" id="MWU-jn-rya"/>
                                 </connections>
                             </textField>
                         </subviews>
@@ -158,6 +159,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <action selector="done" destination="WfQ-x5-zja" eventType="editingDidEndOnExit" id="QmI-tM-emh"/>
+                                    <action selector="textChanged:" destination="WfQ-x5-zja" eventType="editingChanged" id="rXb-qW-HNb"/>
                                 </connections>
                             </textField>
                         </subviews>
