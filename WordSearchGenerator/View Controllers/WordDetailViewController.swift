@@ -82,6 +82,7 @@ class WordDetailViewController: UIViewController {
     @IBAction func textChanged(_ sender: UITextField) {
         let word = sender.text ?? ""
         doneButtonItem.isEnabled = !word.isEmpty
+        sender.text = word.replacingOccurrences(of: ".", with: " ")
     }
     
     // MARK: - Methods
