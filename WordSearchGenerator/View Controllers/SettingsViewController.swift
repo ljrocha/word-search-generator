@@ -9,20 +9,25 @@
 import UIKit
 
 class SettingsViewController: UITableViewController {
-
     
     @IBOutlet weak var titleSwitch: UISwitch!
     @IBOutlet weak var wordsSwitch: UISwitch!
     @IBOutlet weak var difficultySegmentedControl: UISegmentedControl!
     @IBOutlet weak var gridSizeSegmentedControl: UISegmentedControl!
     
+    // MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureViewController()
+        setUpControls()
+    }
+    
+    // MARK: - Configuration methods
+    func configureViewController() {
         title = "Settings"
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        setUpControls()
     }
     
     func setUpControls() {
@@ -48,6 +53,7 @@ class SettingsViewController: UITableViewController {
         }
     }
     
+    // MARK: - Methods
     @IBAction func switchChanged(_ sender: UISwitch) {
         let defaults = UserDefaults.standard
         

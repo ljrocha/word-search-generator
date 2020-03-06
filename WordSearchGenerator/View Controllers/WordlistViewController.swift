@@ -11,30 +11,43 @@ import UIKit
 class WordlistViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    var wordSearchButton = WSButton()
     
     var wordlist: Wordlist!
-    
-    var wordSearchButton: WordSearchButton!
     
     // MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureViewController()
+        configureTableView()
+        configureWordSearchButton()
+    }
+    
+    // MARK: - Configuration methods
+    func configureViewController() {
         title = wordlist.title
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
-        
+    }
+    
+    func configureTableView() {
         tableView.dataSource = self
         tableView.delegate = self
-        
-        wordSearchButton = WordSearchButton()
+    }
+    
+    func configureWordSearchButton() {
+        view.addSubview(wordSearchButton)
         wordSearchButton.translatesAutoresizingMaskIntoConstraints = false
         wordSearchButton.addTarget(self, action: #selector(wordSearchButtonTapped), for: .touchUpInside)
         wordSearchButton.isEnabled = !wordlist.words.isEmpty
-        view.addSubview(wordSearchButton)
         
-        wordSearchButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -70).isActive = true
-        wordSearchButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16).isActive = true
+        let padding: CGFloat = 40
+        NSLayoutConstraint.activate([
+            wordSearchButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            wordSearchButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            wordSearchButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding)
+        ])
     }
     
     // MARK: - Actions
@@ -58,6 +71,7 @@ class WordlistViewController: UIViewController {
 }
 
 extension WordlistViewController: UITableViewDataSource, UITableViewDelegate {
+    
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return wordlist.words.count
@@ -98,6 +112,7 @@ extension WordlistViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension WordlistViewController: WordDetailViewControllerDelegate {
+    
     func wordDetailViewControllerDidCancel(_ controller: WordDetailViewController) {
         if let indexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: indexPath, animated: true)

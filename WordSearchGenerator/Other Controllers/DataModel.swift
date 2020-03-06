@@ -9,6 +9,7 @@
 import Foundation
 
 class DataModel {
+    
     var lists = [Wordlist]()
     
     init() {

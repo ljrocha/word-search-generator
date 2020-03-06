@@ -17,7 +17,6 @@ protocol WordDetailViewControllerDelegate: class {
 class WordDetailViewController: UIViewController {
 
     @IBOutlet weak var wordTextField: UITextField!
-    
     var doneButtonItem: UIBarButtonItem!
     
     var wordToEdit: String?
@@ -28,20 +27,7 @@ class WordDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.largeTitleDisplayMode = .never
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
-        doneButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
-        navigationItem.rightBarButtonItem = doneButtonItem
-        
-        if let word = wordToEdit {
-            title = "Edit Word"
-            wordTextField.text = word
-            doneButtonItem.isEnabled = true
-        } else {
-            title = "Add Word"
-            doneButtonItem.isEnabled = false
-        }
-        
+        configureViewController()
         wordTextField.delegate = self
     }
     
@@ -55,6 +41,23 @@ class WordDetailViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         wordTextField.resignFirstResponder()
+    }
+    
+    // MARK: - Configuration methods
+    func configureViewController() {
+        navigationItem.largeTitleDisplayMode = .never
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
+        doneButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        navigationItem.rightBarButtonItem = doneButtonItem
+        
+        if let word = wordToEdit {
+            title = "Edit Word"
+            wordTextField.text = word
+            doneButtonItem.isEnabled = true
+        } else {
+            title = "Add Word"
+            doneButtonItem.isEnabled = false
+        }
     }
     
     // MARK: - Actions
@@ -95,6 +98,7 @@ class WordDetailViewController: UIViewController {
 }
 
 extension WordDetailViewController: UITextFieldDelegate {
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let oldText = textField.text!
         let stringRange = Range(range, in: oldText)!

@@ -17,7 +17,6 @@ protocol ListDetailViewControllerDelegate: class {
 class ListDetailViewController: UIViewController {
 
     @IBOutlet weak var titleTextField: UITextField!
-    
     var doneButtonItem: UIBarButtonItem!
     
     var wordlistToEdit: Wordlist?
@@ -28,20 +27,7 @@ class ListDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.largeTitleDisplayMode = .never
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
-        doneButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
-        navigationItem.rightBarButtonItem = doneButtonItem
-        
-        if let wordlist = wordlistToEdit {
-            title = "Edit Wordlist"
-            titleTextField.text = wordlist.title
-            doneButtonItem.isEnabled = true
-        } else {
-            title = "Add Wordlist"
-            doneButtonItem.isEnabled = false
-        }
-        
+        configureViewController()
         titleTextField.delegate = self
     }
     
@@ -55,6 +41,23 @@ class ListDetailViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         titleTextField.resignFirstResponder()
+    }
+    
+    // MARK: - Configuration methods
+    func configureViewController() {
+        navigationItem.largeTitleDisplayMode = .never
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
+        doneButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        navigationItem.rightBarButtonItem = doneButtonItem
+        
+        if let wordlist = wordlistToEdit {
+            title = "Edit Wordlist"
+            titleTextField.text = wordlist.title
+            doneButtonItem.isEnabled = true
+        } else {
+            title = "Add Wordlist"
+            doneButtonItem.isEnabled = false
+        }
     }
     
     // MARK: - Actions
@@ -96,6 +99,7 @@ class ListDetailViewController: UIViewController {
 }
 
 extension ListDetailViewController: UITextFieldDelegate {
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let oldText = textField.text!
         let stringRange = Range(range, in: oldText)!

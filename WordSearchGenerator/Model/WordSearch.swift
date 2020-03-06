@@ -68,6 +68,7 @@ class Label {
 }
 
 class WordSearch {
+    
     var wordlist: Wordlist?
     
     var includeTitle = true
@@ -213,7 +214,7 @@ class WordSearch {
         // Grid margins
         let gridXMargin = (pageRect.width - (gridCellSize * CGFloat(gridSize))) / 2
         let gridYMargin: CGFloat
-        if let wordlist = wordlist, !wordlist.title.isEmpty, wordlist.title != "Unknown" {
+        if let wordlist = wordlist, !wordlist.title.isEmpty, includeTitle {
             let constrainedRect = CGSize(width: availableSpace.width, height: .greatestFiniteMagnitude)
             let boundingBox = wordlist.title.boundingRect(with: constrainedRect, options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: titleAttributes, context: nil)
             gridYMargin = boundingBox.height + margin * 1.5
@@ -236,7 +237,7 @@ class WordSearch {
                 let placedWords = makeGrid()
                 
                 // Draw Title
-                if let wordlist = wordlist, !wordlist.title.isEmpty, wordlist.title != "Unknown" {
+                if let wordlist = wordlist, !wordlist.title.isEmpty, includeTitle {
                     let titleRect = CGRect(x: margin, y: margin, width: availableSpace.width, height: gridYMargin - (margin * 1.5))
                     wordlist.title.draw(in: titleRect, withAttributes: titleAttributes)
                 }
@@ -273,13 +274,15 @@ class WordSearch {
                 }
                 
                 // Draw Placed Words
-                let wordSearchWords = placedWords.map { $0 }
-                let combinedWords = wordSearchWords.joined(separator: " · ")
-                let gridHeight = gridCellSize * CGFloat(gridSize)
-                let wordYMargin = gridYMargin + gridHeight + margin / 2
-                let wordRect = CGRect(x: margin, y: wordYMargin, width: availableSpace.width, height: availableSpace.height - wordYMargin)
-                
-                combinedWords.draw(in: wordRect, withAttributes: wordAttributes)
+                if includeWords {
+                    let wordSearchWords = placedWords.map { $0 }
+                    let combinedWords = wordSearchWords.joined(separator: " · ")
+                    let gridHeight = gridCellSize * CGFloat(gridSize)
+                    let wordYMargin = gridYMargin + gridHeight + margin / 2
+                    let wordRect = CGRect(x: margin, y: wordYMargin, width: availableSpace.width, height: availableSpace.height - wordYMargin)
+                    
+                    combinedWords.draw(in: wordRect, withAttributes: wordAttributes)
+                }
                 
             }
         }

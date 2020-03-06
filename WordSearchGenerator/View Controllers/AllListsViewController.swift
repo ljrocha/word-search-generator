@@ -16,15 +16,20 @@ class AllListsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Wordlists"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
+        configureViewController()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         tableView.reloadData()
+    }
+    
+    // MARK: - Configuration methods
+    func configureViewController() {
+        title = "Wordlists"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
     }
     
     // MARK: - Table view data source
@@ -79,6 +84,7 @@ class AllListsViewController: UITableViewController {
 }
 
 extension AllListsViewController: ListDetailViewControllerDelegate {
+    
     func listDetailViewControllerDidCancel(_ controller: ListDetailViewController) {
         dismiss(animated: true)
     }

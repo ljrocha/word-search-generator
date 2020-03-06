@@ -28,12 +28,28 @@ class WordSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configureViewController()
+        configurePDFView()
+        generateNewWordSearchPuzzle()
+        addSettingsUpdatedObserver()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.tabBarItem.badgeValue = nil
+    }
+    
+    // MARK: - Configuration methods
+    func configureViewController() {
         title = "Word Search Puzzle"
         navigationItem.largeTitleDisplayMode = .never
-        let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(newWordSearchPuzzle))
+        let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(generateNewWordSearchPuzzle))
         let share = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
         navigationItem.rightBarButtonItems = [share, refresh]
-        
+    }
+    
+    func configurePDFView() {
         pdfView = PDFView()
         if #available(iOS 13.0, *) {
             pdfView.backgroundColor = .secondarySystemBackground
@@ -47,21 +63,15 @@ class WordSearchViewController: UIViewController {
         pdfView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         pdfView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         pdfView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        
-        newWordSearchPuzzle()
-        
+    }
+    
+    func addSettingsUpdatedObserver() {
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(settingsUpdated), name: Notification.Name(Key.Notification.settingsUpdated), object: nil)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        navigationController?.tabBarItem.badgeValue = nil
-    }
-    
     // MARK: - Actions
-    @objc func newWordSearchPuzzle() {
+    @objc func generateNewWordSearchPuzzle() {
         let wordSearch = WordSearch()
         wordSearch.wordlist = wordlist
         _ = wordSearch.makeGrid()
@@ -81,7 +91,7 @@ class WordSearchViewController: UIViewController {
     }
     
     @objc func settingsUpdated() {
-        newWordSearchPuzzle()
+        generateNewWordSearchPuzzle()
         navigationController?.tabBarItem.badgeValue = "!"
     }
 
