@@ -30,7 +30,7 @@ class WSButton: UIButton {
         layer.cornerRadius = 8
         layer.shadowOpacity = 0.25
         layer.shadowRadius = 5
-        layer.shadowOffset = CGSize(width: 0, height: 10)
+        layer.shadowOffset = CGSize(width: 0, height: 5)
     }
 
 }

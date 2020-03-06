@@ -44,9 +44,10 @@ class WordlistViewController: UIViewController {
         
         let padding: CGFloat = 40
         NSLayoutConstraint.activate([
-            wordSearchButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            wordSearchButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8),
             wordSearchButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            wordSearchButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding)
+            wordSearchButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            wordSearchButton.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
     
