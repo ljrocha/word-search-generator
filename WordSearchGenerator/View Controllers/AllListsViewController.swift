@@ -62,23 +62,21 @@ class AllListsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        if let detailVC = storyboard?.instantiateViewController(withIdentifier: "ListDetailViewController") as? ListDetailViewController {
-            detailVC.wordlistToEdit = dataModel.lists[indexPath.row]
-            detailVC.delegate = self
-            
-            let navController = UINavigationController(rootViewController: detailVC)
-            present(navController, animated: true)
-        }
+        let detailVC = ListDetailViewController()
+        detailVC.wordlistToEdit = dataModel.lists[indexPath.row]
+        detailVC.delegate = self
+        
+        let navController = UINavigationController(rootViewController: detailVC)
+        present(navController, animated: true)
     }
     
     // MARK: - Actions
     @objc func addTapped() {
-        if let detailVC = storyboard?.instantiateViewController(withIdentifier: "ListDetailViewController") as? ListDetailViewController {
-            detailVC.delegate = self
-            
-            let navController = UINavigationController(rootViewController: detailVC)
-            present(navController, animated: true)
-        }
+        let detailVC = ListDetailViewController()
+        detailVC.delegate = self
+        
+        let navController = UINavigationController(rootViewController: detailVC)
+        present(navController, animated: true)
     }
 
 }

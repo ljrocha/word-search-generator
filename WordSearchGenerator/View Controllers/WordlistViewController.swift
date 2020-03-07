@@ -53,12 +53,11 @@ class WordlistViewController: UIViewController {
     
     // MARK: - Actions
     @objc func addTapped() {
-        if let detailVC = storyboard?.instantiateViewController(withIdentifier: "WordDetailViewController") as? WordDetailViewController {
-            detailVC.delegate = self
-            
-            let navController = UINavigationController(rootViewController: detailVC)
-            present(navController, animated: true)
-        }
+        let detailVC = WordDetailViewController()
+        detailVC.delegate = self
+        
+        let navController = UINavigationController(rootViewController: detailVC)
+        present(navController, animated: true)
     }
     
     @objc func wordSearchButtonTapped(_ sender: UIButton) {
@@ -102,13 +101,12 @@ extension WordlistViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
         
-        if let detailVC = storyboard?.instantiateViewController(withIdentifier: "WordDetailViewController") as? WordDetailViewController {
-            detailVC.wordToEdit = wordlist.words[indexPath.row]
-            detailVC.delegate = self
-            
-            let navController = UINavigationController(rootViewController: detailVC)
-            present(navController, animated: true)
-        }
+        let detailVC = WordDetailViewController()
+        detailVC.wordToEdit = wordlist.words[indexPath.row]
+        detailVC.delegate = self
+        
+        let navController = UINavigationController(rootViewController: detailVC)
+        present(navController, animated: true)
     }
 }
 

@@ -14,10 +14,7 @@ protocol ListDetailViewControllerDelegate: class {
     func listDetailViewController(_ controller: ListDetailViewController, didFinishEditing wordlist: Wordlist)
 }
 
-class ListDetailViewController: UIViewController {
-
-    @IBOutlet weak var titleTextField: UITextField!
-    var doneButtonItem: UIBarButtonItem!
+class ListDetailViewController: TextEntryViewController {
     
     var wordlistToEdit: Wordlist?
     
@@ -27,32 +24,17 @@ class ListDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configureViewController()
-        titleTextField.delegate = self
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        titleTextField.becomeFirstResponder()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        titleTextField.resignFirstResponder()
+        configure()
+        textField.delegate = self
     }
     
     // MARK: - Configuration methods
-    func configureViewController() {
-        navigationItem.largeTitleDisplayMode = .never
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
-        doneButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
-        navigationItem.rightBarButtonItem = doneButtonItem
+    func configure() {
+        textField.placeholder = "Title"
         
         if let wordlist = wordlistToEdit {
             title = "Edit Wordlist"
-            titleTextField.text = wordlist.title
+            textField.text = wordlist.title
             doneButtonItem.isEnabled = true
         } else {
             title = "Add Wordlist"
@@ -61,13 +43,13 @@ class ListDetailViewController: UIViewController {
     }
     
     // MARK: - Actions
-    @objc func cancel() {
+    override func cancel() {
         delegate?.listDetailViewControllerDidCancel(self)
     }
     
-    @IBAction func done() {
-        guard let title = titleTextField.text?.trimmingCharacters(in: .whitespaces), !title.isEmpty else {
-            showEmptyTitleErrorMessage()
+    override func done() {
+        guard let title = textField.text?.trimmingCharacters(in: .whitespaces), !title.isEmpty else {
+            showEmptyTextErrorMessage()
             return
         }
         
@@ -80,20 +62,9 @@ class ListDetailViewController: UIViewController {
         }
     }
     
-    @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
-        titleTextField.resignFirstResponder()
-    }
-    
-    @IBAction func textChanged(_ sender: UITextField) {
+    override func textChanged(_ sender: UITextField) {
         let title = sender.text ?? ""
         doneButtonItem.isEnabled = !title.isEmpty
-    }
-    
-    // MARK: - Methods
-    func showEmptyTitleErrorMessage() {
-        let ac = UIAlertController(title: "Title must not be empty", message: nil, preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default))
-        present(ac, animated: true)
     }
     
 }
