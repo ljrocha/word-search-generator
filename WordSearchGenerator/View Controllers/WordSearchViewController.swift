@@ -27,7 +27,7 @@ class WordSearchViewController: UIViewController {
     // MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         configureViewController()
         configurePDFView()
         generateNewWordSearchPuzzle()
@@ -42,6 +42,7 @@ class WordSearchViewController: UIViewController {
     
     // MARK: - Configuration methods
     func configureViewController() {
+        view.backgroundColor = .white
         title = "Word Search Puzzle"
         navigationItem.largeTitleDisplayMode = .never
         let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(generateNewWordSearchPuzzle))

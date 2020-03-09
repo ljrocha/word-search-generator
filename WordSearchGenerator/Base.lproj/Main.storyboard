@@ -102,21 +102,6 @@
             </objects>
             <point key="canvasLocation" x="2253.6231884057975" y="122.54464285714285"/>
         </scene>
-        <!--Word Search View Controller-->
-        <scene sceneID="JJP-tT-Fz1">
-            <objects>
-                <viewController storyboardIdentifier="WordSearchViewController" id="KHE-hJ-RK4" customClass="WordSearchViewController" customModule="WordSearchGenerator" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="k9a-nC-7cI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="mkN-26-4y2"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fa0-EI-cVg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2967" y="123"/>
-        </scene>
         <!--Wordlists-->
         <scene sceneID="qSu-cB-m6I">
             <objects>

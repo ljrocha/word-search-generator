@@ -61,11 +61,10 @@ class WordlistViewController: UIViewController {
     }
     
     @objc func wordSearchButtonTapped(_ sender: UIButton) {
-        if let wordSearchVC = storyboard?.instantiateViewController(withIdentifier: "WordSearchViewController") as? WordSearchViewController {
-            wordSearchVC.wordlist = wordlist
-            
-            navigationController?.pushViewController(wordSearchVC, animated: true)
-        }
+        let wordSearchVC = WordSearchViewController()
+        wordSearchVC.wordlist = wordlist
+        
+        navigationController?.pushViewController(wordSearchVC, animated: true)
     }
     
 }
@@ -121,7 +120,7 @@ extension WordlistViewController: WordDetailViewControllerDelegate {
     
     func wordDetailViewController(_ controller: WordDetailViewController, didFinishAdding word: String) {
         guard wordlist.isOriginal(word: word) else {
-            showDuplicateWordMessage()
+            showDuplicateWordErrorMessage()
             return
         }
         
@@ -134,7 +133,7 @@ extension WordlistViewController: WordDetailViewControllerDelegate {
     
     func wordDetailViewController(_ controller: WordDetailViewController, didFinishEditing word: String) {
         guard wordlist.isOriginal(word: word) else {
-            showDuplicateWordMessage()
+            showDuplicateWordErrorMessage()
             return
         }
         
@@ -147,7 +146,7 @@ extension WordlistViewController: WordDetailViewControllerDelegate {
         dismiss(animated: true)
     }
     
-    func showDuplicateWordMessage() {
+    func showDuplicateWordErrorMessage() {
         let ac = UIAlertController(title: "Duplicate word", message: "Please enter a unique word.", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         
