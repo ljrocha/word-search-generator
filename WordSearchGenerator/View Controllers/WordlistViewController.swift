@@ -120,7 +120,7 @@ extension WordlistViewController: WordDetailViewControllerDelegate {
     
     func wordDetailViewController(_ controller: WordDetailViewController, didFinishAdding word: String) {
         guard wordlist.isOriginal(word: word) else {
-            showDuplicateWordErrorMessage()
+            presentedViewController?.presentAlertOnMainThread(title: "Duplicate word", message: "Please enter a unique word.", buttonTitle: "OK")
             return
         }
         
@@ -133,7 +133,7 @@ extension WordlistViewController: WordDetailViewControllerDelegate {
     
     func wordDetailViewController(_ controller: WordDetailViewController, didFinishEditing word: String) {
         guard wordlist.isOriginal(word: word) else {
-            showDuplicateWordErrorMessage()
+            presentedViewController?.presentAlertOnMainThread(title: "Duplicate word", message: "Please enter a unique word.", buttonTitle: "OK")
             return
         }
         
@@ -146,10 +146,4 @@ extension WordlistViewController: WordDetailViewControllerDelegate {
         dismiss(animated: true)
     }
     
-    func showDuplicateWordErrorMessage() {
-        let ac = UIAlertController(title: "Duplicate word", message: "Please enter a unique word.", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default))
-        
-        presentedViewController?.present(ac, animated: true)
-    }
 }

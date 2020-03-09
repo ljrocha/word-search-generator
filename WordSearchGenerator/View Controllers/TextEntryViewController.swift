@@ -69,10 +69,4 @@ class TextEntryViewController: UIViewController {
     
     @objc func textChanged(_ textField: UITextField) {}
     
-    // MARK: - Helper methods
-    func showEmptyTextErrorMessage() {
-        let ac = UIAlertController(title: "Text must not be empty", message: nil, preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default))
-        present(ac, animated: true)
-    }
 }

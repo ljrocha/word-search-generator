@@ -12,6 +12,7 @@ class DataModel {
     
     var lists = [Wordlist]()
     
+    // MARK: - Initialization
     init() {
         loadWordlists()
     }
@@ -38,9 +39,7 @@ class DataModel {
     }
     
     func loadWordlists() {
-        let path = dataFilePath()
-        
-        if let data = try? Data(contentsOf: path) {
+        if let data = try? Data(contentsOf: dataFilePath()) {
             let jsonDecoder = JSONDecoder()
             
             do {

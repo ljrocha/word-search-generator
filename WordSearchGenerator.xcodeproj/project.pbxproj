@@ -30,6 +30,7 @@
 		46B1A1E922C08195000D40BA /* WSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B1A1E822C08195000D40BA /* WSButton.swift */; };
 		46C82B9922C031460094DC43 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C82B9822C031460094DC43 /* ListDetailViewController.swift */; };
 		46D10A0222C0409A005CFF04 /* WordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D10A0122C0409A005CFF04 /* WordDetailViewController.swift */; };
+		46F6FEB62416E2E1002B73A3 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F6FEB52416E2E1002B73A3 /* UIViewController+Alert.swift */; };
 		46FEBB522315A93E0077AD25 /* SettingsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FEBB512315A93E0077AD25 /* SettingsViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		46B1A1E822C08195000D40BA /* WSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSButton.swift; sourceTree = "<group>"; };
 		46C82B9822C031460094DC43 /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
 		46D10A0122C0409A005CFF04 /* WordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetailViewController.swift; sourceTree = "<group>"; };
+		46F6FEB52416E2E1002B73A3 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		46FEBB512315A93E0077AD25 /* SettingsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				467B3B2C2304819700FFC371 /* UIColor+AppColors.swift */,
+				46F6FEB52416E2E1002B73A3 /* UIViewController+Alert.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				46507D1522DD8F2C002A9A7E /* DataModel.swift in Sources */,
 				469B493124131D7E007B640C /* WSTextField.swift in Sources */,
 				467B3B2D2304819700FFC371 /* UIColor+AppColors.swift in Sources */,
+				46F6FEB62416E2E1002B73A3 /* UIViewController+Alert.swift in Sources */,
 				46863B48222E347000B8B3FB /* AppDelegate.swift in Sources */,
 				467BCBC72256E95B00EE441B /* WordSearch.swift in Sources */,
 				4613C16F22BF669800105090 /* Wordlist.swift in Sources */,

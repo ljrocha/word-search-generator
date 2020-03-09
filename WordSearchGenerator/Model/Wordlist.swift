@@ -24,6 +24,7 @@ class Wordlist: Codable {
         }
     }
     
+    // MARK: - Initialization
     init(title: String) {
         self.title = title
     }

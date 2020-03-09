@@ -24,12 +24,14 @@ class ListDetailViewController: TextEntryViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configure()
+        configureViewController()
         textField.delegate = self
     }
     
     // MARK: - Configuration methods
-    func configure() {
+    override func configureViewController() {
+        super.configureViewController()
+        
         textField.placeholder = "Title"
         
         if let wordlist = wordlistToEdit {
@@ -49,7 +51,7 @@ class ListDetailViewController: TextEntryViewController {
     
     override func done() {
         guard let title = textField.text?.trimmingCharacters(in: .whitespaces), !title.isEmpty else {
-            showEmptyTextErrorMessage()
+            presentAlertOnMainThread(title: "Text must not be empty", message: nil, buttonTitle: "OK")
             return
         }
         
