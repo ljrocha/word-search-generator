@@ -11,9 +11,10 @@ import PDFKit
 
 class WordSearchViewController: UIViewController {
     
+    var pdfView: PDFView!
+    
     var wordlist: Wordlist!
     
-    var pdfView: PDFView!
     private let url: URL = {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0].appendingPathComponent("output.pdf")
@@ -42,7 +43,11 @@ class WordSearchViewController: UIViewController {
     
     // MARK: - Configuration methods
     func configureViewController() {
-        view.backgroundColor = .white
+        if #available(iOS 13.0, *) {
+            view.backgroundColor = .systemBackground
+        } else {
+            view.backgroundColor = .white
+        }
         title = "Word Search Puzzle"
         navigationItem.largeTitleDisplayMode = .never
         let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(generateNewWordSearchPuzzle))

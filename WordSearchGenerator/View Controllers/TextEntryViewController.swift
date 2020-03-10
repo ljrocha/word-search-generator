@@ -36,7 +36,11 @@ class TextEntryViewController: UIViewController {
     
     // MARK: - Configuration methods
     func configureViewController() {
-        view.backgroundColor = .white
+        if #available(iOS 13.0, *) {
+            view.backgroundColor = .systemBackground
+        } else {
+            view.backgroundColor = .white
+        }
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
         doneButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
