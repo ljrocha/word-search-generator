@@ -26,6 +26,8 @@ class WSTextField: UITextField {
         borderStyle = .roundedRect
         clearButtonMode = .whileEditing
         autocapitalizationType = .words
+        font = UIFont.preferredFont(forTextStyle: .body)
+        adjustsFontForContentSizeCategory = true
         enablesReturnKeyAutomatically = true
     }
 }
