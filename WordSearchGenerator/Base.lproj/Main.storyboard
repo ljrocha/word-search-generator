@@ -242,7 +242,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <segmentedControl opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="RH3-EB-KDY">
-                                                    <rect key="frame" x="20" y="6.5" width="374" height="32"/>
+                                                    <rect key="frame" x="20" y="6.5" width="374" height="32.5"/>
                                                     <segments>
                                                         <segment title="Easy"/>
                                                         <segment title="Medium"/>
@@ -256,7 +256,8 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="RH3-EB-KDY" secondAttribute="trailing" constant="20" id="2tB-qh-QYt"/>
                                                 <constraint firstItem="RH3-EB-KDY" firstAttribute="leading" secondItem="Yjr-bc-49C" secondAttribute="leading" constant="20" id="YSF-Rz-abf"/>
-                                                <constraint firstItem="RH3-EB-KDY" firstAttribute="centerY" secondItem="Yjr-bc-49C" secondAttribute="centerY" id="pQX-x0-lH3"/>
+                                                <constraint firstItem="RH3-EB-KDY" firstAttribute="top" secondItem="Yjr-bc-49C" secondAttribute="top" constant="6.5" id="YVN-0R-HST"/>
+                                                <constraint firstAttribute="bottom" secondItem="RH3-EB-KDY" secondAttribute="bottom" constant="6" id="b3J-p6-RUc"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -272,7 +273,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <segmentedControl opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iWJ-nM-eO1">
-                                                    <rect key="frame" x="20" y="6.5" width="374" height="32"/>
+                                                    <rect key="frame" x="20" y="6.5" width="374" height="32.5"/>
                                                     <segments>
                                                         <segment title="10x10"/>
                                                         <segment title="12x12"/>
@@ -284,8 +285,9 @@
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="iWJ-nM-eO1" firstAttribute="top" secondItem="MQF-Ys-tFZ" secondAttribute="top" constant="6.5" id="5Ya-VP-q1b"/>
                                                 <constraint firstItem="iWJ-nM-eO1" firstAttribute="leading" secondItem="MQF-Ys-tFZ" secondAttribute="leading" constant="20" id="U19-Mb-agx"/>
-                                                <constraint firstItem="iWJ-nM-eO1" firstAttribute="centerY" secondItem="MQF-Ys-tFZ" secondAttribute="centerY" id="cff-8J-P9t"/>
+                                                <constraint firstAttribute="bottom" secondItem="iWJ-nM-eO1" secondAttribute="bottom" constant="6" id="q2H-ch-BBb"/>
                                                 <constraint firstAttribute="trailing" secondItem="iWJ-nM-eO1" secondAttribute="trailing" constant="20" id="xAJ-6t-Tch"/>
                                             </constraints>
                                         </tableViewCellContentView>
