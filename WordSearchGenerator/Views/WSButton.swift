@@ -10,6 +10,12 @@ import UIKit
 
 class WSButton: UIButton {
 
+    override var isEnabled: Bool {
+        didSet {
+            backgroundColor = isEnabled ? .systemBlue : UIColor.systemBlue.withAlphaComponent(0.7)
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -24,8 +30,9 @@ class WSButton: UIButton {
     
     private func configure() {
         setTitle("Generate Word Search", for: .normal)
+        backgroundColor = .systemBlue
+        setTitleColor(.lightGray, for: .disabled)
         contentEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
-        backgroundColor = .mainColor
         
         layer.cornerRadius = 8
         layer.shadowOpacity = 0.25
