@@ -213,8 +213,8 @@
                                                         <action selector="switchChanged:" destination="HsL-sp-J12" eventType="valueChanged" id="0s5-pG-Ffa"/>
                                                     </connections>
                                                 </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Words" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBc-S1-9cA">
-                                                    <rect key="frame" x="20" y="12" width="49.5" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grid lines" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBc-S1-9cA">
+                                                    <rect key="frame" x="20" y="12" width="72" height="21"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -230,12 +230,42 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="yzU-E8-wD2">
+                                        <rect key="frame" x="0.0" y="142.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yzU-E8-wD2" id="oQy-Kq-LZv">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" tag="1002" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l8g-Id-Yga">
+                                                    <rect key="frame" x="343" y="6.5" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="switchChanged:" destination="HsL-sp-J12" eventType="valueChanged" id="WST-0e-NQY"/>
+                                                    </connections>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Words" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Olg-8e-eh8">
+                                                    <rect key="frame" x="20" y="12" width="49.5" height="21"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Olg-8e-eh8" firstAttribute="top" secondItem="oQy-Kq-LZv" secondAttribute="top" constant="12" id="Axw-oL-fYS"/>
+                                                <constraint firstAttribute="trailing" secondItem="l8g-Id-Yga" secondAttribute="trailing" constant="22" id="JAO-Tf-ic1"/>
+                                                <constraint firstItem="l8g-Id-Yga" firstAttribute="centerY" secondItem="oQy-Kq-LZv" secondAttribute="centerY" id="ZCN-XP-5f4"/>
+                                                <constraint firstItem="Olg-8e-eh8" firstAttribute="leading" secondItem="oQy-Kq-LZv" secondAttribute="leadingMargin" id="oel-6e-6jJ"/>
+                                                <constraint firstItem="l8g-Id-Yga" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Olg-8e-eh8" secondAttribute="trailing" constant="8" id="xc7-hW-jpb"/>
+                                                <constraint firstAttribute="bottom" secondItem="Olg-8e-eh8" secondAttribute="bottom" constant="11" id="zRR-Fu-MsQ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Grid Size" id="Lp6-3B-JFM">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="H73-rL-KUF">
-                                        <rect key="frame" x="0.0" y="198.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="242" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H73-rL-KUF" id="MQF-Ys-tFZ">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -269,7 +299,7 @@
                             <tableViewSection headerTitle="Difficulty" id="gdx-LZ-4od">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="Bfm-cJ-8CF">
-                                        <rect key="frame" x="0.0" y="298" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="341.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bfm-cJ-8CF" id="Yjr-bc-49C">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -306,10 +336,11 @@
                     <navigationItem key="navigationItem" id="qwd-4G-rpU"/>
                     <connections>
                         <outlet property="difficultySegmentedControl" destination="RH3-EB-KDY" id="xcu-UO-5kq"/>
+                        <outlet property="gridLinesSwitch" destination="K07-ha-JDb" id="kr4-Q8-b2s"/>
                         <outlet property="gridSizeLabel" destination="pae-jP-Wp1" id="KdH-d6-eZt"/>
                         <outlet property="gridSizeStepper" destination="lFh-xj-ObB" id="U0H-vr-cEn"/>
                         <outlet property="titleSwitch" destination="v29-rg-XfY" id="8nB-JQ-hwM"/>
-                        <outlet property="wordsSwitch" destination="K07-ha-JDb" id="sXt-Ug-saS"/>
+                        <outlet property="wordsSwitch" destination="l8g-Id-Yga" id="wZ1-Pv-wRD"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fiD-3a-fFC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

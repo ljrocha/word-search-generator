@@ -69,8 +69,9 @@ class WordSearch {
     var wordlist: Wordlist?
     
     var includeTitle = true
+    var includeGridLines = true
     var includeWords = true
-    var gridSize = 8
+    var gridSize = 10
     var difficulty = Difficulty.medium
     var numberOfPages = 1
     
@@ -79,6 +80,7 @@ class WordSearch {
     
     private func readDefaultValues() {
         includeTitle = UserDefaults.standard.bool(forKey: Key.UserDefaults.titleIncluded)
+        includeGridLines = UserDefaults.standard.bool(forKey: Key.UserDefaults.gridLinesIncluded)
         includeWords = UserDefaults.standard.bool(forKey: Key.UserDefaults.wordsIncluded)
         
         gridSize = UserDefaults.standard.integer(forKey: Key.UserDefaults.gridSize)
@@ -241,18 +243,20 @@ class WordSearch {
                 }
                 
                 // Write Grid
-                for i in 0...gridSize {
-                    let linePosition = CGFloat(i) * gridCellSize
+                if includeGridLines {
+                    for i in 0...gridSize {
+                        let linePosition = CGFloat(i) * gridCellSize
+                        
+                        ctx.cgContext.move(to: CGPoint(x: gridXMargin, y: gridYMargin + linePosition))
+                        ctx.cgContext.addLine(to: CGPoint(x: gridXMargin + (CGFloat(gridSize) * gridCellSize), y: gridYMargin + linePosition))
+                        
+                        ctx.cgContext.move(to: CGPoint(x: gridXMargin + linePosition, y: gridYMargin))
+                        ctx.cgContext.addLine(to: CGPoint(x: gridXMargin + linePosition, y: gridYMargin + (CGFloat(gridSize) * gridCellSize)))
+                    }
                     
-                    ctx.cgContext.move(to: CGPoint(x: gridXMargin, y: gridYMargin + linePosition))
-                    ctx.cgContext.addLine(to: CGPoint(x: gridXMargin + (CGFloat(gridSize) * gridCellSize), y: gridYMargin + linePosition))
-                    
-                    ctx.cgContext.move(to: CGPoint(x: gridXMargin + linePosition, y: gridYMargin))
-                    ctx.cgContext.addLine(to: CGPoint(x: gridXMargin + linePosition, y: gridYMargin + (CGFloat(gridSize) * gridCellSize)))
+                    ctx.cgContext.setLineCap(.square)
+                    ctx.cgContext.strokePath()
                 }
-                
-                ctx.cgContext.setLineCap(.square)
-                ctx.cgContext.strokePath()
                 
                 // Draw Letters
                 var xOffset = gridXMargin

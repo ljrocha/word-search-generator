@@ -11,6 +11,7 @@ import UIKit
 class SettingsViewController: UITableViewController {
     
     @IBOutlet weak var titleSwitch: UISwitch!
+    @IBOutlet weak var gridLinesSwitch: UISwitch!
     @IBOutlet weak var wordsSwitch: UISwitch!
     @IBOutlet weak var difficultySegmentedControl: UISegmentedControl!
     @IBOutlet weak var gridSizeLabel: UILabel!
@@ -37,6 +38,9 @@ class SettingsViewController: UITableViewController {
         // Title
         titleSwitch.isOn = defaults.bool(forKey: Key.UserDefaults.titleIncluded)
         
+        // Grid lines
+        gridLinesSwitch.isOn = defaults.bool(forKey: Key.UserDefaults.gridLinesIncluded)
+        
         // Words
         wordsSwitch.isOn = defaults.bool(forKey: Key.UserDefaults.wordsIncluded)
         
@@ -58,6 +62,8 @@ class SettingsViewController: UITableViewController {
             // Title
             defaults.set(sender.isOn, forKey: Key.UserDefaults.titleIncluded)
         case 1001:
+            defaults.set(gridLinesSwitch.isOn, forKey: Key.UserDefaults.gridLinesIncluded)
+        case 1002:
             // Words
             defaults.set(sender.isOn, forKey: Key.UserDefaults.wordsIncluded)
         default:
@@ -69,16 +75,9 @@ class SettingsViewController: UITableViewController {
     
     
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
-        let defaults = UserDefaults.standard
-        
-        switch sender.tag {
-        case 1002:
-            //Difficulty
-            if let difficulty = Difficulty(rawValue: sender.selectedSegmentIndex) {
-                defaults.set(difficulty.rawValue, forKey: Key.UserDefaults.difficulty)
-            }
-        default:
-            fatalError("Unrecognized segmented control tag")
+        //Difficulty
+        if let difficulty = Difficulty(rawValue: sender.selectedSegmentIndex) {
+            UserDefaults.standard.set(difficulty.rawValue, forKey: Key.UserDefaults.difficulty)
         }
         
         settingsUpdated()
