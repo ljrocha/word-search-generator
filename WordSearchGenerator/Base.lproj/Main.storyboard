@@ -232,10 +232,44 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Grid Size" id="Lp6-3B-JFM">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="H73-rL-KUF">
+                                        <rect key="frame" x="0.0" y="198.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H73-rL-KUF" id="MQF-Ys-tFZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minimumValue="8" maximumValue="14" translatesAutoresizingMaskIntoConstraints="NO" id="lFh-xj-ObB">
+                                                    <rect key="frame" x="300" y="6" width="94" height="32"/>
+                                                    <connections>
+                                                        <action selector="stepperChanged:" destination="HsL-sp-J12" eventType="valueChanged" id="NJl-qM-KM5"/>
+                                                    </connections>
+                                                </stepper>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 x 10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pae-jP-Wp1">
+                                                    <rect key="frame" x="20" y="12" width="53.5" height="21.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="lFh-xj-ObB" firstAttribute="centerY" secondItem="MQF-Ys-tFZ" secondAttribute="centerY" id="9ya-Rl-eld"/>
+                                                <constraint firstItem="lFh-xj-ObB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pae-jP-Wp1" secondAttribute="trailing" constant="8" id="Huk-x3-atB"/>
+                                                <constraint firstAttribute="bottom" secondItem="pae-jP-Wp1" secondAttribute="bottom" constant="10.5" id="Kkn-aT-Rik"/>
+                                                <constraint firstItem="pae-jP-Wp1" firstAttribute="leading" secondItem="MQF-Ys-tFZ" secondAttribute="leading" constant="20" id="RIe-uz-y1T"/>
+                                                <constraint firstItem="pae-jP-Wp1" firstAttribute="top" secondItem="MQF-Ys-tFZ" secondAttribute="top" constant="12" id="mwg-Dn-9da"/>
+                                                <constraint firstAttribute="trailing" secondItem="lFh-xj-ObB" secondAttribute="trailing" constant="20" id="tCy-Nu-9gx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection headerTitle="Difficulty" id="gdx-LZ-4od">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="Bfm-cJ-8CF">
-                                        <rect key="frame" x="0.0" y="198.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="298" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bfm-cJ-8CF" id="Yjr-bc-49C">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -263,37 +297,6 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Grid Size" id="Lp6-3B-JFM">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="H73-rL-KUF">
-                                        <rect key="frame" x="0.0" y="298" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H73-rL-KUF" id="MQF-Ys-tFZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <segmentedControl opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iWJ-nM-eO1">
-                                                    <rect key="frame" x="20" y="6.5" width="374" height="32.5"/>
-                                                    <segments>
-                                                        <segment title="10x10"/>
-                                                        <segment title="12x12"/>
-                                                        <segment title="14x14"/>
-                                                    </segments>
-                                                    <connections>
-                                                        <action selector="segmentChanged:" destination="HsL-sp-J12" eventType="valueChanged" id="rJ9-YR-oPR"/>
-                                                    </connections>
-                                                </segmentedControl>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="iWJ-nM-eO1" firstAttribute="top" secondItem="MQF-Ys-tFZ" secondAttribute="top" constant="6.5" id="5Ya-VP-q1b"/>
-                                                <constraint firstItem="iWJ-nM-eO1" firstAttribute="leading" secondItem="MQF-Ys-tFZ" secondAttribute="leading" constant="20" id="U19-Mb-agx"/>
-                                                <constraint firstAttribute="bottom" secondItem="iWJ-nM-eO1" secondAttribute="bottom" constant="6" id="q2H-ch-BBb"/>
-                                                <constraint firstAttribute="trailing" secondItem="iWJ-nM-eO1" secondAttribute="trailing" constant="20" id="xAJ-6t-Tch"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="HsL-sp-J12" id="tGU-GC-PWI"/>
@@ -303,7 +306,8 @@
                     <navigationItem key="navigationItem" id="qwd-4G-rpU"/>
                     <connections>
                         <outlet property="difficultySegmentedControl" destination="RH3-EB-KDY" id="xcu-UO-5kq"/>
-                        <outlet property="gridSizeSegmentedControl" destination="iWJ-nM-eO1" id="f1y-m7-oLH"/>
+                        <outlet property="gridSizeLabel" destination="pae-jP-Wp1" id="KdH-d6-eZt"/>
+                        <outlet property="gridSizeStepper" destination="lFh-xj-ObB" id="U0H-vr-cEn"/>
                         <outlet property="titleSwitch" destination="v29-rg-XfY" id="8nB-JQ-hwM"/>
                         <outlet property="wordsSwitch" destination="K07-ha-JDb" id="sXt-Ug-saS"/>
                     </connections>

@@ -61,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func registerDefaults() {
-        let dictionary = [Key.UserDefaults.gridSize: GridSize.medium.rawValue,
+        let dictionary = [Key.UserDefaults.gridSize: 10,
                           Key.UserDefaults.difficulty: Difficulty.medium.rawValue,
                           Key.UserDefaults.wordsIncluded: true,
                           Key.UserDefaults.titleIncluded: true] as [String : Any]

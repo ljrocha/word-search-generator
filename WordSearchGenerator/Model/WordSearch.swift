@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - Placement type
 enum PlacementType: CaseIterable {
     case leftRight
     case rightLeft
@@ -40,6 +41,7 @@ enum PlacementType: CaseIterable {
     }
 }
 
+// MARK: - Difficulty
 enum Difficulty: Int {
     case easy
     case medium
@@ -57,12 +59,7 @@ enum Difficulty: Int {
     }
 }
 
-enum GridSize: Int {
-    case small = 10
-    case medium = 12
-    case large = 14
-}
-
+// MARK: - Word search
 class Label {
     var letter: Character = " "
 }
@@ -73,7 +70,7 @@ class WordSearch {
     
     var includeTitle = true
     var includeWords = true
-    var gridSize = GridSize.medium.rawValue
+    var gridSize = 8
     var difficulty = Difficulty.medium
     var numberOfPages = 1
     
@@ -187,6 +184,7 @@ class WordSearch {
         return wordlist.words.shuffled().filter(place)
     }
     
+    // MARK: - Render PDF
     func render() -> Data {
         let pageRect = CGRect(x: 0, y: 0, width: 612, height: 792)
         let margin = pageRect.width / 10
