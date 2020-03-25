@@ -14,6 +14,7 @@ struct Key {
         static let difficulty = "Difficulty"
         static let wordsIncluded = "WordsIncluded"
         static let titleIncluded = "TitleIncluded"
+        static let gridLinesIncluded = "GridLinesIncluded"
     }
     
     struct Notification {

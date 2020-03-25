@@ -9,20 +9,27 @@
 import UIKit
 
 class SettingsViewController: UITableViewController {
-
     
     @IBOutlet weak var titleSwitch: UISwitch!
+    @IBOutlet weak var gridLinesSwitch: UISwitch!
     @IBOutlet weak var wordsSwitch: UISwitch!
     @IBOutlet weak var difficultySegmentedControl: UISegmentedControl!
-    @IBOutlet weak var gridSizeSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var gridSizeLabel: UILabel!
+    @IBOutlet weak var gridSizeStepper: UIStepper!
     
+    // MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureViewController()
+        setUpControls()
+    }
+    
+    // MARK: - Configuration methods
+    func configureViewController() {
         title = "Settings"
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        setUpControls()
     }
     
     func setUpControls() {
@@ -30,6 +37,9 @@ class SettingsViewController: UITableViewController {
         
         // Title
         titleSwitch.isOn = defaults.bool(forKey: Key.UserDefaults.titleIncluded)
+        
+        // Grid lines
+        gridLinesSwitch.isOn = defaults.bool(forKey: Key.UserDefaults.gridLinesIncluded)
         
         // Words
         wordsSwitch.isOn = defaults.bool(forKey: Key.UserDefaults.wordsIncluded)
@@ -39,15 +49,11 @@ class SettingsViewController: UITableViewController {
         
         // Grid size
         let size = defaults.integer(forKey: Key.UserDefaults.gridSize)
-        if size == 10 {
-            gridSizeSegmentedControl.selectedSegmentIndex = 0
-        } else if size == 12 {
-            gridSizeSegmentedControl.selectedSegmentIndex = 1
-        } else {
-            gridSizeSegmentedControl.selectedSegmentIndex = 2
-        }
+        gridSizeLabel.text = "\(size) x \(size)"
+        gridSizeStepper.value = Double(size)
     }
     
+    // MARK: - Methods
     @IBAction func switchChanged(_ sender: UISwitch) {
         let defaults = UserDefaults.standard
         
@@ -56,6 +62,8 @@ class SettingsViewController: UITableViewController {
             // Title
             defaults.set(sender.isOn, forKey: Key.UserDefaults.titleIncluded)
         case 1001:
+            defaults.set(gridLinesSwitch.isOn, forKey: Key.UserDefaults.gridLinesIncluded)
+        case 1002:
             // Words
             defaults.set(sender.isOn, forKey: Key.UserDefaults.wordsIncluded)
         default:
@@ -67,26 +75,19 @@ class SettingsViewController: UITableViewController {
     
     
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
-        let defaults = UserDefaults.standard
-        
-        switch sender.tag {
-        case 1002:
-            //Difficulty
-            if let difficulty = Difficulty(rawValue: sender.selectedSegmentIndex) {
-                defaults.set(difficulty.rawValue, forKey: Key.UserDefaults.difficulty)
-            }
-        case 1003:
-            // Grid Size
-            if sender.selectedSegmentIndex == 0 {
-                defaults.set(GridSize.small.rawValue, forKey: Key.UserDefaults.gridSize)
-            } else if sender.selectedSegmentIndex == 1 {
-                defaults.set(GridSize.medium.rawValue, forKey: Key.UserDefaults.gridSize)
-            } else {
-                defaults.set(GridSize.large.rawValue, forKey: Key.UserDefaults.gridSize)
-            }
-        default:
-            fatalError("Unrecognized segmented control tag")
+        //Difficulty
+        if let difficulty = Difficulty(rawValue: sender.selectedSegmentIndex) {
+            UserDefaults.standard.set(difficulty.rawValue, forKey: Key.UserDefaults.difficulty)
         }
+        
+        settingsUpdated()
+    }
+    
+    @IBAction func stepperChanged(_ sender: UIStepper) {
+        let value = Int(sender.value)
+        gridSizeLabel.text = "\(value) x \(value)"
+        
+        UserDefaults.standard.set(value, forKey: Key.UserDefaults.gridSize)
         
         settingsUpdated()
     }

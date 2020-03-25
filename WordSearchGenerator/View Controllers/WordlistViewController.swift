@@ -11,53 +11,66 @@ import UIKit
 class WordlistViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    var wordSearchButton = WSButton()
     
     var wordlist: Wordlist!
-    
-    var wordSearchButton: WordSearchButton!
     
     // MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureViewController()
+        configureTableView()
+        configureWordSearchButton()
+    }
+    
+    // MARK: - Configuration methods
+    func configureViewController() {
         title = wordlist.title
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
-        
+    }
+    
+    func configureTableView() {
         tableView.dataSource = self
         tableView.delegate = self
-        
-        wordSearchButton = WordSearchButton()
+    }
+    
+    func configureWordSearchButton() {
+        view.addSubview(wordSearchButton)
         wordSearchButton.translatesAutoresizingMaskIntoConstraints = false
         wordSearchButton.addTarget(self, action: #selector(wordSearchButtonTapped), for: .touchUpInside)
         wordSearchButton.isEnabled = !wordlist.words.isEmpty
-        view.addSubview(wordSearchButton)
         
-        wordSearchButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -70).isActive = true
-        wordSearchButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16).isActive = true
+        let padding: CGFloat = 40
+        NSLayoutConstraint.activate([
+            wordSearchButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8),
+            wordSearchButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            wordSearchButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            wordSearchButton.heightAnchor.constraint(equalToConstant: 44)
+        ])
     }
     
     // MARK: - Actions
     @objc func addTapped() {
-        if let detailVC = storyboard?.instantiateViewController(withIdentifier: "WordDetailViewController") as? WordDetailViewController {
-            detailVC.delegate = self
-            
-            let navController = UINavigationController(rootViewController: detailVC)
-            present(navController, animated: true)
-        }
+        let detailVC = WordDetailViewController()
+        detailVC.delegate = self
+        
+        let navController = UINavigationController(rootViewController: detailVC)
+        present(navController, animated: true)
     }
     
     @objc func wordSearchButtonTapped(_ sender: UIButton) {
-        if let wordSearchVC = storyboard?.instantiateViewController(withIdentifier: "WordSearchViewController") as? WordSearchViewController {
-            wordSearchVC.wordlist = wordlist
-            
-            navigationController?.pushViewController(wordSearchVC, animated: true)
-        }
+        let wordSearchVC = WordSearchViewController()
+        wordSearchVC.wordlist = wordlist
+        
+        navigationController?.pushViewController(wordSearchVC, animated: true)
     }
     
 }
 
 extension WordlistViewController: UITableViewDataSource, UITableViewDelegate {
+    
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return wordlist.words.count
@@ -87,17 +100,17 @@ extension WordlistViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
         
-        if let detailVC = storyboard?.instantiateViewController(withIdentifier: "WordDetailViewController") as? WordDetailViewController {
-            detailVC.wordToEdit = wordlist.words[indexPath.row]
-            detailVC.delegate = self
-            
-            let navController = UINavigationController(rootViewController: detailVC)
-            present(navController, animated: true)
-        }
+        let detailVC = WordDetailViewController()
+        detailVC.wordToEdit = wordlist.words[indexPath.row]
+        detailVC.delegate = self
+        
+        let navController = UINavigationController(rootViewController: detailVC)
+        present(navController, animated: true)
     }
 }
 
 extension WordlistViewController: WordDetailViewControllerDelegate {
+    
     func wordDetailViewControllerDidCancel(_ controller: WordDetailViewController) {
         if let indexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: indexPath, animated: true)
@@ -107,7 +120,7 @@ extension WordlistViewController: WordDetailViewControllerDelegate {
     
     func wordDetailViewController(_ controller: WordDetailViewController, didFinishAdding word: String) {
         guard wordlist.isOriginal(word: word) else {
-            showDuplicateWordMessage()
+            presentedViewController?.presentAlertOnMainThread(title: "Duplicate word", message: "Please enter a unique word.", buttonTitle: "OK")
             return
         }
         
@@ -120,7 +133,7 @@ extension WordlistViewController: WordDetailViewControllerDelegate {
     
     func wordDetailViewController(_ controller: WordDetailViewController, didFinishEditing word: String) {
         guard wordlist.isOriginal(word: word) else {
-            showDuplicateWordMessage()
+            presentedViewController?.presentAlertOnMainThread(title: "Duplicate word", message: "Please enter a unique word.", buttonTitle: "OK")
             return
         }
         
@@ -133,10 +146,4 @@ extension WordlistViewController: WordDetailViewControllerDelegate {
         dismiss(animated: true)
     }
     
-    func showDuplicateWordMessage() {
-        let ac = UIAlertController(title: "Duplicate word", message: "Please enter a unique word.", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default))
-        
-        presentedViewController?.present(ac, animated: true)
-    }
 }

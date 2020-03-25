@@ -8,28 +8,36 @@
 
 import UIKit
 
-class WordSearchButton: UIButton {
+class WSButton: UIButton {
 
+    override var isEnabled: Bool {
+        didSet {
+            backgroundColor = isEnabled ? .systemBlue : UIColor.systemBlue.withAlphaComponent(0.7)
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        buttonSetup()
+        configure()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        buttonSetup()
+        configure()
     }
     
-    func buttonSetup() {
-        setTitle("WS", for: .normal)
+    private func configure() {
+        setTitle("Generate Word Search", for: .normal)
+        backgroundColor = .systemBlue
+        setTitleColor(.lightGray, for: .disabled)
         contentEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
-        backgroundColor = .mainColor
+        
         layer.cornerRadius = 8
         layer.shadowOpacity = 0.25
         layer.shadowRadius = 5
-        layer.shadowOffset = CGSize(width: 0, height: 10)
+        layer.shadowOffset = CGSize(width: 0, height: 5)
     }
 
 }

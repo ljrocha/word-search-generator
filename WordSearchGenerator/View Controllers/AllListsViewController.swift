@@ -16,15 +16,20 @@ class AllListsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Wordlists"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
+        configureViewController()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         tableView.reloadData()
+    }
+    
+    // MARK: - Configuration methods
+    func configureViewController() {
+        title = "Wordlists"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
     }
     
     // MARK: - Table view data source
@@ -57,28 +62,27 @@ class AllListsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        if let detailVC = storyboard?.instantiateViewController(withIdentifier: "ListDetailViewController") as? ListDetailViewController {
-            detailVC.wordlistToEdit = dataModel.lists[indexPath.row]
-            detailVC.delegate = self
-            
-            let navController = UINavigationController(rootViewController: detailVC)
-            present(navController, animated: true)
-        }
+        let detailVC = ListDetailViewController()
+        detailVC.wordlistToEdit = dataModel.lists[indexPath.row]
+        detailVC.delegate = self
+        
+        let navController = UINavigationController(rootViewController: detailVC)
+        present(navController, animated: true)
     }
     
     // MARK: - Actions
     @objc func addTapped() {
-        if let detailVC = storyboard?.instantiateViewController(withIdentifier: "ListDetailViewController") as? ListDetailViewController {
-            detailVC.delegate = self
-            
-            let navController = UINavigationController(rootViewController: detailVC)
-            present(navController, animated: true)
-        }
+        let detailVC = ListDetailViewController()
+        detailVC.delegate = self
+        
+        let navController = UINavigationController(rootViewController: detailVC)
+        present(navController, animated: true)
     }
 
 }
 
 extension AllListsViewController: ListDetailViewControllerDelegate {
+    
     func listDetailViewControllerDidCancel(_ controller: ListDetailViewController) {
         dismiss(animated: true)
     }

@@ -9,6 +9,7 @@
 import Foundation
 
 class Wordlist: Codable {
+    
     var title: String
     var words = [String]()
     
@@ -23,6 +24,7 @@ class Wordlist: Codable {
         }
     }
     
+    // MARK: - Initialization
     init(title: String) {
         self.title = title
     }
