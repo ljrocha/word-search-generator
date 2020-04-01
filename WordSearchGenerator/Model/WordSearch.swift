@@ -78,6 +78,7 @@ class WordSearch {
     var labels = [[Label]]()
     let allLetters = (65...90).map { Character(Unicode.Scalar($0)) }
     
+    // MARK: - Make grid
     private func readDefaultValues() {
         includeTitle = UserDefaults.standard.bool(forKey: Key.UserDefaults.titleIncluded)
         includeGridLines = UserDefaults.standard.bool(forKey: Key.UserDefaults.gridLinesIncluded)
@@ -91,9 +92,7 @@ class WordSearch {
         }
     }
     
-    func makeGrid() -> [String] {
-        readDefaultValues()
-        
+    private func makeGrid() -> [String] {
         labels = (0..<gridSize).map { _ in
             (0..<gridSize).map { _ in Label() }
         }
@@ -111,16 +110,6 @@ class WordSearch {
                     label.letter = allLetters.randomElement()!
                 }
             }
-        }
-    }
-    
-    func printGrid() {
-        for column in labels {
-            for row in column {
-                print(row.letter, terminator: "")
-            }
-            
-            print("")
         }
     }
     
@@ -188,6 +177,7 @@ class WordSearch {
     
     // MARK: - Render PDF
     func render() -> Data {
+        readDefaultValues()
         let pageRect = CGRect(x: 0, y: 0, width: 612, height: 792)
         let margin = pageRect.width / 10
         let availableSpace = CGSize(width: pageRect.width - (margin * 2), height: pageRect.height - (margin * 2))
@@ -277,8 +267,7 @@ class WordSearch {
                 
                 // Draw Placed Words
                 if includeWords {
-                    let wordSearchWords = placedWords.map { $0 }
-                    let combinedWords = wordSearchWords.joined(separator: " · ")
+                    let combinedWords = placedWords.joined(separator: " · ")
                     let gridHeight = gridCellSize * CGFloat(gridSize)
                     let wordYMargin = gridYMargin + gridHeight + margin / 2
                     let wordRect = CGRect(x: margin, y: wordYMargin, width: availableSpace.width, height: availableSpace.height - wordYMargin)

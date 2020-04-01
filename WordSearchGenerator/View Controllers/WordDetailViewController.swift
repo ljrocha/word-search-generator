@@ -25,13 +25,13 @@ class WordDetailViewController: TextEntryViewController {
         super.viewDidLoad()
 
         configureViewController()
-        textField.delegate = self
     }
     
     // MARK: - Configuration methods
     override func configureViewController() {
         super.configureViewController()
         
+        textField.delegate = self
         textField.placeholder = "Word"
         
         if let word = wordToEdit {

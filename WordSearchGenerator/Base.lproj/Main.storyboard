@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IEO-mS-J5L">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IEO-mS-J5L">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +10,7 @@
         <!--All Lists View Controller-->
         <scene sceneID="kxs-w7-LaT">
             <objects>
-                <tableViewController storyboardIdentifier="AllListsViewController" id="8CJ-Ku-ycH" customClass="AllListsViewController" customModule="WordSearchGenerator" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AllListsViewController" id="8CJ-Ku-ycH" customClass="AllListsViewController" customModule="Word_Search" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pZB-6S-qEV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -56,7 +55,7 @@
         <!--Wordlist View Controller-->
         <scene sceneID="4KR-0c-R3y">
             <objects>
-                <viewController storyboardIdentifier="WordlistViewController" id="KKz-P5-URU" customClass="WordlistViewController" customModule="WordSearchGenerator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WordlistViewController" id="KKz-P5-URU" customClass="WordlistViewController" customModule="Word_Search" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hNP-9k-sEU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -106,7 +105,7 @@
         <scene sceneID="qSu-cB-m6I">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g0U-LD-esX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Wordlists" id="v3s-ol-RZr"/>
+                    <tabBarItem key="tabBarItem" title="Wordlists" image="list.bullet" catalog="system" id="v3s-ol-RZr"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vua-Ih-vGF">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -144,7 +143,7 @@
         <scene sceneID="A6k-bL-3k2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oMf-tH-8Z2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" id="tK1-Om-M8j"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="tK1-Om-M8j"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6nu-Pv-J6d">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -162,7 +161,7 @@
         <!--Settings View Controller-->
         <scene sceneID="Izv-5v-Fgz">
             <objects>
-                <tableViewController id="HsL-sp-J12" customClass="SettingsViewController" customModule="WordSearchGenerator" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="HsL-sp-J12" customClass="SettingsViewController" customModule="Word_Search" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="uSx-3Z-bAm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -262,7 +261,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Grid Size" id="Lp6-3B-JFM">
+                            <tableViewSection headerTitle="Size" id="Lp6-3B-JFM">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="H73-rL-KUF">
                                         <rect key="frame" x="0.0" y="242" width="414" height="43.5"/>
@@ -348,4 +347,8 @@
             <point key="canvasLocation" x="1544.9275362318842" y="802.90178571428567"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="list.bullet" catalog="system" width="128" height="88"/>
+    </resources>
 </document>
