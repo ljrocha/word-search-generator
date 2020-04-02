@@ -55,6 +55,7 @@ class TextEntryViewController: UIViewController {
         textField.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)
         textField.addTarget(self, action: #selector(done), for: .primaryActionTriggered)
         
+        textField.returnKeyType = .done
         textField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             textField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
