@@ -58,7 +58,7 @@ class WordSearchViewController: UIViewController {
     func configurePDFView() {
         pdfView = PDFView()
         pdfView.backgroundColor = .secondarySystemBackground
-        pdfView.displayMode = .singlePage
+        pdfView.displayMode = .singlePageContinuous
         pdfView.displayDirection = .vertical
         pdfView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(pdfView)
