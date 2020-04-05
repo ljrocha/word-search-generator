@@ -51,7 +51,7 @@
 		467BCBC62256E95B00EE441B /* WordSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearch.swift; sourceTree = "<group>"; };
 		468358EE22E1774E00E5DA58 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		468358F022E1864300E5DA58 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		46863B44222E347000B8B3FB /* Word Search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Word Search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		46863B44222E347000B8B3FB /* WordSearchGen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordSearchGen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46863B47222E347000B8B3FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46863B49222E347000B8B3FB /* AllListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListsViewController.swift; sourceTree = "<group>"; };
 		46863B4C222E347000B8B3FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -152,7 +152,7 @@
 		46863B45222E347000B8B3FB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				46863B44222E347000B8B3FB /* Word Search.app */,
+				46863B44222E347000B8B3FB /* WordSearchGen.app */,
 				469895582315941800147B4D /* WordSearchGeneratorTests.xctest */,
 			);
 			name = Products;
@@ -207,7 +207,7 @@
 			);
 			name = WordSearchGenerator;
 			productName = WordSearchGenerator;
-			productReference = 46863B44222E347000B8B3FB /* Word Search.app */;
+			productReference = 46863B44222E347000B8B3FB /* WordSearchGen.app */;
 			productType = "com.apple.product-type.application";
 		};
 		469895572315941800147B4D /* WordSearchGeneratorTests */ = {
@@ -474,7 +474,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ljrocha.WordSearchGenerator;
-				PRODUCT_NAME = "Word Search";
+				PRODUCT_NAME = WordSearchGen;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -493,7 +493,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ljrocha.WordSearchGenerator;
-				PRODUCT_NAME = "Word Search";
+				PRODUCT_NAME = WordSearchGen;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -506,7 +506,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B27B4KDKQS;
 				INFOPLIST_FILE = WordSearchGeneratorTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -515,8 +515,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ljrocha.WordSearchGeneratorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WordSearchGenerator.app/WordSearchGenerator";
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WordSearchGen.app/WordSearchGen";
 			};
 			name = Debug;
 		};
@@ -527,7 +527,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B27B4KDKQS;
 				INFOPLIST_FILE = WordSearchGeneratorTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -536,8 +536,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ljrocha.WordSearchGeneratorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WordSearchGenerator.app/WordSearchGenerator";
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WordSearchGen.app/WordSearchGen";
 			};
 			name = Release;
 		};

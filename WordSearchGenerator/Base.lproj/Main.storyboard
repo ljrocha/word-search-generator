@@ -10,7 +10,7 @@
         <!--All Lists View Controller-->
         <scene sceneID="kxs-w7-LaT">
             <objects>
-                <tableViewController storyboardIdentifier="AllListsViewController" id="8CJ-Ku-ycH" customClass="AllListsViewController" customModule="Word_Search" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AllListsViewController" id="8CJ-Ku-ycH" customClass="AllListsViewController" customModule="WordSearchGen" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pZB-6S-qEV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -55,7 +55,7 @@
         <!--Wordlist View Controller-->
         <scene sceneID="4KR-0c-R3y">
             <objects>
-                <viewController storyboardIdentifier="WordlistViewController" id="KKz-P5-URU" customClass="WordlistViewController" customModule="Word_Search" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WordlistViewController" id="KKz-P5-URU" customClass="WordlistViewController" customModule="WordSearchGen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hNP-9k-sEU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -161,7 +161,7 @@
         <!--Settings View Controller-->
         <scene sceneID="Izv-5v-Fgz">
             <objects>
-                <tableViewController id="HsL-sp-J12" customClass="SettingsViewController" customModule="Word_Search" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SettingsViewController" id="HsL-sp-J12" customClass="SettingsViewController" customModule="WordSearchGen" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="uSx-3Z-bAm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
