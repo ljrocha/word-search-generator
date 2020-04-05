@@ -13,11 +13,12 @@ class WordSearchViewController: UIViewController {
     
     var pdfView: PDFView!
     
+    var wordSearch = WordSearch()
     var wordlist: Wordlist!
     
-    private let url: URL = {
+    private let pdfURL: URL = {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0].appendingPathComponent("output.pdf")
+        return paths[0].appendingPathComponent("WordSearchPuzzle.pdf")
     }()
     
     // MARK: - Deinitializer
@@ -28,6 +29,8 @@ class WordSearchViewController: UIViewController {
     // MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        wordSearch.wordlist = wordlist
         
         configureViewController()
         configurePDFView()
@@ -43,11 +46,8 @@ class WordSearchViewController: UIViewController {
     
     // MARK: - Configuration methods
     func configureViewController() {
-        if #available(iOS 13.0, *) {
-            view.backgroundColor = .systemBackground
-        } else {
-            view.backgroundColor = .white
-        }
+        view.backgroundColor = .systemBackground
+
         title = "Word Search Puzzle"
         navigationItem.largeTitleDisplayMode = .never
         let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(generateNewWordSearchPuzzle))
@@ -57,10 +57,8 @@ class WordSearchViewController: UIViewController {
     
     func configurePDFView() {
         pdfView = PDFView()
-        if #available(iOS 13.0, *) {
-            pdfView.backgroundColor = .secondarySystemBackground
-        }
-        pdfView.displayMode = .singlePage
+        pdfView.backgroundColor = .secondarySystemBackground
+        pdfView.displayMode = .singlePageContinuous
         pdfView.displayDirection = .vertical
         pdfView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(pdfView)
@@ -78,21 +76,17 @@ class WordSearchViewController: UIViewController {
     
     // MARK: - Actions
     @objc func generateNewWordSearchPuzzle() {
-        let wordSearch = WordSearch()
-        wordSearch.wordlist = wordlist
-        _ = wordSearch.makeGrid()
+        let pdfData = wordSearch.render()
+        try? pdfData.write(to: pdfURL)
         
-        let output = wordSearch.render()
-        try? output.write(to: url)
-        
-        if let document = PDFDocument(url: url) {
+        if let document = PDFDocument(data: pdfData) {
             pdfView.autoScales = true
             pdfView.document = document
         }
     }
     
     @objc func shareTapped() {
-        let ac = UIActivityViewController(activityItems: ["Can you complete this word search puzzle?\n", url], applicationActivities: nil)
+        let ac = UIActivityViewController(activityItems: ["Can you solve this word search puzzle?\n", pdfURL], applicationActivities: nil)
         present(ac, animated: true)
     }
     

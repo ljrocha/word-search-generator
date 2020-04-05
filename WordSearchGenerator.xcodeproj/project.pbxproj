@@ -11,7 +11,6 @@
 		4613C17122BF69ED00105090 /* WordlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4613C17022BF69ED00105090 /* WordlistViewController.swift */; };
 		461406A722C052FA002B5EB3 /* WordSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461406A622C052FA002B5EB3 /* WordSearchViewController.swift */; };
 		46507D1522DD8F2C002A9A7E /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46507D1422DD8F2C002A9A7E /* DataModel.swift */; };
-		467B3B2D2304819700FFC371 /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467B3B2C2304819700FFC371 /* UIColor+AppColors.swift */; };
 		467BCBC72256E95B00EE441B /* WordSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467BCBC62256E95B00EE441B /* WordSearch.swift */; };
 		468358EF22E1774E00E5DA58 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468358EE22E1774E00E5DA58 /* SettingsViewController.swift */; };
 		468358F122E1864300E5DA58 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468358F022E1864300E5DA58 /* Constants.swift */; };
@@ -49,11 +48,10 @@
 		4613C17022BF69ED00105090 /* WordlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordlistViewController.swift; sourceTree = "<group>"; };
 		461406A622C052FA002B5EB3 /* WordSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearchViewController.swift; sourceTree = "<group>"; };
 		46507D1422DD8F2C002A9A7E /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
-		467B3B2C2304819700FFC371 /* UIColor+AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColors.swift"; sourceTree = "<group>"; };
 		467BCBC62256E95B00EE441B /* WordSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearch.swift; sourceTree = "<group>"; };
 		468358EE22E1774E00E5DA58 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		468358F022E1864300E5DA58 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		46863B44222E347000B8B3FB /* WordSearchGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordSearchGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		46863B44222E347000B8B3FB /* WordSearchGen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordSearchGen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46863B47222E347000B8B3FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46863B49222E347000B8B3FB /* AllListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListsViewController.swift; sourceTree = "<group>"; };
 		46863B4C222E347000B8B3FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -137,7 +135,6 @@
 		4626EFE0237C9C4F00F7DEFD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				467B3B2C2304819700FFC371 /* UIColor+AppColors.swift */,
 				46F6FEB52416E2E1002B73A3 /* UIViewController+Alert.swift */,
 			);
 			path = Extensions;
@@ -155,7 +152,7 @@
 		46863B45222E347000B8B3FB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				46863B44222E347000B8B3FB /* WordSearchGenerator.app */,
+				46863B44222E347000B8B3FB /* WordSearchGen.app */,
 				469895582315941800147B4D /* WordSearchGeneratorTests.xctest */,
 			);
 			name = Products;
@@ -210,7 +207,7 @@
 			);
 			name = WordSearchGenerator;
 			productName = WordSearchGenerator;
-			productReference = 46863B44222E347000B8B3FB /* WordSearchGenerator.app */;
+			productReference = 46863B44222E347000B8B3FB /* WordSearchGen.app */;
 			productType = "com.apple.product-type.application";
 		};
 		469895572315941800147B4D /* WordSearchGeneratorTests */ = {
@@ -300,7 +297,6 @@
 				4613C17122BF69ED00105090 /* WordlistViewController.swift in Sources */,
 				46507D1522DD8F2C002A9A7E /* DataModel.swift in Sources */,
 				469B493124131D7E007B640C /* WSTextField.swift in Sources */,
-				467B3B2D2304819700FFC371 /* UIColor+AppColors.swift in Sources */,
 				46F6FEB62416E2E1002B73A3 /* UIViewController+Alert.swift in Sources */,
 				46863B48222E347000B8B3FB /* AppDelegate.swift in Sources */,
 				467BCBC72256E95B00EE441B /* WordSearch.swift in Sources */,
@@ -400,7 +396,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -455,7 +451,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -472,14 +468,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B27B4KDKQS;
 				INFOPLIST_FILE = WordSearchGenerator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ljrocha.WordSearchGenerator;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WordSearchGen;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -490,14 +487,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B27B4KDKQS;
 				INFOPLIST_FILE = WordSearchGenerator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ljrocha.WordSearchGenerator;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WordSearchGen;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -508,7 +506,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B27B4KDKQS;
 				INFOPLIST_FILE = WordSearchGeneratorTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -517,8 +515,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ljrocha.WordSearchGeneratorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WordSearchGenerator.app/WordSearchGenerator";
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WordSearchGen.app/WordSearchGen";
 			};
 			name = Debug;
 		};
@@ -529,7 +527,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B27B4KDKQS;
 				INFOPLIST_FILE = WordSearchGeneratorTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -538,8 +536,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ljrocha.WordSearchGeneratorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WordSearchGenerator.app/WordSearchGenerator";
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WordSearchGen.app/WordSearchGen";
 			};
 			name = Release;
 		};

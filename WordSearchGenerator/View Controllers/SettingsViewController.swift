@@ -29,7 +29,6 @@ class SettingsViewController: UITableViewController {
     func configureViewController() {
         title = "Settings"
         navigationController?.navigationBar.prefersLargeTitles = true
-        
     }
     
     func setUpControls() {
@@ -62,6 +61,7 @@ class SettingsViewController: UITableViewController {
             // Title
             defaults.set(sender.isOn, forKey: Key.UserDefaults.titleIncluded)
         case 1001:
+            // Grid lines
             defaults.set(gridLinesSwitch.isOn, forKey: Key.UserDefaults.gridLinesIncluded)
         case 1002:
             // Words
@@ -84,6 +84,7 @@ class SettingsViewController: UITableViewController {
     }
     
     @IBAction func stepperChanged(_ sender: UIStepper) {
+        // Grid size
         let value = Int(sender.value)
         gridSizeLabel.text = "\(value) x \(value)"
         

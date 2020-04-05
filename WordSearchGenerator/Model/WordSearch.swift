@@ -73,11 +73,11 @@ class WordSearch {
     var includeWords = true
     var gridSize = 10
     var difficulty = Difficulty.medium
-    var numberOfPages = 1
     
     var labels = [[Label]]()
     let allLetters = (65...90).map { Character(Unicode.Scalar($0)) }
     
+    // MARK: - Make grid
     private func readDefaultValues() {
         includeTitle = UserDefaults.standard.bool(forKey: Key.UserDefaults.titleIncluded)
         includeGridLines = UserDefaults.standard.bool(forKey: Key.UserDefaults.gridLinesIncluded)
@@ -91,9 +91,7 @@ class WordSearch {
         }
     }
     
-    func makeGrid() -> [String] {
-        readDefaultValues()
-        
+    private func makeGrid() -> [String] {
         labels = (0..<gridSize).map { _ in
             (0..<gridSize).map { _ in Label() }
         }
@@ -111,16 +109,6 @@ class WordSearch {
                     label.letter = allLetters.randomElement()!
                 }
             }
-        }
-    }
-    
-    func printGrid() {
-        for column in labels {
-            for row in column {
-                print(row.letter, terminator: "")
-            }
-            
-            print("")
         }
     }
     
@@ -188,9 +176,10 @@ class WordSearch {
     
     // MARK: - Render PDF
     func render() -> Data {
+        readDefaultValues()
         let pageRect = CGRect(x: 0, y: 0, width: 612, height: 792)
-        let margin = pageRect.width / 10
-        let availableSpace = CGSize(width: pageRect.width - (margin * 2), height: pageRect.height - (margin * 2))
+        let pageMargin = pageRect.width / 10
+        let availableSpace = CGSize(width: pageRect.width - (pageMargin * 2), height: pageRect.height - (pageMargin * 2))
         
         let gridCellSize: CGFloat = 25
         
@@ -211,17 +200,6 @@ class WordSearch {
             .paragraphStyle: paragraphStyle
         ]
         
-        // Grid margins
-        let gridXMargin = (pageRect.width - (gridCellSize * CGFloat(gridSize))) / 2
-        let gridYMargin: CGFloat
-        if let wordlist = wordlist, !wordlist.title.isEmpty, includeTitle {
-            let constrainedRect = CGSize(width: availableSpace.width, height: .greatestFiniteMagnitude)
-            let boundingBox = wordlist.title.boundingRect(with: constrainedRect, options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: titleAttributes, context: nil)
-            gridYMargin = boundingBox.height + margin * 1.5
-        } else {
-            gridYMargin = pageRect.height / 10
-        }
-        
         // Word attributes
         let wordFont = UIFont.systemFont(ofSize: 12)
         let wordAttributes: [NSAttributedString.Key: Any] = [
@@ -229,63 +207,79 @@ class WordSearch {
             .paragraphStyle: paragraphStyle
         ]
         
+        // Grid margins
+        let gridMarginX = (pageRect.width - (gridCellSize * CGFloat(gridSize))) / 2
+        let gridMarginY: CGFloat
+        if let wordlist = wordlist, !wordlist.title.isEmpty, includeTitle {
+            let constrainedRect = CGSize(width: availableSpace.width, height: .greatestFiniteMagnitude)
+            let boundingBox = wordlist.title.boundingRect(with: constrainedRect, options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: titleAttributes, context: nil)
+            gridMarginY = boundingBox.height + pageMargin * 1.5
+        } else {
+            gridMarginY = pageRect.height / 10
+        }
+        
         let renderer = UIGraphicsPDFRenderer(bounds: pageRect)
         return renderer.pdfData { ctx in
-            for _ in 0..<numberOfPages {
-                ctx.beginPage()
-                
-                let placedWords = makeGrid()
-                
-                // Draw Title
-                if let wordlist = wordlist, !wordlist.title.isEmpty, includeTitle {
-                    let titleRect = CGRect(x: margin, y: margin, width: availableSpace.width, height: gridYMargin - (margin * 1.5))
-                    wordlist.title.draw(in: titleRect, withAttributes: titleAttributes)
-                }
-                
-                // Write Grid
-                if includeGridLines {
-                    for i in 0...gridSize {
-                        let linePosition = CGFloat(i) * gridCellSize
-                        
-                        ctx.cgContext.move(to: CGPoint(x: gridXMargin, y: gridYMargin + linePosition))
-                        ctx.cgContext.addLine(to: CGPoint(x: gridXMargin + (CGFloat(gridSize) * gridCellSize), y: gridYMargin + linePosition))
-                        
-                        ctx.cgContext.move(to: CGPoint(x: gridXMargin + linePosition, y: gridYMargin))
-                        ctx.cgContext.addLine(to: CGPoint(x: gridXMargin + linePosition, y: gridYMargin + (CGFloat(gridSize) * gridCellSize)))
-                    }
+            ctx.beginPage()
+            
+            let placedWords = makeGrid()
+            
+            // Draw Title
+            if let wordlist = wordlist, !wordlist.title.isEmpty, includeTitle {
+                let titleRect = CGRect(x: pageMargin, y: pageMargin, width: availableSpace.width, height: gridMarginY - (pageMargin * 1.5))
+                wordlist.title.draw(in: titleRect, withAttributes: titleAttributes)
+            }
+            
+            // Write Grid
+            if includeGridLines {
+                for i in 0...gridSize {
+                    let linePosition = CGFloat(i) * gridCellSize
                     
-                    ctx.cgContext.setLineCap(.square)
-                    ctx.cgContext.strokePath()
-                }
-                
-                // Draw Letters
-                var xOffset = gridXMargin
-                var yOffset = gridYMargin
-                
-                for column in labels {
-                    for label in column {
-                        let size = String(label.letter).size(withAttributes: gridLetterAttributes)
-                        let yPosition = (gridCellSize - size.height) / 2
-                        let cellRect = CGRect(x: xOffset, y: yOffset + yPosition, width: gridCellSize, height: gridCellSize)
-                        String(label.letter).draw(in: cellRect, withAttributes: gridLetterAttributes)
-                        xOffset += gridCellSize
-                    }
+                    ctx.cgContext.move(to: CGPoint(x: gridMarginX, y: gridMarginY + linePosition))
+                    ctx.cgContext.addLine(to: CGPoint(x: gridMarginX + (CGFloat(gridSize) * gridCellSize), y: gridMarginY + linePosition))
                     
-                    xOffset = gridXMargin
-                    yOffset += gridCellSize
+                    ctx.cgContext.move(to: CGPoint(x: gridMarginX + linePosition, y: gridMarginY))
+                    ctx.cgContext.addLine(to: CGPoint(x: gridMarginX + linePosition, y: gridMarginY + (CGFloat(gridSize) * gridCellSize)))
                 }
                 
-                // Draw Placed Words
-                if includeWords {
-                    let wordSearchWords = placedWords.map { $0 }
-                    let combinedWords = wordSearchWords.joined(separator: " · ")
-                    let gridHeight = gridCellSize * CGFloat(gridSize)
-                    let wordYMargin = gridYMargin + gridHeight + margin / 2
-                    let wordRect = CGRect(x: margin, y: wordYMargin, width: availableSpace.width, height: availableSpace.height - wordYMargin)
-                    
-                    combinedWords.draw(in: wordRect, withAttributes: wordAttributes)
+                ctx.cgContext.setLineCap(.square)
+                ctx.cgContext.strokePath()
+            }
+            
+            // Draw Letters
+            var xOffset = gridMarginX
+            var yOffset = gridMarginY
+            
+            for column in labels {
+                for label in column {
+                    let size = String(label.letter).size(withAttributes: gridLetterAttributes)
+                    let yPosition = (gridCellSize - size.height) / 2
+                    let cellRect = CGRect(x: xOffset, y: yOffset + yPosition, width: gridCellSize, height: gridCellSize)
+                    String(label.letter).draw(in: cellRect, withAttributes: gridLetterAttributes)
+                    xOffset += gridCellSize
                 }
                 
+                xOffset = gridMarginX
+                yOffset += gridCellSize
+            }
+            
+            // Draw Placed Words
+            if includeWords {
+                let sortedWordString = placedWords.sorted().joined(separator: "     ")
+                
+                let constrainedRect = CGSize(width: availableSpace.width, height: .greatestFiniteMagnitude)
+                let boundingBox = sortedWordString.boundingRect(with: constrainedRect, options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: wordAttributes, context: nil)
+                
+                let gridHeight = gridCellSize * CGFloat(gridSize)
+                
+                var wordMarginY = gridMarginY + gridHeight + pageMargin / 2
+                if (wordMarginY + boundingBox.height) > (pageRect.height - pageMargin) {
+                    wordMarginY = pageMargin
+                    ctx.beginPage()
+                }
+                
+                let wordRect = CGRect(x: pageMargin, y: wordMarginY, width: availableSpace.width, height: availableSpace.height - wordMarginY)
+                sortedWordString.draw(in: wordRect, withAttributes: wordAttributes)
             }
         }
     }

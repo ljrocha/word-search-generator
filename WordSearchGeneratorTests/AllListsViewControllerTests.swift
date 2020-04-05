@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import WordSearchGenerator
+@testable import WordSearchGen
 
 class AllListsViewControllerTests: XCTestCase {
 

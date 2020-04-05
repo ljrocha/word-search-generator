@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import WordSearchGenerator
+@testable import WordSearchGen
 
 class SettingsViewControllerTests: XCTestCase {
     
@@ -30,12 +30,28 @@ class SettingsViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.title, "Settings")
     }
     
-    func testGridSizeSegmentedControlIsNotNil() {
+    func testTitleSwitchControlIsNotNil() {
         // when
         sut.loadViewIfNeeded()
         
         // then
-        XCTAssertNotNil(sut.gridSizeSegmentedControl)
+        XCTAssertNotNil(sut.titleSwitch)
+    }
+    
+    func testGridLinesSwitchControlIsNotNil() {
+        // when
+        sut.loadViewIfNeeded()
+        
+        // then
+        XCTAssertNotNil(sut.gridLinesSwitch)
+    }
+    
+    func testWordsSwitchControlIsNotNil() {
+        // when
+        sut.loadViewIfNeeded()
+        
+        // then
+        XCTAssertNotNil(sut.wordsSwitch)
     }
     
     func testDifficultySegmentedControlIsNotNil() {
@@ -46,20 +62,19 @@ class SettingsViewControllerTests: XCTestCase {
         XCTAssertNotNil(sut.difficultySegmentedControl)
     }
     
-    func testWordsSegmentedControlIsNotNil() {
+    func testGridSizeLabelIsNotNil() {
         // when
         sut.loadViewIfNeeded()
         
         // then
-        XCTAssertNotNil(sut.wordsSegmentedControl)
+        XCTAssertNotNil(sut.gridSizeLabel)
     }
     
-    func testTitleSegmentedControlIsNotNil() {
+    func testGridSizeStepperControlIsNotNil() {
         // when
         sut.loadViewIfNeeded()
         
         // then
-        XCTAssertNotNil(sut.titleSegmentedControl)
+        XCTAssertNotNil(sut.gridSizeStepper)
     }
-    
 }

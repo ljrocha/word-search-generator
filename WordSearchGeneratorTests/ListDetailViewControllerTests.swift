@@ -7,15 +7,14 @@
 //
 
 import XCTest
-@testable import WordSearchGenerator
+@testable import WordSearchGen
 
 class ListDetailViewControllerTests: XCTestCase {
 
     var sut: ListDetailViewController!
     
     override func setUp() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        sut = (storyboard.instantiateViewController(withIdentifier: "ListDetailViewController") as! ListDetailViewController)
+        sut = ListDetailViewController()
     }
 
     override func tearDown() {
@@ -27,7 +26,7 @@ class ListDetailViewControllerTests: XCTestCase {
         sut.loadViewIfNeeded()
         
         // then
-        XCTAssertNotNil(sut.nameTextField)
+        XCTAssertNotNil(sut.textField)
     }
     
     func testDoneButtonItemIsNotNil() {

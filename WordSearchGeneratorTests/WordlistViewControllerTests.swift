@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import WordSearchGenerator
+@testable import WordSearchGen
 
 class WordlistViewControllerTests: XCTestCase {
 
@@ -41,7 +41,7 @@ class WordlistViewControllerTests: XCTestCase {
     
     func testWordSearchButtonIsEnabledWhenWordlistStartsNonEmpty() {
         // given
-        let word = Word(word: UUID().uuidString)
+        let word = UUID().uuidString
         sut.wordlist.words.append(word)
         
         // when

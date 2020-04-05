@@ -7,15 +7,14 @@
 //
 
 import XCTest
-@testable import WordSearchGenerator
+@testable import WordSearchGen
 
 class WordSearchViewControllerTests: XCTestCase {
     
     var sut: WordSearchViewController!
 
     override func setUp() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        sut = (storyboard.instantiateViewController(withIdentifier: "WordSearchViewController") as! WordSearchViewController)
+        sut = WordSearchViewController()
     }
 
     override func tearDown() {

@@ -31,8 +31,9 @@ class Wordlist: Codable {
     
     // MARK: - Methods
     func isOriginal(word: String) -> Bool {
+        let trimmedLowercasedWord = word.trimmingCharacters(in: .whitespaces).lowercased()
         return !words.contains {
-            $0.trimmingCharacters(in: .whitespaces).lowercased() == word.trimmingCharacters(in: .whitespaces).lowercased()
+            $0.trimmingCharacters(in: .whitespaces).lowercased() == trimmedLowercasedWord
         }
     }
     

@@ -36,11 +36,8 @@ class TextEntryViewController: UIViewController {
     
     // MARK: - Configuration methods
     func configureViewController() {
-        if #available(iOS 13.0, *) {
-            view.backgroundColor = .systemBackground
-        } else {
-            view.backgroundColor = .white
-        }
+        view.backgroundColor = .systemBackground
+            
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
         doneButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
@@ -58,6 +55,7 @@ class TextEntryViewController: UIViewController {
         textField.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)
         textField.addTarget(self, action: #selector(done), for: .primaryActionTriggered)
         
+        textField.returnKeyType = .done
         textField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             textField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),

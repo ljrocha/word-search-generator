@@ -7,15 +7,14 @@
 //
 
 import XCTest
-@testable import WordSearchGenerator
+@testable import WordSearchGen
 
 class WordDetailViewControllerTests: XCTestCase {
     
     var sut: WordDetailViewController!
 
     override func setUp() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        sut = (storyboard.instantiateViewController(withIdentifier: "WordDetailViewController") as! WordDetailViewController)
+        sut = WordDetailViewController()
     }
 
     override func tearDown() {
@@ -24,7 +23,7 @@ class WordDetailViewControllerTests: XCTestCase {
     
     func testTitleShouldBeEditWordWhenWordIsSet() {
         // when
-        sut.wordToEdit = Word(word: UUID().uuidString)
+        sut.wordToEdit = UUID().uuidString
         sut.loadViewIfNeeded()
         
         // then
@@ -49,7 +48,7 @@ class WordDetailViewControllerTests: XCTestCase {
     
     func testDoneButtonItemIsEnabledWhenWordIsSet() {
         // when
-        sut.wordToEdit = Word(word: UUID().uuidString)
+        sut.wordToEdit = UUID().uuidString
         sut.loadViewIfNeeded()
         
         // then
@@ -61,7 +60,7 @@ class WordDetailViewControllerTests: XCTestCase {
         sut.loadViewIfNeeded()
         
         // then
-        XCTAssertNotNil(sut.wordTextField)
+        XCTAssertNotNil(sut.textField)
     }
     
     func testDoneButtonItemIsNotNil() {

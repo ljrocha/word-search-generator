@@ -25,13 +25,13 @@ class WordDetailViewController: TextEntryViewController {
         super.viewDidLoad()
 
         configureViewController()
-        textField.delegate = self
     }
     
     // MARK: - Configuration methods
     override func configureViewController() {
         super.configureViewController()
         
+        textField.delegate = self
         textField.placeholder = "Word"
         
         if let word = wordToEdit {
@@ -51,7 +51,7 @@ class WordDetailViewController: TextEntryViewController {
     
     override func done() {
         guard let word = textField.text?.trimmingCharacters(in: .whitespaces), !word.isEmpty else {
-            presentAlertOnMainThread(title: "Text must not be empty", message: nil, buttonTitle: "OK")
+            presentAlertOnMainThread(title: "Invalid entry", message: "Text must not be empty.", buttonTitle: "OK")
             return
         }
         

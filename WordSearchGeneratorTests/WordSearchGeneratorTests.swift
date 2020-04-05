@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import WordSearchGenerator
+@testable import WordSearchGen
 
 class WordSearchGeneratorTests: XCTestCase {
     
@@ -15,7 +15,7 @@ class WordSearchGeneratorTests: XCTestCase {
         let wordlist = Wordlist(title: UUID().uuidString)
         XCTAssertEqual(wordlist.words.count, 0)
         for _ in 0 ..< words {
-            let word = Word(word: UUID().uuidString)
+            let word = UUID().uuidString
             wordlist.words.append(word)
         }
         return wordlist
@@ -26,7 +26,7 @@ class WordSearchGeneratorTests: XCTestCase {
         let wordlist = createTestWordlist(words: 0)
         
         // when
-        let detailedWordCount = wordlist.detailedWordCount
+        let detailedWordCount = wordlist.wordCountDescription
         
         // then
         XCTAssertEqual(detailedWordCount, "(No Words)")
@@ -37,7 +37,7 @@ class WordSearchGeneratorTests: XCTestCase {
         let wordlist = createTestWordlist(words: 1)
         
         // when
-        let detailedWordCount = wordlist.detailedWordCount
+        let detailedWordCount = wordlist.wordCountDescription
         
         // then
         XCTAssertEqual(detailedWordCount, "1 Word")
@@ -48,7 +48,7 @@ class WordSearchGeneratorTests: XCTestCase {
         let wordlist = createTestWordlist(words: 2)
         
         // when
-        let detailedWordCount = wordlist.detailedWordCount
+        let detailedWordCount = wordlist.wordCountDescription
         
         // then
         XCTAssertEqual(detailedWordCount, "2 Words")
@@ -59,7 +59,7 @@ class WordSearchGeneratorTests: XCTestCase {
         let wordlist = createTestWordlist(words: 10)
         
         // when
-        let detailedWordCount = wordlist.detailedWordCount
+        let detailedWordCount = wordlist.wordCountDescription
         
         // then
         XCTAssertEqual(detailedWordCount, "10 Words")
