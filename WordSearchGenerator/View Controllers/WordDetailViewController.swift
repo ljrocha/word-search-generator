@@ -51,7 +51,7 @@ class WordDetailViewController: TextEntryViewController {
     
     override func done() {
         guard let word = textField.text?.trimmingCharacters(in: .whitespaces), !word.isEmpty else {
-            presentAlertOnMainThread(title: "Text must not be empty", message: nil, buttonTitle: "OK")
+            presentAlertOnMainThread(title: "Invalid entry", message: "Text must not be empty.", buttonTitle: "OK")
             return
         }
         
