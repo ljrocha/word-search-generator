@@ -1,5 +1,5 @@
 //
-//  WordSearchButton.swift
+//  WSButton.swift
 //  WordSearchGenerator
 //
 //  Created by Leandro Rocha on 6/23/19.
