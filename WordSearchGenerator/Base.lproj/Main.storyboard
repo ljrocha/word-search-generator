@@ -328,27 +328,25 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Support" id="e0e-8O-ZXa">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="qSY-HL-5AA">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="qSY-HL-5AA">
                                         <rect key="frame" x="0.0" y="441" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qSY-HL-5AA" id="Ygk-b6-0cM">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCR-1X-M2Q">
-                                                    <rect key="frame" x="20" y="6" width="106" height="30.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy Policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IeW-De-CFM">
+                                                    <rect key="frame" x="20" y="12" width="106" height="21"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                    <state key="normal" title="Privacy Policy"/>
-                                                    <connections>
-                                                        <action selector="privacyPolicyButtonTapped:" destination="HsL-sp-J12" eventType="touchUpInside" id="qzs-Ft-uuM"/>
-                                                    </connections>
-                                                </button>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="sCR-1X-M2Q" secondAttribute="bottom" constant="7.5" id="83l-NY-pk0"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="sCR-1X-M2Q" secondAttribute="trailing" constant="8" id="N5f-0k-vNJ"/>
-                                                <constraint firstItem="sCR-1X-M2Q" firstAttribute="leading" secondItem="Ygk-b6-0cM" secondAttribute="leading" constant="20" id="mIg-PQ-o2z"/>
-                                                <constraint firstItem="sCR-1X-M2Q" firstAttribute="top" secondItem="Ygk-b6-0cM" secondAttribute="top" constant="6" id="zpV-f5-mXd"/>
+                                                <constraint firstItem="IeW-De-CFM" firstAttribute="leading" secondItem="Ygk-b6-0cM" secondAttribute="leading" constant="20" id="K5n-k8-0qb"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="IeW-De-CFM" secondAttribute="trailing" constant="8" id="Y4W-eE-Zmz"/>
+                                                <constraint firstItem="IeW-De-CFM" firstAttribute="top" secondItem="Ygk-b6-0cM" secondAttribute="top" constant="12" id="ZwD-eh-ypl"/>
+                                                <constraint firstAttribute="bottom" secondItem="IeW-De-CFM" secondAttribute="bottom" constant="11" id="uvf-PJ-WKg"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -366,7 +364,6 @@
                         <outlet property="gridLinesSwitch" destination="K07-ha-JDb" id="kr4-Q8-b2s"/>
                         <outlet property="gridSizeLabel" destination="pae-jP-Wp1" id="KdH-d6-eZt"/>
                         <outlet property="gridSizeStepper" destination="lFh-xj-ObB" id="U0H-vr-cEn"/>
-                        <outlet property="privacyPolicyButton" destination="sCR-1X-M2Q" id="nxf-ZF-bP9"/>
                         <outlet property="titleSwitch" destination="v29-rg-XfY" id="8nB-JQ-hwM"/>
                         <outlet property="wordsSwitch" destination="l8g-Id-Yga" id="wZ1-Pv-wRD"/>
                     </connections>
