@@ -34,7 +34,7 @@ class DataModel {
             let data = try jsonEncoder.encode(lists)
             try data.write(to: dataFilePath(), options: .atomic)
         } catch {
-            print("Error encoding wordList array: \(error.localizedDescription)")
+            fatalError("Error encoding wordList array: \(error.localizedDescription)")
         }
     }
     
@@ -47,7 +47,7 @@ class DataModel {
                 sortWordLists()
                 lists.forEach { $0.sortWords() }
             } catch {
-                print("Error decoding wordList array: \(error.localizedDescription)")
+                fatalError("Error decoding wordList array: \(error.localizedDescription)")
             }
         }
     }
