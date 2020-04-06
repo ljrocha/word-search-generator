@@ -17,7 +17,6 @@ class SettingsViewController: UITableViewController {
     @IBOutlet weak var difficultySegmentedControl: UISegmentedControl!
     @IBOutlet weak var gridSizeLabel: UILabel!
     @IBOutlet weak var gridSizeStepper: UIStepper!
-    @IBOutlet weak var privacyPolicyButton: UIButton!
     
     // MARK: - View life cycle
     override func viewDidLoad() {
@@ -52,9 +51,6 @@ class SettingsViewController: UITableViewController {
         let size = defaults.integer(forKey: Key.UserDefaults.gridSize)
         gridSizeLabel.text = "\(size) x \(size)"
         gridSizeStepper.value = Double(size)
-        
-        // Privacy policy
-        privacyPolicyButton.titleLabel?.adjustsFontForContentSizeCategory = true
     }
     
     // MARK: - Methods
@@ -103,8 +99,10 @@ class SettingsViewController: UITableViewController {
         nc.post(name: Notification.Name(Key.Notification.settingsUpdated), object: nil)
     }
     
-    @IBAction func privacyPolicyButtonTapped(_ sender: UIButton) {
-        if let url = URL(string: "https://github.com/ljrocha/word-search-generator/blob/privacy-policy/PRIVACY.md") {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.section == 3 && indexPath.row == 0 else { return }
+        
+        if let url = URL(string: "https://github.com/ljrocha/word-search-generator/blob/master/PRIVACY.md") {
             let safariViewController = SFSafariViewController(url: url)
             present(safariViewController, animated: true)
         }
