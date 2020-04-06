@@ -17,6 +17,7 @@ class SettingsViewController: UITableViewController {
     @IBOutlet weak var difficultySegmentedControl: UISegmentedControl!
     @IBOutlet weak var gridSizeLabel: UILabel!
     @IBOutlet weak var gridSizeStepper: UIStepper!
+    @IBOutlet weak var versionLabel: UILabel!
     
     // MARK: - View life cycle
     override func viewDidLoad() {
@@ -24,6 +25,7 @@ class SettingsViewController: UITableViewController {
         
         configureViewController()
         setUpControls()
+        versionLabel.text = UIApplication.appVersion
     }
     
     // MARK: - Configuration methods
@@ -100,7 +102,7 @@ class SettingsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard indexPath.section == 3 && indexPath.row == 0 else { return }
+        guard indexPath.section == 3 && indexPath.row == 1 else { return }
         
         if let url = URL(string: "https://github.com/ljrocha/word-search-generator/blob/master/PRIVACY.md") {
             let safariViewController = SFSafariViewController(url: url)
