@@ -11,55 +11,55 @@ import XCTest
 
 class WordSearchGeneratorTests: XCTestCase {
     
-    func createTestWordlist(words: Int) -> Wordlist {
-        let wordlist = Wordlist(title: UUID().uuidString)
-        XCTAssertEqual(wordlist.words.count, 0)
+    func createTestWordList(words: Int) -> WordList {
+        let wordList = WordList(title: UUID().uuidString)
+        XCTAssertEqual(wordList.words.count, 0)
         for _ in 0 ..< words {
             let word = UUID().uuidString
-            wordlist.words.append(word)
+            wordList.words.append(word)
         }
-        return wordlist
+        return wordList
     }
     
-    func testWordlistWith0WordsDetailedWordCountIsCorrect() {
+    func testWordListWith0WordsDetailedWordCountIsCorrect() {
         // given
-        let wordlist = createTestWordlist(words: 0)
+        let wordList = createTestWordList(words: 0)
         
         // when
-        let detailedWordCount = wordlist.wordCountDescription
+        let detailedWordCount = wordList.wordCountDescription
         
         // then
         XCTAssertEqual(detailedWordCount, "(No Words)")
     }
     
-    func testWordlistWith1WordDetailedWordCountIsCorrect() {
+    func testWordListWith1WordDetailedWordCountIsCorrect() {
         // given
-        let wordlist = createTestWordlist(words: 1)
+        let wordList = createTestWordList(words: 1)
         
         // when
-        let detailedWordCount = wordlist.wordCountDescription
+        let detailedWordCount = wordList.wordCountDescription
         
         // then
         XCTAssertEqual(detailedWordCount, "1 Word")
     }
     
-    func testWordlistWith2WordsDetailedWordCountIsCorrect() {
+    func testWordListWith2WordsDetailedWordCountIsCorrect() {
         // given
-        let wordlist = createTestWordlist(words: 2)
+        let wordList = createTestWordList(words: 2)
         
         // when
-        let detailedWordCount = wordlist.wordCountDescription
+        let detailedWordCount = wordList.wordCountDescription
         
         // then
         XCTAssertEqual(detailedWordCount, "2 Words")
     }
     
-    func testWordlistWith10WordsDetailedWordCountIsCorrect() {
+    func testWordListWith10WordsDetailedWordCountIsCorrect() {
         // given
-        let wordlist = createTestWordlist(words: 10)
+        let wordList = createTestWordList(words: 10)
         
         // when
-        let detailedWordCount = wordlist.wordCountDescription
+        let detailedWordCount = wordList.wordCountDescription
         
         // then
         XCTAssertEqual(detailedWordCount, "10 Words")

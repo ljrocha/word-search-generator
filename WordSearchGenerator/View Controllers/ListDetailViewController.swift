@@ -10,13 +10,13 @@ import UIKit
 
 protocol ListDetailViewControllerDelegate: class {
     func listDetailViewControllerDidCancel(_ controller: ListDetailViewController)
-    func listDetailViewController(_ controller: ListDetailViewController, didFinishAdding wordlist: Wordlist)
-    func listDetailViewController(_ controller: ListDetailViewController, didFinishEditing wordlist: Wordlist)
+    func listDetailViewController(_ controller: ListDetailViewController, didFinishAdding wordList: WordList)
+    func listDetailViewController(_ controller: ListDetailViewController, didFinishEditing wordList: WordList)
 }
 
 class ListDetailViewController: TextEntryViewController {
     
-    var wordlistToEdit: Wordlist?
+    var wordListToEdit: WordList?
     
     weak var delegate: ListDetailViewControllerDelegate?
     
@@ -34,12 +34,12 @@ class ListDetailViewController: TextEntryViewController {
         textField.delegate = self
         textField.placeholder = "Title"
         
-        if let wordlist = wordlistToEdit {
-            title = "Edit Wordlist"
-            textField.text = wordlist.title
+        if let wordList = wordListToEdit {
+            title = "Edit Word List"
+            textField.text = wordList.title
             doneButtonItem.isEnabled = true
         } else {
-            title = "Add Wordlist"
+            title = "Add Word List"
             doneButtonItem.isEnabled = false
         }
     }
@@ -55,12 +55,12 @@ class ListDetailViewController: TextEntryViewController {
             return
         }
         
-        if let wordlist = wordlistToEdit {
-            wordlist.title = title
-            delegate?.listDetailViewController(self, didFinishEditing: wordlist)
+        if let wordList = wordListToEdit {
+            wordList.title = title
+            delegate?.listDetailViewController(self, didFinishEditing: wordList)
         } else {
-            let wordlist = Wordlist(title: title)
-            delegate?.listDetailViewController(self, didFinishAdding: wordlist)
+            let wordList = WordList(title: title)
+            delegate?.listDetailViewController(self, didFinishAdding: wordList)
         }
     }
     

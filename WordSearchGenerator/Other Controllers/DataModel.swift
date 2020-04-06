@@ -10,11 +10,11 @@ import Foundation
 
 class DataModel {
     
-    var lists = [Wordlist]()
+    var lists = [WordList]()
     
     // MARK: - Initialization
     init() {
-        loadWordlists()
+        loadWordLists()
     }
     
     // MARK: - Data persistance
@@ -24,36 +24,36 @@ class DataModel {
     }
     
     private func dataFilePath() -> URL {
-        return getDocumentsDirectory().appendingPathComponent("Wordlists.json")
+        return getDocumentsDirectory().appendingPathComponent("WordLists.json")
     }
     
-    func saveWordlists() {
+    func saveWordLists() {
         let jsonEncoder = JSONEncoder()
         
         do {
             let data = try jsonEncoder.encode(lists)
             try data.write(to: dataFilePath(), options: .atomic)
         } catch {
-            print("Error encoding wordlist array: \(error.localizedDescription)")
+            print("Error encoding wordList array: \(error.localizedDescription)")
         }
     }
     
-    func loadWordlists() {
+    func loadWordLists() {
         if let data = try? Data(contentsOf: dataFilePath()) {
             let jsonDecoder = JSONDecoder()
             
             do {
-                lists = try jsonDecoder.decode([Wordlist].self, from: data)
-                sortWordlists()
+                lists = try jsonDecoder.decode([WordList].self, from: data)
+                sortWordLists()
                 lists.forEach { $0.sortWords() }
             } catch {
-                print("Error decoding wordlist array: \(error.localizedDescription)")
+                print("Error decoding wordList array: \(error.localizedDescription)")
             }
         }
     }
     
     // MARK: - Methods
-    func sortWordlists() {
+    func sortWordLists() {
         lists.sort {
             return $0.title.localizedStandardCompare($1.title) == .orderedAscending
         }

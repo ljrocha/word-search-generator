@@ -66,7 +66,7 @@ class Label {
 
 class WordSearch {
     
-    var wordlist: Wordlist?
+    var wordList: WordList?
     
     var includeTitle = true
     var includeGridLines = true
@@ -169,9 +169,9 @@ class WordSearch {
     }
     
     private func placeWords() -> [String] {
-        guard let wordlist = wordlist else { return [] }
+        guard let wordList = wordList else { return [] }
         
-        return wordlist.words.shuffled().filter(place)
+        return wordList.words.shuffled().filter(place)
     }
     
     // MARK: - Render PDF
@@ -210,9 +210,9 @@ class WordSearch {
         // Grid margins
         let gridMarginX = (pageRect.width - (gridCellSize * CGFloat(gridSize))) / 2
         let gridMarginY: CGFloat
-        if let wordlist = wordlist, !wordlist.title.isEmpty, includeTitle {
+        if let wordList = wordList, !wordList.title.isEmpty, includeTitle {
             let constrainedRect = CGSize(width: availableSpace.width, height: .greatestFiniteMagnitude)
-            let boundingBox = wordlist.title.boundingRect(with: constrainedRect, options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: titleAttributes, context: nil)
+            let boundingBox = wordList.title.boundingRect(with: constrainedRect, options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: titleAttributes, context: nil)
             gridMarginY = boundingBox.height + pageMargin * 1.5
         } else {
             gridMarginY = pageRect.height / 10
@@ -225,9 +225,9 @@ class WordSearch {
             let placedWords = makeGrid()
             
             // Draw Title
-            if let wordlist = wordlist, !wordlist.title.isEmpty, includeTitle {
+            if let wordList = wordList, !wordList.title.isEmpty, includeTitle {
                 let titleRect = CGRect(x: pageMargin, y: pageMargin, width: availableSpace.width, height: gridMarginY - (pageMargin * 1.5))
-                wordlist.title.draw(in: titleRect, withAttributes: titleAttributes)
+                wordList.title.draw(in: titleRect, withAttributes: titleAttributes)
             }
             
             // Write Grid

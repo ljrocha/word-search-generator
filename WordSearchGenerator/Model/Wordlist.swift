@@ -1,5 +1,5 @@
 //
-//  Wordlist.swift
+//  WordList.swift
 //  WordSearchGenerator
 //
 //  Created by Leandro Rocha on 6/23/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Wordlist: Codable {
+class WordList: Codable {
     
     var title: String
     var words = [String]()
