@@ -51,7 +51,7 @@ class SettingsViewController: UITableViewController {
         
         // Grid size
         let size = defaults.integer(forKey: Key.UserDefaults.gridSize)
-        gridSizeLabel.text = "\(size) x \(size)"
+        gridSizeLabel.text = "\(size)x\(size)"
         gridSizeStepper.value = Double(size)
     }
     
@@ -89,7 +89,7 @@ class SettingsViewController: UITableViewController {
     @IBAction func stepperChanged(_ sender: UIStepper) {
         // Grid size
         let value = Int(sender.value)
-        gridSizeLabel.text = "\(value) x \(value)"
+        gridSizeLabel.text = "\(value)x\(value)"
         
         UserDefaults.standard.set(value, forKey: Key.UserDefaults.gridSize)
         
@@ -101,8 +101,19 @@ class SettingsViewController: UITableViewController {
         nc.post(name: Notification.Name(Key.Notification.settingsUpdated), object: nil)
     }
     
+    @IBAction func difficultyQuestionButtonTapped(_ sender: UIButton) {
+        let messageString = """
+                            Easy: Left-to-Right, Top-to-Bottom\n
+                            Medium: Left-to-Right, Right-to-Left, Top-to-Bottom, Bottom-to-Top\n
+                            Hard: Left-to-Right, Right-to-Left, Top-to-Bottom, Bottom-to-Top,
+                            TopLeft-to-BottomRight, BottomRight-to-TopLeft, TopRight-to-BottomLeft,
+                            BottomLeft-to-TopRight
+                            """
+        presentAlertOnMainThread(title: "Word placement", message: messageString, buttonTitle: "Got it!")
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard indexPath.section == 3 && indexPath.row == 1 else { return }
+        guard indexPath.section == 1 && indexPath.row == 1 else { return }
         
         if let url = URL(string: "https://github.com/ljrocha/word-search-generator/blob/master/PRIVACY.md") {
             let safariViewController = SFSafariViewController(url: url)
