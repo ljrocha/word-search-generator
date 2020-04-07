@@ -103,11 +103,9 @@ class SettingsViewController: UITableViewController {
     
     @IBAction func difficultyQuestionButtonTapped(_ sender: UIButton) {
         let messageString = """
-                            Easy: Left-to-Right, Top-to-Bottom\n
-                            Medium: Left-to-Right, Right-to-Left, Top-to-Bottom, Bottom-to-Top\n
-                            Hard: Left-to-Right, Right-to-Left, Top-to-Bottom, Bottom-to-Top,
-                            TopLeft-to-BottomRight, BottomRight-to-TopLeft, TopRight-to-BottomLeft,
-                            BottomLeft-to-TopRight
+                            Easy: Horizontal and vertical with words spelled in a forward direction.\n
+                            Medium: Horizontal and vertical with words spelled in either forward or reverse direction.\n
+                            Hard: Horizontal, vertical and diagonal with words spelled in either forward or reverse direction.
                             """
         presentAlertOnMainThread(title: "Word placement", message: messageString, buttonTitle: "Got it!")
     }
