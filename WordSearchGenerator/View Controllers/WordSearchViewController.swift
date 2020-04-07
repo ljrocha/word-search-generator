@@ -14,7 +14,7 @@ class WordSearchViewController: UIViewController {
     var pdfView: PDFView!
     
     var wordSearch = WordSearch()
-    var wordlist: Wordlist!
+    var wordList: WordList!
     
     private let pdfURL: URL = {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -30,7 +30,7 @@ class WordSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        wordSearch.wordlist = wordlist
+        wordSearch.wordList = wordList
         
         configureViewController()
         configurePDFView()

@@ -22,12 +22,12 @@ class AllListsViewControllerTests: XCTestCase {
         sut = nil
     }
     
-    func testTitleShouldBeWordlists() {
+    func testTitleShouldBeWordLists() {
         // when
         sut.loadViewIfNeeded()
         
         // then
-        XCTAssertEqual(sut.title, "Wordlists")
+        XCTAssertEqual(sut.title, "Word Lists")
     }
 
 }

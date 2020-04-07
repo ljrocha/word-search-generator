@@ -1,5 +1,5 @@
 //
-//  WordlistDetailViewController.swift
+//  WordListDetailViewController.swift
 //  WordSearchGenerator
 //
 //  Created by Leandro Rocha on 6/23/19.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-class WordlistViewController: UIViewController {
+class WordListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var wordSearchButton = WSButton()
     
-    var wordlist: Wordlist!
+    var wordList: WordList!
     
     // MARK: - View life cycle
     override func viewDidLoad() {
@@ -26,7 +26,7 @@ class WordlistViewController: UIViewController {
     
     // MARK: - Configuration methods
     func configureViewController() {
-        title = wordlist.title
+        title = wordList.title
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
     }
@@ -40,7 +40,7 @@ class WordlistViewController: UIViewController {
         view.addSubview(wordSearchButton)
         wordSearchButton.translatesAutoresizingMaskIntoConstraints = false
         wordSearchButton.addTarget(self, action: #selector(wordSearchButtonTapped), for: .touchUpInside)
-        wordSearchButton.isEnabled = !wordlist.words.isEmpty
+        wordSearchButton.isEnabled = !wordList.words.isEmpty
         
         let padding: CGFloat = 40
         NSLayoutConstraint.activate([
@@ -62,34 +62,34 @@ class WordlistViewController: UIViewController {
     
     @objc func wordSearchButtonTapped(_ sender: UIButton) {
         let wordSearchVC = WordSearchViewController()
-        wordSearchVC.wordlist = wordlist
+        wordSearchVC.wordList = wordList
         
         navigationController?.pushViewController(wordSearchVC, animated: true)
     }
     
 }
 
-extension WordlistViewController: UITableViewDataSource, UITableViewDelegate {
+extension WordListViewController: UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return wordlist.words.count
+        return wordList.words.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath)
         
-        let word = wordlist.words[indexPath.row]
+        let word = wordList.words[indexPath.row]
         cell.textLabel?.text = word
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        wordlist.words.remove(at: indexPath.row)
+        wordList.words.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .automatic)
         
-        wordSearchButton.isEnabled = !wordlist.words.isEmpty
+        wordSearchButton.isEnabled = !wordList.words.isEmpty
     }
     
     // MARK: - Table view delegate
@@ -101,7 +101,7 @@ extension WordlistViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
         
         let detailVC = WordDetailViewController()
-        detailVC.wordToEdit = wordlist.words[indexPath.row]
+        detailVC.wordToEdit = wordList.words[indexPath.row]
         detailVC.delegate = self
         
         let navController = UINavigationController(rootViewController: detailVC)
@@ -109,7 +109,7 @@ extension WordlistViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-extension WordlistViewController: WordDetailViewControllerDelegate {
+extension WordListViewController: WordDetailViewControllerDelegate {
     
     func wordDetailViewControllerDidCancel(_ controller: WordDetailViewController) {
         if let indexPath = tableView.indexPathForSelectedRow {
@@ -119,29 +119,29 @@ extension WordlistViewController: WordDetailViewControllerDelegate {
     }
     
     func wordDetailViewController(_ controller: WordDetailViewController, didFinishAdding word: String) {
-        guard wordlist.isOriginal(word: word) else {
+        guard wordList.isOriginal(word: word) else {
             presentedViewController?.presentAlertOnMainThread(title: "Duplicate word", message: "Please enter a unique word.", buttonTitle: "OK")
             return
         }
         
-        wordlist.words.append(word)
-        wordlist.sortWords()
+        wordList.words.append(word)
+        wordList.sortWords()
         tableView.reloadData()
         wordSearchButton.isEnabled = true
         dismiss(animated: true)
     }
     
     func wordDetailViewController(_ controller: WordDetailViewController, didFinishEditing word: String) {
-        guard wordlist.isOriginal(word: word) else {
+        guard wordList.isOriginal(word: word) else {
             presentedViewController?.presentAlertOnMainThread(title: "Duplicate word", message: "Please enter a unique word.", buttonTitle: "OK")
             return
         }
         
         if let indexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: indexPath, animated: false)
-            wordlist.words[indexPath.row] = word
+            wordList.words[indexPath.row] = word
         }
-        wordlist.sortWords()
+        wordList.sortWords()
         tableView.reloadData()
         dismiss(animated: true)
     }

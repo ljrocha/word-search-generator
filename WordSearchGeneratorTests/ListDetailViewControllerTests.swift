@@ -37,33 +37,33 @@ class ListDetailViewControllerTests: XCTestCase {
         XCTAssertNotNil(sut.doneButtonItem)
     }
     
-    func testTitleShouldBeEditWordlistWhenWordlistIsSet() {
+    func testTitleShouldBeEditWordListWhenWordListIsSet() {
         // given
-        let wordlist = Wordlist(title: UUID().uuidString)
-        sut.wordlistToEdit = wordlist
+        let wordList = WordList(title: UUID().uuidString)
+        sut.wordListToEdit = wordList
         
         // when
         sut.loadViewIfNeeded()
         
         // then
-        XCTAssertEqual(sut.title, "Edit Wordlist")
+        XCTAssertEqual(sut.title, "Edit Word List")
     }
     
-    func testTitleShouldBeAddWordlistWhenWordlistIsNotSet() {
+    func testTitleShouldBeAddWordListWhenWordListIsNotSet() {
         // given
-        sut.wordlistToEdit = nil
+        sut.wordListToEdit = nil
         
         // when
         sut.loadViewIfNeeded()
         
         // then
-        XCTAssertEqual(sut.title, "Add Wordlist")
+        XCTAssertEqual(sut.title, "Add Word List")
     }
     
-    func testDoneButtonItemIsEnabledWhenWordlistIsSet() {
+    func testDoneButtonItemIsEnabledWhenWordListIsSet() {
         // given
-        let wordlist = Wordlist(title: UUID().uuidString)
-        sut.wordlistToEdit = wordlist
+        let wordList = WordList(title: UUID().uuidString)
+        sut.wordListToEdit = wordList
         
         // when
         sut.loadViewIfNeeded()
@@ -72,9 +72,9 @@ class ListDetailViewControllerTests: XCTestCase {
         XCTAssertTrue(sut.doneButtonItem.isEnabled)
     }
     
-    func testDoneButtonItemIsDisabledWhenWordlistIsNotSet() {
+    func testDoneButtonItemIsDisabledWhenWordListIsNotSet() {
         // given
-        sut.wordlistToEdit = nil
+        sut.wordListToEdit = nil
         
         // when
         sut.loadViewIfNeeded()

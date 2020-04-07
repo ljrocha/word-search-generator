@@ -1,5 +1,5 @@
 //
-//  WordlistViewControllerTests.swift
+//  WordListViewControllerTests.swift
 //  WordSearchGeneratorTests
 //
 //  Created by Leandro Rocha on 8/27/19.
@@ -9,14 +9,14 @@
 import XCTest
 @testable import WordSearchGen
 
-class WordlistViewControllerTests: XCTestCase {
+class WordListViewControllerTests: XCTestCase {
 
-    var sut: WordlistViewController!
+    var sut: WordListViewController!
     
     override func setUp() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        sut = (storyboard.instantiateViewController(withIdentifier: "WordlistViewController") as! WordlistViewController)
-        sut.wordlist = Wordlist(title: UUID().uuidString)
+        sut = (storyboard.instantiateViewController(withIdentifier: "WordListViewController") as! WordListViewController)
+        sut.wordList = WordList(title: UUID().uuidString)
     }
 
     override func tearDown() {
@@ -39,10 +39,10 @@ class WordlistViewControllerTests: XCTestCase {
         XCTAssertNotNil(sut.wordSearchButton)
     }
     
-    func testWordSearchButtonIsEnabledWhenWordlistStartsNonEmpty() {
+    func testWordSearchButtonIsEnabledWhenWordListStartsNonEmpty() {
         // given
         let word = UUID().uuidString
-        sut.wordlist.words.append(word)
+        sut.wordList.words.append(word)
         
         // when
         sut.loadViewIfNeeded()
@@ -51,7 +51,7 @@ class WordlistViewControllerTests: XCTestCase {
         XCTAssertTrue(sut.wordSearchButton.isEnabled)
     }
     
-    func testWordSearchButtonIsDisabledWhenWordlistStartsEmpty() {
+    func testWordSearchButtonIsDisabledWhenWordListStartsEmpty() {
         // when
         sut.loadViewIfNeeded()
         
