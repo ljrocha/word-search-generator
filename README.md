@@ -1,4 +1,5 @@
 # Word Search Puzzle Generator
+
 An app that allows you to create word lists and generate word search puzzles from them. Users have the ability to configure the word search puzzles to generate custom PDF's.
 
 ## Features
@@ -12,4 +13,4 @@ An app that allows you to create word lists and generate word search puzzles fro
 - Swift 5
 
 ## Credits
-This app was inspired by [Paul Hudson's](https://www.twitter.com/twostraws) [Word Search](https://github.com/twostraws/SwiftOnSundays/tree/master/006%20Wordsearch).
+This app was inspired by [Paul Hudson's](https://twitter.com/twostraws) [Word Search](https://github.com/twostraws/SwiftOnSundays/tree/master/006%20Wordsearch).
