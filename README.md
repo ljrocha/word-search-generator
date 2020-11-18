@@ -1,5 +1,7 @@
 # Word Search Gen
 
+[![Build Status](https://travis-ci.org/ljrocha/word-search-generator.svg?branch=master)](https://travis-ci.org/ljrocha/word-search-generator)
+
 An app that allows you to create word lists and generate word search puzzles from them. Users have the ability to configure the word search puzzles to generate custom PDF's.
 
 ![Word Search Gen Demonstration](/wordsearchgen.gif "Demo")
