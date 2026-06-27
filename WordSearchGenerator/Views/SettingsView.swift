@@ -19,56 +19,62 @@ struct SettingsView: View {
     @State private var difficulty: Difficulty = .medium
     
     var body: some View {
-        Form {
-            Section(header: Text("Word Search")) {
-                Toggle("Display title", isOn: $shouldDisplayTitle)
-                Toggle("Draw grid lines", isOn: $shouldDrawGridLines)
-                Toggle("Include word list", isOn: $shouldIncludeWordList)
-                
-                HStack {
-                    Stepper("Size: \(size)x\(size)", value: $size, in: 8...14)
-                }
-                
-                // TODO: Add explanation of each difficulty
-                Picker(selection: $difficulty) {
-                    Text("Easy").tag(Difficulty.easy)
-                    Text("Medium").tag(Difficulty.medium)
-                    Text("Hard").tag(Difficulty.hard)
-                } label: {
-                    Text("Difficulty")
-                }
-            }
-            
-            Section(header: Text("Support")) {
-                if let version = UIApplication.appVersion {
+        NavigationStack {
+            Form {
+                Section {
+                    Toggle("Display title", isOn: $shouldDisplayTitle)
+                    Toggle("Draw grid lines", isOn: $shouldDrawGridLines)
+                    Toggle("Include word list", isOn: $shouldIncludeWordList)
+                    
                     HStack {
-                        Text("Version")
-                        Spacer()
-                        Text(version)
+                        Stepper("Size: \(size)x\(size)", value: $size, in: 8...14)
                     }
+                    
+                    Picker(selection: $difficulty) {
+                        Text("Easy").tag(Difficulty.easy)
+                        Text("Medium").tag(Difficulty.medium)
+                        Text("Hard").tag(Difficulty.hard)
+                    } label: {
+                        Text("Difficulty")
+                    }
+                } header: {
+                    Text("Word Search")
+                } footer: {
+                    let messageString = """
+                                        Easy: Horizontal and vertical word placement with words spelled in a forward direction.\n
+                                        Medium: Horizontal and vertical word placement with words spelled in either forward or reverse direction.\n
+                                        Hard: Horizontal, vertical, and diagonal word placement with words spelled in either forward or reverse direction.
+                                        """
+                    Text(messageString)
                 }
                 
-                // TODO: Determine if this is the best way to present Privacy Policy
-                if let url = URL(string: "https://github.com/ljrocha/word-search-generator/blob/master/PRIVACY.md") {
-                    let safariViewController = SFSafariViewController(url: url)
-                    Button {
-                        UIApplication.shared.firstKeyWindow?.rootViewController?.present(safariViewController, animated: true)
-                    } label: {
-                        HStack {
-                            Text("Privacy Policy")
-                            Spacer()
-                            Image(systemName: "chevron.right")
+                Section {
+                    // TODO: Determine if this is the best way to present Privacy Policy
+                    if let url = URL(string: "https://github.com/ljrocha/word-search-generator/blob/master/PRIVACY.md") {
+                        let safariViewController = SFSafariViewController(url: url)
+                        Button {
+                            UIApplication.shared.firstKeyWindow?.rootViewController?.present(safariViewController, animated: true)
+                        } label: {
+                            HStack {
+                                Text("Privacy Policy")
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                            }
                         }
                     }
+                } header: {
+                    Text("Support")
+                } footer: {
+                    if let version = UIApplication.appVersion {
+                        Text("Version: \(version)")
+                    }
                 }
             }
+            .navigationTitle(Text("Settings"))
         }
-        .navigationTitle(Text("Settings"))
     }
 }
 
 #Preview {
-    NavigationStack {
-        SettingsView()
-    }
+    SettingsView()
 }
