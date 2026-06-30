@@ -14,6 +14,7 @@
 		4669E5BF243B943300866AE4 /* UIApplication+AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4669E5BE243B943300866AE4 /* UIApplication+AppVersion.swift */; };
 		46750AA82FF038EC00D4926E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46750AA72FF038EC00D4926E /* SettingsView.swift */; };
 		46750AAA2FF04ED400D4926E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46750AA92FF04ED400D4926E /* ContentView.swift */; };
+		46750AAC2FF0701D00D4926E /* AllListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46750AAB2FF0701D00D4926E /* AllListsView.swift */; };
 		467BCBC72256E95B00EE441B /* WordSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467BCBC62256E95B00EE441B /* WordSearch.swift */; };
 		468358EF22E1774E00E5DA58 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468358EE22E1774E00E5DA58 /* SettingsViewController.swift */; };
 		468358F122E1864300E5DA58 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468358F022E1864300E5DA58 /* Constants.swift */; };
@@ -55,6 +56,7 @@
 		4669E5BE243B943300866AE4 /* UIApplication+AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+AppVersion.swift"; sourceTree = "<group>"; };
 		46750AA72FF038EC00D4926E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		46750AA92FF04ED400D4926E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		46750AAB2FF0701D00D4926E /* AllListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListsView.swift; sourceTree = "<group>"; };
 		467BCBC62256E95B00EE441B /* WordSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearch.swift; sourceTree = "<group>"; };
 		468358EE22E1774E00E5DA58 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		468358F022E1864300E5DA58 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				46B1A1E822C08195000D40BA /* WSButton.swift */,
 				469B493024131D7E007B640C /* WSTextField.swift */,
 				46750AA92FF04ED400D4926E /* ContentView.swift */,
+				46750AAB2FF0701D00D4926E /* AllListsView.swift */,
 				46750AA72FF038EC00D4926E /* SettingsView.swift */,
 			);
 			path = Views;
@@ -312,6 +315,7 @@
 				46507D1522DD8F2C002A9A7E /* DataModel.swift in Sources */,
 				469B493124131D7E007B640C /* WSTextField.swift in Sources */,
 				46F6FEB62416E2E1002B73A3 /* UIViewController+Alert.swift in Sources */,
+				46750AAC2FF0701D00D4926E /* AllListsView.swift in Sources */,
 				46750AAA2FF04ED400D4926E /* ContentView.swift in Sources */,
 				46863B48222E347000B8B3FB /* AppDelegate.swift in Sources */,
 				6F2622C1C7D74E32A1E1030B /* SceneDelegate.swift in Sources */,

@@ -11,8 +11,9 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
+            // TODO: Add badge when Settings are updated. Only when displaying a word search.
             Tab("Word Lists", systemImage: "list.bullet") {
-                EmptyView()
+                AllListsView()
             }
             
             Tab("Settings", systemImage: "gear") {
