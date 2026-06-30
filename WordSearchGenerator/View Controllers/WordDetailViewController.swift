@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol WordDetailViewControllerDelegate: class {
+protocol WordDetailViewControllerDelegate: AnyObject {
     func wordDetailViewControllerDidCancel(_ controller: WordDetailViewController)
     func wordDetailViewController(_ controller: WordDetailViewController, didFinishAdding word: String)
     func wordDetailViewController(_ controller: WordDetailViewController, didFinishEditing word: String)

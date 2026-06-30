@@ -1,0 +1,58 @@
+//
+//  SceneDelegate.swift
+//  WordSearchGenerator
+//
+//  Created by Leandro Rocha on 3/4/19.
+//  Copyright © 2019 Leandro Rocha. All rights reserved.
+//
+
+import UIKit
+
+class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+
+    var window: UIWindow?
+
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+
+        window = UIWindow(windowScene: windowScene)
+
+        // Get the DataModel from AppDelegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+        // Load the storyboard and configure the root view controller
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let tabBarController = storyboard.instantiateInitialViewController() as? UITabBarController {
+            let navigationController = tabBarController.viewControllers![0] as! UINavigationController
+            let controller = navigationController.viewControllers[0] as! AllListsViewController
+            controller.dataModel = appDelegate.dataModel
+
+            window?.rootViewController = tabBarController
+        }
+
+        window?.makeKeyAndVisible()
+    }
+
+    func sceneDidDisconnect(_ scene: UIScene) {
+        // Called as the scene is being released by the system.
+    }
+
+    func sceneDidBecomeActive(_ scene: UIScene) {
+        // Called when the scene has moved from an inactive state to an active state.
+    }
+
+    func sceneWillResignActive(_ scene: UIScene) {
+        // Called when the scene will move from an active state to an inactive state.
+    }
+
+    func sceneWillEnterForeground(_ scene: UIScene) {
+        // Called as the scene transitions from the background to the foreground.
+    }
+
+    func sceneDidEnterBackground(_ scene: UIScene) {
+        // Called as the scene transitions from the foreground to the background.
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.saveData()
+    }
+
+}
