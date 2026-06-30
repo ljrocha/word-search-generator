@@ -1,6 +1,8 @@
 # Word Search Puzzle Generator
 An app that allows you to create word lists and generate word search puzzles from them. Users have the ability to configure the word search puzzles to generate custom PDF's.
 
+![Word Search Gen Demonstration](/wordsearchgen.gif "Demo")
+
 ## Features
 - Share/save/print your generated PDF's
 - Dark Mode
