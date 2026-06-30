@@ -24,7 +24,7 @@ Views (SwiftUI)  →  Models (@Observable + SwiftData @Model)  →  ModelContain
 - **App entry**: `@main struct WordSearchGeneratorApp: App` injects a CloudKit-enabled `ModelContainer` and an `@Observable SettingsStore` via `.environment(_:)`.
 - **Navigation**: `TabView` using the new `Tab` API; each tab has its own `NavigationStack` with `navigationDestination(for:)`.
 - **State**: SwiftData's `@Model` for `WordList`; `@Observable` for any non-persisted view state; `@AppStorage` for app settings.
-- **PDF rendering**: keep `UIGraphicsPDFRenderer` (no SwiftUI equivalent). Refactor `WordSearch` to accept a `(title, words, settings)` value-type snapshot — keeps it `Sendable` and runnable off the main actor.
+- **PDF rendering**: SwiftUI-native via `ImageRenderer` (iOS 16+). Split `WordSearch.swift` into (a) a pure-algorithm core that returns a placed grid + word list as Sendable value types, and (b) a `PuzzlePageView` SwiftUI view that draws the grid with `Canvas` and the title/word list with `Text`. A `PuzzlePDFRenderer` uses `ImageRenderer.render(rasterizationScale:renderer:)` with a `CGContext(consumer:mediaBox:)` PDF context to write the SwiftUI view into PDF pages. No more `UIGraphicsPDFRenderer`.
 
 ---
 
@@ -85,8 +85,12 @@ WordSearchGenerator/
   Models/
     WordList.swift                       ← SwiftData @Model
     SettingsStore.swift                  ← @AppStorage wrapper
-    WordSearch.swift                     ← refactored: pure value-type input, Sendable
-    PuzzleSnapshot.swift                 ← Sendable struct passed to WordSearch.render()
+    PuzzleSnapshot.swift                 ← Sendable input to the algorithm (title, words, settings)
+    PlacedPuzzle.swift                   ← Sendable output of the algorithm (grid + placed words)
+  Puzzle/
+    WordSearchEngine.swift               ← pure algorithm, no UI/PDF dependencies, Sendable
+    PuzzlePageView.swift                 ← SwiftUI view of one PDF page (Canvas grid + Text title/words)
+    PuzzlePDFRenderer.swift              ← ImageRenderer + CGContext PDF writer
   Views/
     ContentView.swift                    ← TabView with Tab API
     Lists/
@@ -135,8 +139,11 @@ Run the import on a `ModelActor` (not the main actor) to keep cold-launch respon
 ## Implementation Order
 
 1. **Project config**: bump Swift version to 6.2, enable strict concurrency, add iCloud + CloudKit capabilities, create CloudKit container `iCloud.<bundle-id>`.
-2. **Models**: `WordList` (SwiftData), `SettingsStore` (@AppStorage), `PuzzleSnapshot` (Sendable struct).
-3. **Refactor `WordSearch.swift`**: replace `readDefaultValues()` + property reads on a `WordList` reference with a `render(_ snapshot: PuzzleSnapshot) -> Data` signature. Keep `UIGraphicsPDFRenderer`. Mark `Sendable`.
+2. **Models**: `WordList` (SwiftData), `SettingsStore` (@AppStorage), `PuzzleSnapshot` (Sendable input), `PlacedPuzzle` (Sendable algorithm output — 2D `[[Character]]` grid + placed-word coordinates).
+3. **Split `WordSearch.swift`** into three pieces:
+   - `Puzzle/WordSearchEngine.swift` — pure algorithm. Takes a `PuzzleSnapshot`, returns a `PlacedPuzzle`. No UIKit, no SwiftUI, no PDF. `Sendable`. Easily unit-testable with deterministic seeded RNG.
+   - `Puzzle/PuzzlePageView.swift` — SwiftUI `View` representing one PDF page. Uses `Canvas` to draw the letter grid + optional gridlines; `Text` (Dynamic Type) for the title and word-list footer. Reads `SettingsStore` flags (`titleIncluded`, `wordsIncluded`, `gridLinesIncluded`) to decide what to include. Has a `#Preview` showing a sample puzzle.
+   - `Puzzle/PuzzlePDFRenderer.swift` — given a `PuzzleSnapshot` and a `PlacedPuzzle`, builds a `PuzzlePageView`, instantiates `ImageRenderer(content:)`, creates a US-Letter `CGContext` via `CGContext(consumer:mediaBox:_:)` against a `CGDataConsumer` wrapping a `CFMutableData`, then calls `renderer.render { _, render in pdfContext.beginPDFPage(...); render(pdfContext); pdfContext.endPDFPage() }` for each page. Returns the `Data`.
 4. **App entry + container**: `WordSearchGeneratorApp` with CloudKit-backed `ModelContainer`, `.environment(settings)`, `.modelContainer(container)`.
 5. **Settings tab** first (smallest surface — Form + SettingsStore bindings; help alert; privacy link).
 6. **All Lists tab**: `@Query(sort: \.title)`, swipe-delete, `.searchable`, create-list sheet.
@@ -146,7 +153,12 @@ Run the import on a `ModelActor` (not the main actor) to keep cold-launch respon
 10. **Legacy JSON importer**, wired into App init.
 11. **Localizable.xcstrings**: replace every hard-coded `Text("…")`, button label, alert title, navigation title with `Text(.symbolKey)` — `extractionState: "manual"`. English-only initially; offer to translate after wiring is complete.
 12. **Delete UIKit layer**: `Main.storyboard`, `SceneDelegate.swift`, all 7 files under `View Controllers/`, `Views/WSButton.swift`, `Views/WSTextField.swift`, `Other Controllers/DataModel.swift`, `Model/Wordlist.swift`, `Extensions/UIViewController+Alert.swift`, `Extensions/UIApplication+AppVersion.swift`. Strip storyboard reference from Info.plist; remove the scene's `UISceneStoryboardFile`. AppDelegate keeps only `registerDefaults`.
-13. **Tests**: rewrite the surviving model test (`WordList.wordCountDescription` logic — port into a computed property if still needed) using Swift Testing (`@Test`, `#expect`). Add tests for `WordSearch` puzzle generation against a known snapshot, `LegacyJSONImporter` (fixtures + in-memory `ModelContainer(for:configurations: ModelConfiguration(isStoredInMemoryOnly: true))`). Delete all 7 view-controller test files.
+13. **Tests** (Swift Testing — `@Test`, `#expect`):
+    - `WordList.isOriginal(_:)` and word-count description logic.
+    - `WordSearchEngine` against a known `PuzzleSnapshot` with a seeded RNG — assert every word is placed and all letters fit the grid. Pure value-type input/output makes this trivial.
+    - `LegacyJSONImporter` with fixture JSON + an in-memory `ModelContainer(for:configurations: ModelConfiguration(isStoredInMemoryOnly: true))`.
+    - `PuzzlePDFRenderer` smoke test: render a small puzzle, parse with `PDFKit.PDFDocument(data:)`, assert page count and that the puzzle title `String` appears in the page's `attributedString`.
+    - Delete all 7 view-controller test files.
 
 ---
 
@@ -205,4 +217,3 @@ xcodebuild test -project WordSearchGenerator.xcodeproj \
 - New features (clue-based puzzles, multi-language word lists, iPad-optimized layout).
 - App Store assets, screenshots, marketing.
 - Translating Localizable.xcstrings into non-English languages (set up now; translate as a separate task).
-- Migrating to a SwiftUI-native PDF renderer — `UIGraphicsPDFRenderer` stays.
