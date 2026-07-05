@@ -12,27 +12,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-
-        window = UIWindow(windowScene: windowScene)
-
-        // Get the DataModel from AppDelegate
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-
-        // Load the storyboard and configure the root view controller
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let tabBarController = storyboard.instantiateInitialViewController() as? UITabBarController {
-            let navigationController = tabBarController.viewControllers![0] as! UINavigationController
-            let controller = navigationController.viewControllers[0] as! AllListsViewController
-            controller.dataModel = appDelegate.dataModel
-
-            window?.rootViewController = tabBarController
-        }
-
-        window?.makeKeyAndVisible()
-    }
-
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
     }
