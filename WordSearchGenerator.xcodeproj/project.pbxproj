@@ -20,7 +20,6 @@
 		468358F122E1864300E5DA58 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468358F022E1864300E5DA58 /* Constants.swift */; };
 		46863B48222E347000B8B3FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46863B47222E347000B8B3FB /* AppDelegate.swift */; };
 		46863B4A222E347000B8B3FB /* AllListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46863B49222E347000B8B3FB /* AllListsViewController.swift */; };
-		46863B4D222E347000B8B3FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46863B4B222E347000B8B3FB /* Main.storyboard */; };
 		46863B4F222E347100B8B3FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46863B4E222E347100B8B3FB /* Assets.xcassets */; };
 		4689C6672315B9BD0006812B /* WordSearchViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4689C6662315B9BD0006812B /* WordSearchViewControllerTests.swift */; };
 		4689C6692315BB250006812B /* WordDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4689C6682315BB250006812B /* WordDetailViewControllerTests.swift */; };
@@ -29,6 +28,7 @@
 		4689C66F2315D23A0006812B /* AllListsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4689C66E2315D23A0006812B /* AllListsViewControllerTests.swift */; };
 		46962145241305480059999F /* TextEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46962144241305480059999F /* TextEntryViewController.swift */; };
 		4698955B2315941800147B4D /* WordSearchGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4698955A2315941800147B4D /* WordSearchGeneratorTests.swift */; };
+		4698F4772FFA02E900E4D9C3 /* WordSearchGeneratorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4698F4762FFA02E900E4D9C3 /* WordSearchGeneratorApp.swift */; };
 		469B493124131D7E007B640C /* WSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469B493024131D7E007B640C /* WSTextField.swift */; };
 		46B1A1E922C08195000D40BA /* WSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B1A1E822C08195000D40BA /* WSButton.swift */; };
 		46C82B9922C031460094DC43 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C82B9822C031460094DC43 /* ListDetailViewController.swift */; };
@@ -63,7 +63,6 @@
 		46863B44222E347000B8B3FB /* WordSearchGen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordSearchGen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46863B47222E347000B8B3FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46863B49222E347000B8B3FB /* AllListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListsViewController.swift; sourceTree = "<group>"; };
-		46863B4C222E347000B8B3FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		46863B4E222E347100B8B3FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46863B53222E347100B8B3FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4689C6662315B9BD0006812B /* WordSearchViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearchViewControllerTests.swift; sourceTree = "<group>"; };
@@ -75,6 +74,7 @@
 		469895582315941800147B4D /* WordSearchGeneratorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WordSearchGeneratorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4698955A2315941800147B4D /* WordSearchGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearchGeneratorTests.swift; sourceTree = "<group>"; };
 		4698955C2315941800147B4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4698F4762FFA02E900E4D9C3 /* WordSearchGeneratorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearchGeneratorApp.swift; sourceTree = "<group>"; };
 		469B493024131D7E007B640C /* WSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSTextField.swift; sourceTree = "<group>"; };
 		46B1A1E822C08195000D40BA /* WSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSButton.swift; sourceTree = "<group>"; };
 		46C82B9822C031460094DC43 /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +121,7 @@
 			children = (
 				46B1A1E822C08195000D40BA /* WSButton.swift */,
 				469B493024131D7E007B640C /* WSTextField.swift */,
+				4698F4762FFA02E900E4D9C3 /* WordSearchGeneratorApp.swift */,
 				46750AA92FF04ED400D4926E /* ContentView.swift */,
 				46750AAB2FF0701D00D4926E /* AllListsView.swift */,
 				46750AA72FF038EC00D4926E /* SettingsView.swift */,
@@ -177,7 +178,6 @@
 			children = (
 				46863B47222E347000B8B3FB /* AppDelegate.swift */,
 				57903038535D4B589CC17089 /* SceneDelegate.swift */,
-				46863B4B222E347000B8B3FB /* Main.storyboard */,
 				4626EFDB237C9B0700F7DEFD /* View Controllers */,
 				4626EFDC237C9B3E00F7DEFD /* Views */,
 				4626EFDD237C9B5300F7DEFD /* Model */,
@@ -289,7 +289,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				46863B4F222E347100B8B3FB /* Assets.xcassets in Resources */,
-				46863B4D222E347000B8B3FB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +320,7 @@
 				6F2622C1C7D74E32A1E1030B /* SceneDelegate.swift in Sources */,
 				467BCBC72256E95B00EE441B /* WordSearch.swift in Sources */,
 				4613C16F22BF669800105090 /* WordList.swift in Sources */,
+				4698F4772FFA02E900E4D9C3 /* WordSearchGeneratorApp.swift in Sources */,
 				468358EF22E1774E00E5DA58 /* SettingsViewController.swift in Sources */,
 				46962145241305480059999F /* TextEntryViewController.swift in Sources */,
 				468358F122E1864300E5DA58 /* Constants.swift in Sources */,
@@ -353,17 +353,6 @@
 			targetProxy = 4698955D2315941800147B4D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		46863B4B222E347000B8B3FB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				46863B4C222E347000B8B3FB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		46863B54222E347100B8B3FB /* Debug */ = {
